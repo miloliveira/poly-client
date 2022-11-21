@@ -19,7 +19,7 @@ import {
 } from "../styles/profile.styles";
 const Profile = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
+
   const dispatch = useDispatch();
 
   const [profileUser, setProfileUser] = useState();
@@ -31,7 +31,9 @@ const Profile = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/in/${userId}`);
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/in/${userId}`
+      );
       await setProfileUser(response.data);
       await setUserPosts(response.data.posts);
       await setlikedPosts(response.data.likedPosts);
@@ -82,7 +84,6 @@ const Profile = () => {
                   <Post post={userPosts[0]} />
                 </div>
               )}
-              ;
             </ActivityPostsDiv>
             <ActivityLikesDiv>
               {likedPosts.length > 0 && (
@@ -96,7 +97,8 @@ const Profile = () => {
           </RecentActivityDiv>
 
           <p>followers</p>
-          {/* {!isLoggedIn && (
+          {/* 
+          {!isLoggedIn && (
             <div>
               <p>{profileUser.followers.length} followers </p>
               <p>log in to check the complete info</p>

@@ -5,38 +5,51 @@ import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 const FollowBtn = (props) => {
-  const { currentUserId, followUserId } = props;
+  const { followUserId, post } = props;
   const [isFollowing, setIsFollowing] = useState(false);
-
   const getToken = localStorage.getItem("authToken");
   const { isLoggedIn, user } = useContext(AuthContext);
 
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
+  //console.log(isUpdatedGlobal);
   const dispatch = useDispatch();
 
-  const checkIfIsFollowing = () => {
-    const body = { followUserId };
-    axios
-      .get( `${process.env.REACT_APP_API_URL}/in/${currentUserId}/follow`, body, {
-        headers: {
-          Authorization: `Bearer ${getToken}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    //await setIsFollowing(response.data);
+  const checkIfIsFollowing = async () => {
+    try {
+      const body = { followUserId };
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/in/${user._id}/follow`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
+
+      await setIsFollowing(response);
+      console.log("this is the response", response);
+    } catch (error) {
+      console.log(error);
+    }
   };
+  /*   const checkIfFollow = ()=>{
+
+    if (post.user.followers.includes(user._id)) {
+      setIsFollowing(true);
+     
+    } else if (!post.user.followers.includes(user._id)) {
+      setIsFollowing(false);
+      
+    }
+
+  } */
 
   const handleFollow = async () => {
     try {
       const body = await { followUserId };
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/in/${currentUserId}/follow`,
+        `${process.env.REACT_APP_API_URL}/in/${user._id}/follow`,
         body,
         {
           headers: {
@@ -50,14 +63,23 @@ const FollowBtn = (props) => {
       console.log(error);
     }
   };
-
+  //console.log("this is it", post.user.followers);
+  console.log("this is the user", user._id);
+  console.log(post);
   useEffect(() => {
     //checkIfIsFollowing();
-  }, []);
+    if (isLoggedIn && post.user.followers.includes(user._id)) {
+      setIsFollowing(true);
+    } else if (isLoggedIn && !post.user.followers.includes(user._id)) {
+      setIsFollowing(false);
+    }
+  }, [isUpdatedGlobal]);
 
   return (
     <div>
-      <button onClick={() => handleFollow()}>follow</button>
+      <button onClick={() => handleFollow()}>
+        {isFollowing ? "following" : "follow"}
+      </button>
     </div>
   );
 };

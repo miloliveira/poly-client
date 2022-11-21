@@ -29,6 +29,7 @@ import {
 const Post = (props) => {
   const { post } = props;
   const [isLiked, setIsLiked] = useState(false);
+
   const [togleComment, setTogleComment] = useState(false);
   const getToken = localStorage.getItem("authToken");
   const { isLoggedIn, user } = useContext(AuthContext);
@@ -70,12 +71,17 @@ const Post = (props) => {
       await setIsLiked(false);
     }
   };
+
   useEffect(() => {
+    //checkIfFollow()
     if (isLoggedIn && post.likes.includes(user._id)) {
       setIsLiked(true);
       dispatch(isUpdatedTrue());
+    } else if (isLoggedIn && !post.likes.includes(user._id)) {
+      setIsLiked(false);
+      dispatch(isUpdatedTrue());
     }
-  }, [isUpdatedGlobal]);
+  }, []);
 
   return (
     <PostFromFeedList key={post._id}>
@@ -84,8 +90,8 @@ const Post = (props) => {
           <PostUserImg src={post.user.imageUrl} alt="profile pic" />
           <p>{post.user.name}</p>
         </PostUserInfoLink>
-        {user && user._id !== post.user._id && (
-          <FollowBtn currentUserId={user._id} followUserId={post.user._id} />
+        {isLoggedIn && user._id !== post.user._id && (
+          <FollowBtn post={post} followUserId={post.user._id} />
         )}
         {user && user._id == post.user._id && <PostPopup postId={post._id} />}
       </PostUserInfoDiv>
