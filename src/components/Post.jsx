@@ -73,7 +73,7 @@ const Post = (props) => {
   useEffect(() => {
     if (isLoggedIn && post.likes.includes(user._id)) {
       setIsLiked(true);
-      dispatch(isUpdatedFalse);
+      dispatch(isUpdatedTrue());
     }
   }, [isUpdatedGlobal]);
 
