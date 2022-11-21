@@ -18,7 +18,7 @@ const FollowBtn = (props) => {
   const checkIfIsFollowing = () => {
     const body = { followUserId };
     axios
-      .get(`http://localhost:5005/in/${currentUserId}/follow`, body, {
+      .get( `${process.env.REACT_APP_API_URL}/in/${currentUserId}/follow`, body, {
         headers: {
           Authorization: `Bearer ${getToken}`,
         },
@@ -36,7 +36,7 @@ const FollowBtn = (props) => {
     try {
       const body = await { followUserId };
       await axios.put(
-        `http://localhost:5005/in/${currentUserId}/follow`,
+        `${process.env.REACT_APP_API_URL}/in/${currentUserId}/follow`,
         body,
         {
           headers: {

@@ -22,7 +22,7 @@ const CommentPopup = (props) => {
 
   const deleteComment = async (commentId) => {
     await axios.delete(
-      `http://localhost:5005/comment/${commentId}`,
+      `${process.env.REACT_APP_API_URL}/comment/${commentId}`,
 
       {
         headers: {

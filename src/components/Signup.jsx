@@ -15,7 +15,7 @@ const Signup = (props) => {
 
       const body = await { username, password, name };
 
-      await axios.post("http://localhost:5005/auth/signup", body);
+      await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, body);
 
       await setShowLoginToggle(true);
       await setErrorMessage("");

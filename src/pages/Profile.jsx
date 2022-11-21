@@ -31,7 +31,7 @@ const Profile = () => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get(`http://localhost:5005/in/${userId}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/in/${userId}`);
       await setProfileUser(response.data);
       await setUserPosts(response.data.posts);
       await setlikedPosts(response.data.likedPosts);

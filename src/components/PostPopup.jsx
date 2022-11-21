@@ -20,7 +20,7 @@ const PostPopup = (props) => {
 
   const deletePost = async (postId) => {
     await axios.delete(
-      `http://localhost:5005/post-delete/${postId}`,
+      `${process.env.REACT_APP_API_URL}/post-delete/${postId}`,
 
       {
         headers: {

@@ -44,7 +44,7 @@ const Post = (props) => {
   const likePost = async (postId) => {
     if (isLiked === false) {
       await axios.put(
-        `http://localhost:5005/post-like/${postId}`,
+        `${process.env.REACT_APP_API_URL}/post-like/${postId}`,
         {},
         {
           headers: {
@@ -57,7 +57,7 @@ const Post = (props) => {
       await setIsLiked(true);
     } else if (isLiked === true) {
       await axios.put(
-        `http://localhost:5005/post-dislike/${postId}`,
+        `${process.env.REACT_APP_API_URL}/post-dislike/${postId}`,
         {},
         {
           headers: {

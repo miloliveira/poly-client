@@ -59,7 +59,7 @@ const CreatePost = (props) => {
         };
       }
       const response = await axios.post(
-        `http://localhost:5005/create-post/${userId}`,
+        `${process.env.REACT_APP_API_URL}/create-post/${userId}`,
         body,
         {
           headers: {
@@ -82,7 +82,7 @@ const CreatePost = (props) => {
     let isMounted = true;
 
     const getUser = async () => {
-      axios.get(`http://localhost:5005/in/${userId}`).then((response) => {
+      axios.get(`${process.env.REACT_APP_API_URL}/in/${userId}`).then((response) => {
         if (isMounted) {
           setCurrentUser(response.data);
         }

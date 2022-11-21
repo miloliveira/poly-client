@@ -18,7 +18,7 @@ const ProfileSettings = () => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isUploading, setIsUploading] = useState(false);
   const getUser = () => {
-    axios.get(`http://localhost:5005/in/${userId}`).then((response) => {
+    axios.get( `${process.env.REACT_APP_API_URL}/in/${userId}`).then((response) => {
       console.log(response.data);
       setName(response.data.name);
       setUsername(response.data.username);
@@ -27,7 +27,7 @@ const ProfileSettings = () => {
   };
 
   const deleteUser = (userId) => {
-    axios.delete(`http://localhost:5005/profile-delete/${userId}`, {
+    axios.delete( `${process.env.REACT_APP_API_URL}/profile-delete/${userId}`, {
       headers: {
         Authorization: `Bearer ${getToken}`,
       },
@@ -82,7 +82,7 @@ const ProfileSettings = () => {
     }
 
     axios
-      .put(`http://localhost:5005/profile-edit/${userId}`, body, {
+      .put(`${process.env.REACT_APP_API_URL}/profile-edit/${userId}`, body, {
         headers: {
           Authorization: `Bearer ${getToken}`,
         },

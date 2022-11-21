@@ -17,7 +17,7 @@ const CreateComment = (props) => {
     try {
       e.preventDefault();
       const response = await axios.post(
-        `http://localhost:5005/create-comment/${postId}`,
+        `${process.env.REACT_APP_API_URL}/create-comment/${postId}`,
         body,
         {
           headers: {
