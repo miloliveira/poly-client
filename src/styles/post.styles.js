@@ -6,6 +6,7 @@ import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import MenuIcon from "@mui/icons-material/Menu";
 import SendIcon from "@mui/icons-material/Send";
 
+//styled icons
 export const SendPostIcon = styled(SendIcon)`
   color: #497174;
 `;
@@ -25,6 +26,7 @@ export const DislikeBtnIcon = styled(ThumbDownAltIcon)`
   color: #497174;
 `;
 
+//styled components
 export const FeedPageDiv = styled.div`
   height: 100vh;
   background-color: #eff5f5;

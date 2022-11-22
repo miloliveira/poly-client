@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import ReactTimeAgo from "react-time-ago";
 import ViewComments from "../components/ViewComments";
 import CreateComment from "../components/CreateComment";
@@ -73,7 +72,6 @@ const Post = (props) => {
   };
 
   useEffect(() => {
-    //checkIfFollow()
     if (isLoggedIn && post.likes.includes(user._id)) {
       setIsLiked(true);
       dispatch(isUpdatedTrue());
@@ -81,7 +79,7 @@ const Post = (props) => {
       setIsLiked(false);
       dispatch(isUpdatedTrue());
     }
-  }, []);
+  }, [isUpdatedGlobal]);
 
   return (
     <PostFromFeedList key={post._id}>
