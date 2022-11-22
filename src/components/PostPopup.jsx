@@ -1,14 +1,9 @@
-import styled from "styled-components";
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
-import { PostPopupIcon } from "../styles/post.styles";
+import { PostPopupIcon, AboveContentPostPopup } from "../styles/post.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
-const Above = styled.div`
-  background-color: grey;
-  position: absolute;
-`;
 
 const PostPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -37,16 +32,15 @@ const PostPopup = (props) => {
       <button onClick={() => setShowPostPopup(!showPostPopup)}>
         <PostPopupIcon />
       </button>
-
       {showPostPopup && (
-        <Above>
+        <AboveContentPostPopup>
           <ul>
             <li>
               <button onClick={() => deletePost(postId)}>Delete</button>
             </li>
             <li>edit</li>
           </ul>
-        </Above>
+        </AboveContentPostPopup>
       )}
     </div>
   );

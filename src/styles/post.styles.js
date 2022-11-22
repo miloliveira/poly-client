@@ -129,7 +129,10 @@ export const PostUserInfoDiv = styled.div`
     border: none;
   }
 `;
-
+export const AboveContentPostPopup = styled.div`
+  background-color: grey;
+  position: absolute;
+`;
 export const PostUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
@@ -268,7 +271,10 @@ export const CommentUserInfoDiv = styled.div`
     margin-right: 10px;
   }
 `;
-
+export const AboveContentCommentPopup = styled.div`
+background-color: grey;
+position: absolute;
+`;
 export const CommentUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
