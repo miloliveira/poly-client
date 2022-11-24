@@ -18,16 +18,18 @@ const ProfileSettings = () => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isUploading, setIsUploading] = useState(false);
   const getUser = () => {
-    axios.get( `${process.env.REACT_APP_API_URL}/in/${userId}`).then((response) => {
-      console.log(response.data);
-      setName(response.data.name);
-      setUsername(response.data.username);
-      setimageUrl(response.data.imageUrl);
-    });
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/in/${userId}`)
+      .then((response) => {
+        console.log(response.data);
+        setName(response.data.name);
+        setUsername(response.data.username);
+        setimageUrl(response.data.imageUrl);
+      });
   };
 
   const deleteUser = (userId) => {
-    axios.delete( `${process.env.REACT_APP_API_URL}/profile-delete/${userId}`, {
+    axios.delete(`${process.env.REACT_APP_API_URL}/profile-delete/${userId}`, {
       headers: {
         Authorization: `Bearer ${getToken}`,
       },

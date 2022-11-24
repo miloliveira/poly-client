@@ -17,7 +17,7 @@ const Comment = (props) => {
       <CommentUserInfoDiv>
         <CommentUserInfoLink to={`/in/${comment.user._id}`}>
           <CommentUserImg src={comment.user.imageUrl} alt="profile pic" />
-          <p> {comment.user.username}</p>
+          <p> {comment.user.name}</p>
         </CommentUserInfoLink>
         {user && user._id == comment.user._id && (
           <CommentPopup commentId={comment._id} />

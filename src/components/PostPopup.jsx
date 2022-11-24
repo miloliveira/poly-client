@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { PostPopupIcon, AboveContentPostPopup } from "../styles/post.styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +12,7 @@ const PostPopup = (props) => {
   const dispatch = useDispatch();
   const { postId } = props;
   const [showPostPopup, setShowPostPopup] = useState(false);
+  const [content, setContent] = useState("");
   const getToken = localStorage.getItem("authToken");
 
   const deletePost = async (postId) => {
@@ -26,7 +28,33 @@ const PostPopup = (props) => {
 
     dispatch(isUpdatedFalse());
   };
-  useEffect(() => {}, [isUpdatedGlobal]);
+  const getPost = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/post/${postId}`
+    );
+    await setContent(response.data.content);
+    console.log("this is this posts content", content);
+    // dispatch(isUpdatedFalse());
+  };
+
+  const editPost = async (e) => {
+    e.preventDefault();
+    const body = await { content };
+    await axios.put(
+      `${process.env.REACT_APP_API_URL}/post-update/${postId}`,
+      body,
+      {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      }
+    );
+    console.log("the post was updated");
+    dispatch(isUpdatedFalse());
+  };
+  useEffect(() => {
+    getPost();
+  }, [isUpdatedGlobal]);
   return (
     <div>
       <button onClick={() => setShowPostPopup(!showPostPopup)}>
@@ -38,7 +66,9 @@ const PostPopup = (props) => {
             <li>
               <button onClick={() => deletePost(postId)}>Delete</button>
             </li>
-            <li>edit</li>
+            <li>
+              <Link to={`/edit-post/${postId}`}>edit</Link>
+            </li>
           </ul>
         </AboveContentPostPopup>
       )}

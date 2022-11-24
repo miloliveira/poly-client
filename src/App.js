@@ -5,6 +5,7 @@ import Profile from "./pages/Profile";
 import ProfileSettings from "./pages/ProfileSettings";
 import Feed from "./pages/Feed";
 import { GlobalStyle } from "./styles/styles";
+import EditPost from "./pages/EditPost";
 function App() {
   return (
     <div>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/feed" element={<Feed />} />
         <Route path="/in/:userId" element={<Profile />} />
         <Route path="/edit/:userId" element={<ProfileSettings />} />
+        <Route path="/edit-post/:postId" element={<EditPost />} />
       </Routes>
     </div>
   );
