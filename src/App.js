@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import ProfileSettings from "./pages/ProfileSettings";
 import Feed from "./pages/Feed";
-import { GlobalStyle } from "./styles/styles";
+import { GlobalStyle } from "./styles/global.styles";
 import EditPost from "./pages/EditPost";
 function App() {
   return (

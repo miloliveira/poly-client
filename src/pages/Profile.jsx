@@ -14,7 +14,6 @@ import {
   ProfileImage,
   AboutDiv,
   RecentActivityDiv,
-  ActivityLikesDiv,
   ActivityPostsDiv,
 } from "../styles/profile.styles";
 const Profile = () => {
@@ -85,14 +84,7 @@ const Profile = () => {
                 </div>
               )}
             </ActivityPostsDiv>
-            <ActivityLikesDiv>
-              {likedPosts.length > 0 && (
-                <div>
-                  <p>{profileUser.name} liked this</p>
-                  <Post post={likedPosts[0]} />
-                </div>
-              )}
-            </ActivityLikesDiv>
+
             <button>Check full activity</button>
           </RecentActivityDiv>
 
