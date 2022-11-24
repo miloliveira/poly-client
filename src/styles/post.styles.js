@@ -209,16 +209,17 @@ export const TogleCommentBtn = styled.button`
 `;
 
 export const CreateCommentForm = styled.form`
-  width: 100%;
+  width: 85%;
   display: flex;
-  margin: 10px 0px 0px 0px;
-  flex-direction: column;
+
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   background-color: white;
 
   textarea {
     width: 90%;
-    min-height: 40px;
+    height: 40px;
 
     background-color: white;
 
@@ -233,7 +234,7 @@ export const CreateCommentForm = styled.form`
     background-color: white;
 
     border: none;
-    margin-left: 70%;
+
     margin-top: 5px;
   }
 `;
@@ -272,8 +273,8 @@ export const CommentUserInfoDiv = styled.div`
   }
 `;
 export const AboveContentCommentPopup = styled.div`
-background-color: grey;
-position: absolute;
+  background-color: grey;
+  position: absolute;
 `;
 export const CommentUserInfoLink = styled(Link)`
   display: flex;

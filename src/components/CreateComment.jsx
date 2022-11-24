@@ -9,7 +9,7 @@ const CreateComment = (props) => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { postId } = props;
+  const { postId, setTogleComment } = props;
   const getToken = localStorage.getItem("authToken");
   const body = { content };
 
@@ -28,6 +28,7 @@ const CreateComment = (props) => {
       await dispatch(isUpdatedFalse());
       await setErrorMessage("");
       await setContent("");
+      await setTogleComment(true);
       console.log(response);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);

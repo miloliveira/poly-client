@@ -148,12 +148,12 @@ const Post = (props) => {
             {togleComment ? <CommentBtnIcon /> : <CommentBtnIcon />}
           </TogleCommentBtn>
         )}
+        {isLoggedIn && (
+          <CreateComment postId={post._id} setTogleComment={setTogleComment} />
+        )}
       </EachPostButtonsDiv>
       {togleComment && (
         <>
-          {isLoggedIn && (
-            <CreateComment postId={post._id} togleComment={togleComment} />
-          )}
           <ViewComments
             listComments={post.comments}
             togleComment={togleComment}

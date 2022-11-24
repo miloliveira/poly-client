@@ -49,6 +49,7 @@ const CommentPopup = (props) => {
               <button
                 onClick={() => {
                   setEditing(!editing);
+                  setShowCommentPopup(false);
                 }}
               >
                 edit

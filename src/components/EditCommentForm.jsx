@@ -4,7 +4,7 @@ import { useNavigate, useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 const EditCommentForm = (props) => {
-  const { commentId, content, setEditing, setShowCommentPopup } = props;
+  const { commentId, content, setEditing } = props;
   console.log("this are props", commentId, content);
   const dispatch = useDispatch();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -29,7 +29,6 @@ const EditCommentForm = (props) => {
       console.log("the comment was updated");
       await setErrorMessage("");
       await setEditing(false);
-      await setShowCommentPopup(false);
       await dispatch(isUpdatedFalse());
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
@@ -52,7 +51,6 @@ const EditCommentForm = (props) => {
       <button
         onClick={() => {
           setEditing(false);
-          setShowCommentPopup(false);
         }}
       >
         cancel
