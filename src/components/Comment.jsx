@@ -8,10 +8,15 @@ import {
   CommentUserImg,
   EachCommentContent,
 } from "../styles/post.styles";
+import EditCommentForm from "./EditCommentForm";
+import isUpdatedGlobal from "../redux/isUpdatedGlobal";
 const Comment = (props) => {
   const { comment } = props;
-
+  const [editing, setEditing] = useState(false);
+  const [showCommentPopup, setShowCommentPopup] = useState(false);
   const { user } = useContext(AuthContext);
+  useEffect(() => {}, [isUpdatedGlobal]);
+
   return (
     <EachCommentFromFeed>
       <CommentUserInfoDiv>
@@ -20,11 +25,26 @@ const Comment = (props) => {
           <p> {comment.user.name}</p>
         </CommentUserInfoLink>
         {user && user._id == comment.user._id && (
-          <CommentPopup commentId={comment._id} />
+          <CommentPopup
+            showCommentPopup={showCommentPopup}
+            setShowCommentPopup={setShowCommentPopup}
+            editing={editing}
+            setEditing={setEditing}
+            commentId={comment._id}
+          />
         )}
       </CommentUserInfoDiv>
       <div>
-        <EachCommentContent>{comment.content}</EachCommentContent>
+        {editing ? (
+          <EditCommentForm
+            commentId={comment._id}
+            content={comment.content}
+            setEditing={setEditing}
+            setShowCommentPopup={setShowCommentPopup}
+          />
+        ) : (
+          <EachCommentContent>{comment.content}</EachCommentContent>
+        )}
       </div>
     </EachCommentFromFeed>
   );

@@ -62,7 +62,7 @@ const EditPost = () => {
           }}
         />
         {errorMessage && <p>{errorMessage}</p>}
-        <button type="submit">edit</button>
+        <button type="submit">save changes</button>
         <button>
           <Link to={"/feed"}>cancel</Link>
         </button>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
@@ -9,8 +10,14 @@ const CommentPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   console.log(isUpdatedGlobal);
   const dispatch = useDispatch();
-  const { commentId } = props;
-  const [showCommentPopup, setShowCommentPopup] = useState(false);
+  const {
+    commentId,
+    editing,
+    setEditing,
+    showCommentPopup,
+    setShowCommentPopup,
+  } = props;
+
   const getToken = localStorage.getItem("authToken");
 
   const deleteComment = async (commentId) => {
@@ -38,7 +45,15 @@ const CommentPopup = (props) => {
             <li>
               <button onClick={() => deleteComment(commentId)}>delete</button>
             </li>
-            <li>edit</li>
+            <li>
+              <button
+                onClick={() => {
+                  setEditing(!editing);
+                }}
+              >
+                edit
+              </button>
+            </li>
           </ul>
         </AboveContentCommentPopup>
       )}
