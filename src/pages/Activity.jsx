@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const RecentActivity = () => {
+const Activity = () => {
   return (
     <div>
-    
-    
-    {/* {isLoggedIn &&
+      <p>activity</p>
+
+      {/* {isLoggedIn &&
                 likedPosts.length > 0 &&
                 likedPosts.map((likedPost) => {
                   return (
@@ -17,7 +17,7 @@ const RecentActivity = () => {
                   );
                 })} */}
     </div>
-  )
-}
+  );
+};
 
-export default RecentActivity
+export default Activity;

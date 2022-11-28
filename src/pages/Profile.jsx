@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
@@ -69,11 +69,15 @@ const Profile = () => {
           </ProfileUserBannerDiv>
           <AboutDiv>
             <h4>About</h4>
-            <p>{profileUser.about}</p>
+            {user == profileUser._id && !profileUser.about ? (
+              <p>Fill your about Section in the settings</p>
+            ) : (
+              <p>{profileUser.about}</p>
+            )}
           </AboutDiv>
-          <p>
+          {/*  <p>
             {profileUser.occupation} - {profileUser.location}
-          </p>
+          </p> */}
           <RecentActivityDiv>
             <h4>Recent activity</h4>
             <ActivityPostsDiv>
@@ -85,11 +89,11 @@ const Profile = () => {
               )}
             </ActivityPostsDiv>
 
-            <button>Check full activity</button>
+            <Link to={`/in/${user._id}/activity`}>Check full activity</Link>
           </RecentActivityDiv>
 
-          <p>followers</p>
           {/* 
+           <p>followers</p>
           {!isLoggedIn && (
             <div>
               <p>{profileUser.followers.length} followers </p>
@@ -106,9 +110,9 @@ const Profile = () => {
               );
             })} */}
 
-          <p>following</p>
-
-          {/*  {isLoggedIn &&
+          {/*
+           <p>following</p>
+            {isLoggedIn &&
             profileUser.following.length > 0 &&
             profileUser.following.map((follow) => {
               return (

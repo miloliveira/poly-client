@@ -19,7 +19,8 @@ export const ProfileUserBannerDiv = styled.div`
   height: 200px;
   display: flex;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   justify-content: space-around;
   border-radius: 15px;
   border: 1px solid #d6e4e5;
@@ -53,6 +54,7 @@ export const AboutDiv = styled.div`
   border-radius: 15px;
   border: 1px solid #d6e4e5;
   padding: 10px;
+  margin-bottom: 10px;
 `;
 
 export const RecentActivityDiv = styled.div`
