@@ -1,8 +1,10 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../context/auth.context";
+import ReactTimeAgo from "react-time-ago";
 import CommentPopup from "./CommentPopup";
 import {
   EachCommentFromFeed,
+  CommentInfoDiv,
   CommentUserInfoDiv,
   CommentUserInfoLink,
   CommentUserImg,
@@ -15,15 +17,21 @@ const Comment = (props) => {
   const [editing, setEditing] = useState(false);
   const [showCommentPopup, setShowCommentPopup] = useState(false);
   const { user } = useContext(AuthContext);
+
+  const createdAt = new Date(comment.createdAt).getTime();
+
   useEffect(() => {}, [isUpdatedGlobal]);
 
   return (
     <EachCommentFromFeed>
-      <CommentUserInfoDiv>
-        <CommentUserInfoLink to={`/in/${comment.user._id}`}>
-          <CommentUserImg src={comment.user.imageUrl} alt="profile pic" />
-          <p> {comment.user.name}</p>
-        </CommentUserInfoLink>
+      <CommentInfoDiv>
+        <CommentUserInfoDiv>
+          <CommentUserInfoLink to={`/in/${comment.user._id}`}>
+            <CommentUserImg src={comment.user.imageUrl} alt="profile pic" />
+            <p> {comment.user.name}</p>
+          </CommentUserInfoLink>
+          <ReactTimeAgo date={createdAt} locale="en-US" />
+        </CommentUserInfoDiv>
         {user && user._id == comment.user._id && (
           <CommentPopup
             showCommentPopup={showCommentPopup}
@@ -33,7 +41,7 @@ const Comment = (props) => {
             commentId={comment._id}
           />
         )}
-      </CommentUserInfoDiv>
+      </CommentInfoDiv>
       <div>
         {editing ? (
           <EditCommentForm

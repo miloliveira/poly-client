@@ -255,54 +255,65 @@ export const CreateCommentForm = styled.form`
 
 export const ViewCommentsList = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   width: 100%;
   max-height: 300px;
-  overflow-y: scroll;
+  overflow-y: auto;
   background-color: white;
   align-items: center;
   padding-bottom: 10px;
   border-radius: 10px;
 `;
+export const CommentsListInnerDiv = styled.div`
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+`;
 
 export const EachCommentFromFeed = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   background-color: #eff5f5;
   border-radius: 10px;
   padding-top: 10px;
   margin-top: 10px;
 `;
-
-export const CommentUserInfoDiv = styled.div`
+export const CommentInfoDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+export const CommentUserInfoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: auto;
   background-color: #eff5f5;
-  align-items: center;
-
+  padding-left: 10px;
   button {
     background-color: #eff5f5;
     border: none;
     margin-right: 10px;
   }
 `;
-export const AboveContentCommentPopup = styled.div`
-  background-color: grey;
+//Comment Popup component
+export const CommentPopupDiv = styled.div`
   position: relative;
 `;
+export const AboveContentCommentPopup = styled.div`
+  background-color: grey;
+  position: absolute;
+  width: 50px;
+`;
+//
 export const CommentUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
   width: auto;
-  height: 35px;
+  height: 25px;
   text-decoration: none;
-  align-items: center;
-  justify-content: center;
   padding: 0;
   p {
-    position: relative;
     margin: 0px 10px;
     text-decoration: none;
     color: black;
@@ -315,14 +326,13 @@ export const CommentUserImg = styled.img`
   width: 20px;
   height: 20px;
   border-radius: 15px;
-  margin-left: 10px;
   object-fit: cover;
   object-position: 20% 10%;
   border-radius: 100px;
 `;
 
 export const EachCommentContent = styled.p`
-  padding: 5px 30px;
+  padding: 5px 20px;
   min-height: 30px;
   width: 100%;
   background-color: #eff5f5;

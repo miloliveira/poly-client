@@ -3,7 +3,7 @@ import Comment from "./Comment";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 
-import { ViewCommentsList } from "../styles/post.styles";
+import { ViewCommentsList, CommentsListInnerDiv } from "../styles/post.styles";
 
 const ViewComments = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -19,11 +19,11 @@ const ViewComments = (props) => {
       {listComments.length < 1 ? (
         <p> No comments to show</p>
       ) : (
-        <>
+        <CommentsListInnerDiv>
           {listComments.map((el) => (
             <Comment comment={el} key={el._id} />
           ))}
-        </>
+        </CommentsListInnerDiv>
       )}
     </ViewCommentsList>
   );

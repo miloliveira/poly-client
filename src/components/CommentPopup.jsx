@@ -4,7 +4,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
-import { PostPopupIcon, AboveContentCommentPopup } from "../styles/post.styles";
+import {
+  CommentPopupDiv,
+  PostPopupIcon,
+  AboveContentCommentPopup,
+} from "../styles/post.styles";
 
 const CommentPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -34,7 +38,7 @@ const CommentPopup = (props) => {
   };
 
   return (
-    <div>
+    <CommentPopupDiv>
       <button onClick={() => setShowCommentPopup(!showCommentPopup)}>
         <PostPopupIcon />
       </button>
@@ -48,15 +52,15 @@ const CommentPopup = (props) => {
                 setShowCommentPopup(false);
               }}
             >
-              e
+              edit
             </button>
           </li>
           <li>
-            <button onClick={() => deleteComment(commentId)}>d</button>
+            <button onClick={() => deleteComment(commentId)}>delete</button>
           </li>
         </AboveContentCommentPopup>
       )}
-    </div>
+    </CommentPopupDiv>
   );
 };
 
