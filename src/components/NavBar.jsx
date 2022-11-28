@@ -13,15 +13,15 @@ const NavBar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid ">
-       {isLoggedIn?
-        <Link to={"/feed"} className="navbar-brand" aria-current="page">
-          Home
-        </Link>
-        :  <Link to={"/"} className="navbar-brand" aria-current="page">
-          Home
-        </Link>
-       }
-
+        {isLoggedIn ? (
+          <Link to={"/feed"} className="navbar-brand" aria-current="page">
+            Home
+          </Link>
+        ) : (
+          <Link to={"/"} className="navbar-brand" aria-current="page">
+            Home
+          </Link>
+        )}
 
         <button
           className="navbar-toggler"
@@ -38,26 +38,27 @@ const NavBar = () => {
           <div className="navbar-nav">
             {isLoggedIn && (
               <>
-              
                 <Link to={`/in/${user._id}`} className="nav-link">
                   my profile
                 </Link>
                 <Link to={`/edit/${user._id}`} className="nav-link">
                   Settings
                 </Link>
-                <button onClick={loggingOut} className="nav-link "  style={{backgroundColor: "#497174", border:"none", borderRadius:"15px", }}>
+                <button
+                  onClick={loggingOut}
+                  className="nav-link "
+                  style={{
+                    backgroundColor: "#497174",
+                    border: "none",
+                    borderRadius: "15px",
+                  }}
+                >
                   Log out
                 </button>
               </>
             )}
             {!isLoggedIn && (
               <>
-                <Link to={"/signup"} className="nav-link">
-                  Signup
-                </Link>
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
                 <Link to={"/feed"} className="nav-link">
                   Feed
                 </Link>
