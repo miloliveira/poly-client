@@ -2,7 +2,11 @@ import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import { PostPopupIcon, AboveContentPostPopup } from "../styles/post.styles";
+import {
+  PostPopupDiv,
+  PostPopupIcon,
+  AboveContentPostPopup,
+} from "../styles/post.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 
@@ -56,7 +60,7 @@ const PostPopup = (props) => {
     getPost();
   }, [isUpdatedGlobal]);
   return (
-    <div>
+    <PostPopupDiv>
       <button onClick={() => setShowPostPopup(!showPostPopup)}>
         <PostPopupIcon />
       </button>
@@ -64,15 +68,15 @@ const PostPopup = (props) => {
         <AboveContentPostPopup>
           <ul>
             <li>
-              <button onClick={() => deletePost(postId)}>Delete</button>
+              <Link to={`/edit-post/${postId}`}>edit</Link>
             </li>
             <li>
-              <Link to={`/edit-post/${postId}`}>edit</Link>
+              <button onClick={() => deletePost(postId)}>Delete</button>
             </li>
           </ul>
         </AboveContentPostPopup>
       )}
-    </div>
+    </PostPopupDiv>
   );
 };
 

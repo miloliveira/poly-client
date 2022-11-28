@@ -114,32 +114,52 @@ export const PostFromFeedList = styled.div`
   border: 1px solid #d6e4e5;
   border-radius: 15px;
 `;
-export const PostUserInfoDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+export const PostInfoDiv = styled.div`
   background-color: #eff5f5;
   border-radius: 15px;
   border-bottom: 2px solid #eff5f5;
-  align-items: center;
-  width: 100%;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   button {
-    margin-right: 15px;
     color: #497174;
     border: none;
   }
 `;
-export const AboveContentPostPopup = styled.div`
-  background-color: grey;
-  position: absolute;
+export const PostUserInfoDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 70%;
 `;
+
+//post popup component
+export const PostPopupDiv = styled.div`
+  height: 100%;
+  width: 24px;
+  padding-top: 15px;
+`;
+
+export const AboveContentPostPopup = styled.div`
+  background-color: #eff5f5;
+  position: absolute;
+  ul {
+    margin: 0;
+
+    li {
+      color: #497174;
+    }
+  }
+`;
+//
 export const PostUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
   width: auto;
   height: 40px;
   text-decoration: none;
-  padding: 10px;
+
   align-items: center;
   color: black;
   p {
@@ -158,11 +178,6 @@ export const PostUserImg = styled.img`
   object-fit: cover;
   object-position: 20% 10%;
   border-radius: 100px;
-`;
-
-export const TimeAgoDiv = styled.div`
-  width: 100%;
-  padding: 5px 0px 0px 15px;
 `;
 
 export const EachPostContent = styled.p`
@@ -211,7 +226,6 @@ export const TogleCommentBtn = styled.button`
 export const CreateCommentForm = styled.form`
   width: 85%;
   display: flex;
-
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -243,6 +257,8 @@ export const ViewCommentsList = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-height: 300px;
+  overflow-y: scroll;
   background-color: white;
   align-items: center;
   padding-bottom: 10px;
@@ -274,7 +290,7 @@ export const CommentUserInfoDiv = styled.div`
 `;
 export const AboveContentCommentPopup = styled.div`
   background-color: grey;
-  position: absolute;
+  position: relative;
 `;
 export const CommentUserInfoLink = styled(Link)`
   display: flex;

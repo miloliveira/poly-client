@@ -10,10 +10,10 @@ import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import { AuthContext } from "../context/auth.context";
 import {
   PostFromFeedList,
+  PostInfoDiv,
   PostUserInfoDiv,
   PostUserInfoLink,
   PostUserImg,
-  TimeAgoDiv,
   EachPostContent,
   EachPostReactionsDiv,
   NumberOfCommentsP,
@@ -83,19 +83,20 @@ const Post = (props) => {
 
   return (
     <PostFromFeedList key={post._id}>
-      <PostUserInfoDiv>
-        <PostUserInfoLink to={`/in/${post.user._id}`}>
-          <PostUserImg src={post.user.imageUrl} alt="profile pic" />
-          <p>{post.user.name}</p>
-        </PostUserInfoLink>
+      <PostInfoDiv>
+        <PostUserInfoDiv>
+          <PostUserInfoLink to={`/in/${post.user._id}`}>
+            <PostUserImg src={post.user.imageUrl} alt="profile pic" />
+            <p>{post.user.name}</p>
+          </PostUserInfoLink>
+          <ReactTimeAgo date={createdAt} locale="en-US" />
+        </PostUserInfoDiv>
         {isLoggedIn && user._id !== post.user._id && (
           <FollowBtn post={post} followUserId={post.user._id} />
         )}
         {user && user._id == post.user._id && <PostPopup postId={post._id} />}
-      </PostUserInfoDiv>
-      <TimeAgoDiv>
-        <ReactTimeAgo date={createdAt} locale="en-US" />
-      </TimeAgoDiv>
+      </PostInfoDiv>
+
       <EachPostContent>{post.content}</EachPostContent>
       {/* {post.imageUrl && (
         <img
