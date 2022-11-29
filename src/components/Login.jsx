@@ -21,7 +21,7 @@ const Login = () => {
       );
       await storeToken(response.data.authToken);
       await authenticateUser();
-      await navigate("/feed");
+      await navigate("/");
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
       console.log(errorMessage);

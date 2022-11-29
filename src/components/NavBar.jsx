@@ -14,7 +14,7 @@ const NavBar = () => {
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid ">
         {isLoggedIn ? (
-          <Link to={"/feed"} className="navbar-brand" aria-current="page">
+          <Link to={"/"} className="navbar-brand" aria-current="page">
             Home
           </Link>
         ) : (
