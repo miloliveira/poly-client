@@ -122,23 +122,19 @@ export const PostInfoDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   button {
     color: #497174;
     border: none;
   }
 `;
 export const PostUserInfoDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   max-width: 70%;
 `;
 
 //post popup component
 export const PostPopupDiv = styled.div`
-  height: 100%;
   width: 24px;
-  padding-top: 15px;
 `;
 
 export const AboveContentPostPopup = styled.div`
@@ -260,8 +256,7 @@ export const ViewCommentsList = styled.div`
   max-height: 300px;
   overflow-y: auto;
   background-color: white;
-  align-items: center;
-  padding-bottom: 10px;
+  align-items: space-around;
   border-radius: 10px;
 `;
 export const CommentsListInnerDiv = styled.div`
@@ -274,6 +269,7 @@ export const EachCommentFromFeed = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: auto;
   background-color: #eff5f5;
   border-radius: 10px;
   padding-top: 10px;
@@ -285,25 +281,31 @@ export const CommentInfoDiv = styled.div`
   justify-content: space-between;
 `;
 export const CommentUserInfoDiv = styled.div`
-  display: flex;
-  flex-direction: column;
   width: auto;
   background-color: #eff5f5;
   padding-left: 10px;
-  button {
-    background-color: #eff5f5;
-    border: none;
-    margin-right: 10px;
-  }
 `;
 //Comment Popup component
 export const CommentPopupDiv = styled.div`
   position: relative;
+  margin-right: 20px;
+  button {
+    border: none;
+  }
 `;
 export const AboveContentCommentPopup = styled.div`
   background-color: grey;
   position: absolute;
   width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  button {
+    background-color: grey;
+    color: white;
+  }
 `;
 //
 export const CommentUserInfoLink = styled(Link)`

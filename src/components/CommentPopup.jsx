@@ -45,19 +45,16 @@ const CommentPopup = (props) => {
 
       {showCommentPopup && (
         <AboveContentCommentPopup>
-          <li>
-            <button
-              onClick={() => {
-                setEditing(!editing);
-                setShowCommentPopup(false);
-              }}
-            >
-              edit
-            </button>
-          </li>
-          <li>
-            <button onClick={() => deleteComment(commentId)}>delete</button>
-          </li>
+          <button
+            onClick={() => {
+              setEditing(!editing);
+              setShowCommentPopup(false);
+            }}
+          >
+            edit
+          </button>
+
+          <button onClick={() => deleteComment(commentId)}>delete</button>
         </AboveContentCommentPopup>
       )}
     </CommentPopupDiv>

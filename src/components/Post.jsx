@@ -89,8 +89,8 @@ const Post = (props) => {
             <PostUserImg src={post.user.imageUrl} alt="profile pic" />
             <p>{post.user.name}</p>
           </PostUserInfoLink>
-          <ReactTimeAgo date={createdAt} locale="en-US" />
         </PostUserInfoDiv>
+        <ReactTimeAgo date={createdAt} locale="en-US" />
         {isLoggedIn && user._id !== post.user._id && (
           <FollowBtn post={post} followUserId={post.user._id} />
         )}
