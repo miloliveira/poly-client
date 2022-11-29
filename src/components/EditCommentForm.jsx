@@ -3,6 +3,10 @@ import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import {
+  EditCommentContentForm,
+  EditCommentFormInnerDiv,
+} from "../styles/post.styles";
 const EditCommentForm = (props) => {
   const { commentId, content, setEditing } = props;
   console.log("this are props", commentId, content);
@@ -39,7 +43,7 @@ const EditCommentForm = (props) => {
   }, []);
 
   return (
-    <form onSubmit={handleEditComment}>
+    <EditCommentContentForm onSubmit={handleEditComment}>
       <textarea
         value={updatedContent}
         onChange={(e) => {
@@ -47,15 +51,17 @@ const EditCommentForm = (props) => {
         }}
       />
       {errorMessage && <p>{errorMessage}</p>}
-      <button type="submit">save changes</button>
-      <button
-        onClick={() => {
-          setEditing(false);
-        }}
-      >
-        cancel
-      </button>
-    </form>
+      <EditCommentFormInnerDiv>
+        <button type="submit">save changes</button>
+        <button
+          onClick={() => {
+            setEditing(false);
+          }}
+        >
+          cancel
+        </button>
+      </EditCommentFormInnerDiv>
+    </EditCommentContentForm>
   );
 };
 

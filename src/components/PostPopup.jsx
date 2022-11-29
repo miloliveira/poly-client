@@ -6,6 +6,7 @@ import {
   PostPopupDiv,
   PostPopupIcon,
   AboveContentPostPopup,
+  AboveContentPostPopupLink,
 } from "../styles/post.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
@@ -66,14 +67,11 @@ const PostPopup = (props) => {
       </button>
       {showPostPopup && (
         <AboveContentPostPopup>
-          <ul>
-            <li>
-              <Link to={`/edit-post/${postId}`}>edit</Link>
-            </li>
-            <li>
-              <button onClick={() => deletePost(postId)}>Delete</button>
-            </li>
-          </ul>
+          <AboveContentPostPopupLink to={`/edit-post/${postId}`}>
+            edit
+          </AboveContentPostPopupLink>
+
+          <button onClick={() => deletePost(postId)}>delete</button>
         </AboveContentPostPopup>
       )}
     </PostPopupDiv>

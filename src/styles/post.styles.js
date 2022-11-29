@@ -27,6 +27,7 @@ export const DislikeBtnIcon = styled(ThumbDownAltIcon)`
 `;
 
 //styled components
+
 export const FeedPageDiv = styled.div`
   height: 100vh;
   background-color: #eff5f5;
@@ -77,15 +78,19 @@ export const CreatePostForm = styled.form`
 
   textarea {
     width: 100%;
-    min-height: 50px;
+    height: 50px;
     border: 1px solid #d6e4e5;
     border-radius: 25px;
     background-color: white;
     padding: 10px 20px 0px 20px;
+
+    outline: none;
+    resize: none;
   }
-  textarea:focus {
-    outline: 0;
+  textarea::-webkit-scrollbar {
+    display: none;
   }
+
   button {
     background-color: #497174;
     color: white;
@@ -134,20 +139,46 @@ export const PostUserInfoDiv = styled.div`
 
 //post popup component
 export const PostPopupDiv = styled.div`
-  width: 24px;
+  position: relative;
+
+  button {
+    border: none;
+  }
 `;
 
 export const AboveContentPostPopup = styled.div`
-  background-color: #eff5f5;
+  background-color: transparent;
   position: absolute;
-  ul {
-    margin: 0;
-
-    li {
-      color: #497174;
-    }
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  button {
+    background-color: #497174;
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  button:hover {
+    border: 2px solid white;
   }
 `;
+export const AboveContentPostPopupLink = styled(Link)`
+  background-color: #497174;
+  color: white;
+  width: 100%;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  &:hover {
+    border: 2px solid white;
+    color: white;
+  }
+`;
+
 //
 export const PostUserInfoLink = styled(Link)`
   display: flex;
@@ -236,6 +267,11 @@ export const CreateCommentForm = styled.form`
     border: 1px solid #d6e4e5;
     border-radius: 25px;
     padding: 10px 20px 0px 20px;
+    outline: none;
+    resize: none;
+  }
+  textarea::-webkit-scrollbar {
+    display: none;
   }
   textarea:focus {
     outline: 0;
@@ -294,17 +330,22 @@ export const CommentPopupDiv = styled.div`
   }
 `;
 export const AboveContentCommentPopup = styled.div`
-  background-color: grey;
+  background-color: transparent;
   position: absolute;
   width: 50px;
   height: 50px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-evenly;
   button {
-    background-color: grey;
+    background-color: #497174;
     color: white;
+    width: 100%;
+    border-radius: 5px;
+  }
+  button:hover {
+    border: 2px solid white;
   }
 `;
 //
@@ -339,4 +380,95 @@ export const EachCommentContent = styled.p`
   width: 100%;
   background-color: #eff5f5;
   word-wrap: break-word;
+`;
+//edit comments
+export const EditCommentContentForm = styled.form`
+  padding: 5px 15px;
+  background-color: #eff5f5;
+  display: flex;
+  flex-direction: column;
+  textarea {
+    border-radius: 15px;
+    width: 100%;
+    min-height: 50px;
+    padding: 5px 20px;
+    background-color: white;
+    border: 1px solid #d6e4e5;
+    outline: none;
+    resize: none;
+  }
+
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const EditCommentFormInnerDiv = styled.div`
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  button {
+    border: none;
+    background-color: #497174;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 5px;
+  }
+`;
+
+//edit posts page
+
+export const EditPostPage = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+`;
+
+export const EditPostForm = styled.form`
+  margin-top: 20px;
+  width: 50%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  textarea {
+    height: 150px;
+    outline: none;
+    resize: none;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #d6e4e5;
+    border-radius: 10px;
+  }
+
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+export const EditPostFormInnerDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 10px;
+  button {
+    border: none;
+    background-color: #497174;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 5px;
+  }
+`;
+export const EditPostFormCancelLink = styled(Link)`
+  background-color: #497174;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 5px 5px;
+  &:hover {
+    color: white;
+  }
 `;

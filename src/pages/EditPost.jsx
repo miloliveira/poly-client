@@ -3,6 +3,12 @@ import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import {
+  EditPostPage,
+  EditPostForm,
+  EditPostFormInnerDiv,
+  EditPostFormCancelLink,
+} from "../styles/post.styles";
 const EditPost = () => {
   const { postId } = useParams();
   const navigate = useNavigate();
@@ -53,8 +59,8 @@ const EditPost = () => {
   }, []);
 
   return (
-    <div>
-      <form onSubmit={handleEditPost}>
+    <EditPostPage>
+      <EditPostForm onSubmit={handleEditPost}>
         <textarea
           value={content}
           onChange={(e) => {
@@ -62,12 +68,13 @@ const EditPost = () => {
           }}
         />
         {errorMessage && <p>{errorMessage}</p>}
-        <button type="submit">save changes</button>
-        <button>
-          <Link to={"/feed"}>cancel</Link>
-        </button>
-      </form>
-    </div>
+        <EditPostFormInnerDiv>
+          <button type="submit">save changes</button>
+
+          <EditPostFormCancelLink to={"/feed"}>cancel</EditPostFormCancelLink>
+        </EditPostFormInnerDiv>
+      </EditPostForm>
+    </EditPostPage>
   );
 };
 
