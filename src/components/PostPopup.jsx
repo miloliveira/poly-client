@@ -15,8 +15,9 @@ const PostPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   console.log(isUpdatedGlobal);
   const dispatch = useDispatch();
-  const { postId } = props;
-  const [showPostPopup, setShowPostPopup] = useState(false);
+  const { postId, editing, setEditing, showPostPopup, setShowPostPopup } =
+    props;
+
   const [content, setContent] = useState("");
   const getToken = localStorage.getItem("authToken");
 
@@ -57,9 +58,7 @@ const PostPopup = (props) => {
     console.log("the post was updated");
     dispatch(isUpdatedFalse());
   };
-  useEffect(() => {
-    getPost();
-  }, [isUpdatedGlobal]);
+
   return (
     <PostPopupDiv>
       <button onClick={() => setShowPostPopup(!showPostPopup)}>
@@ -67,9 +66,14 @@ const PostPopup = (props) => {
       </button>
       {showPostPopup && (
         <AboveContentPostPopup>
-          <AboveContentPostPopupLink to={`/edit-post/${postId}`}>
+          <button
+            onClick={() => {
+              setEditing(!editing);
+              setShowPostPopup(false);
+            }}
+          >
             edit
-          </AboveContentPostPopupLink>
+          </button>
 
           <button onClick={() => deletePost(postId)}>delete</button>
         </AboveContentPostPopup>

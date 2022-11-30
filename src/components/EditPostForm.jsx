@@ -1,14 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import {
-  EditCommentContentForm,
-  EditCommentFormInnerDiv,
+  EditPostContentForm,
+  EditPostFormInnerDiv,
+  EditPostFormCancelLink,
 } from "../styles/post.styles";
-const EditCommentForm = (props) => {
-  const { commentId, content, setEditing } = props;
+
+const EditPostForm = (props) => {
+  const { postId, content, setEditing, setShowPostPopup } = props;
 
   const dispatch = useDispatch();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -17,12 +19,12 @@ const EditCommentForm = (props) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const getToken = localStorage.getItem("authToken");
 
-  const handleEditComment = async (e) => {
+  const handleEditPost = async (e) => {
     try {
       e.preventDefault();
       const body = await { content: updatedContent };
       await axios.put(
-        `${process.env.REACT_APP_API_URL}/comment-update/${commentId}`,
+        `${process.env.REACT_APP_API_URL}/post-update/${postId}`,
         body,
         {
           headers: {
@@ -30,10 +32,10 @@ const EditCommentForm = (props) => {
           },
         }
       );
-      console.log("the comment was updated");
+      console.log("the post was updated");
       await setErrorMessage("");
-      await setEditing(false);
       await dispatch(isUpdatedFalse());
+      await setEditing(false);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
@@ -41,9 +43,8 @@ const EditCommentForm = (props) => {
   useEffect(() => {
     setUpdatedContent(content);
   }, []);
-
   return (
-    <EditCommentContentForm onSubmit={handleEditComment}>
+    <EditPostContentForm onSubmit={handleEditPost}>
       <textarea
         value={updatedContent}
         onChange={(e) => {
@@ -51,8 +52,9 @@ const EditCommentForm = (props) => {
         }}
       />
       {errorMessage && <p>{errorMessage}</p>}
-      <EditCommentFormInnerDiv>
+      <EditPostFormInnerDiv>
         <button type="submit">save changes</button>
+
         <button
           onClick={() => {
             setEditing(false);
@@ -60,9 +62,9 @@ const EditCommentForm = (props) => {
         >
           cancel
         </button>
-      </EditCommentFormInnerDiv>
-    </EditCommentContentForm>
+      </EditPostFormInnerDiv>
+    </EditPostContentForm>
   );
 };
 
-export default EditCommentForm;
+export default EditPostForm;

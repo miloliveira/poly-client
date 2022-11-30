@@ -5,6 +5,7 @@ import ViewComments from "../components/ViewComments";
 import CreateComment from "../components/CreateComment";
 import PostPopup from "./PostPopup";
 import FollowBtn from "./FollowBtn";
+import EditPostForm from "./EditPostForm";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import { AuthContext } from "../context/auth.context";
@@ -28,7 +29,8 @@ import {
 const Post = (props) => {
   const { post } = props;
   const [isLiked, setIsLiked] = useState(false);
-
+  const [editing, setEditing] = useState(false);
+  const [showPostPopup, setShowPostPopup] = useState(false);
   const [togleComment, setTogleComment] = useState(false);
   const getToken = localStorage.getItem("authToken");
   const { isLoggedIn, user } = useContext(AuthContext);
@@ -94,10 +96,27 @@ const Post = (props) => {
         {isLoggedIn && user._id !== post.user._id && (
           <FollowBtn post={post} followUserId={post.user._id} />
         )}
-        {user && user._id == post.user._id && <PostPopup postId={post._id} />}
+        {user && user._id == post.user._id && (
+          <PostPopup
+            postId={post._id}
+            editing={editing}
+            setEditing={setEditing}
+            showPostPopup={showPostPopup}
+            setShowPostPopup={setShowPostPopup}
+          />
+        )}
       </PostInfoDiv>
+      {editing ? (
+        <EditPostForm
+          postId={post._id}
+          content={post.content}
+          setEditing={setEditing}
+          setShowPostPopup={setShowPostPopup}
+        />
+      ) : (
+        <EachPostContent>{post.content}</EachPostContent>
+      )}
 
-      <EachPostContent>{post.content}</EachPostContent>
       {/* {post.imageUrl && (
         <img
           src={post.imageUrl}

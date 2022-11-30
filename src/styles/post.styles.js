@@ -414,11 +414,10 @@ export const EditCommentContentForm = styled.form`
 `;
 
 export const EditCommentFormInnerDiv = styled.div`
-  margin-top: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  margin-top: 5px;
   button {
     border: none;
     background-color: #497174;
@@ -430,28 +429,20 @@ export const EditCommentFormInnerDiv = styled.div`
 
 //edit posts page
 
-export const EditPostPage = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-`;
-
-export const EditPostForm = styled.form`
-  margin-top: 20px;
-  width: 50%;
-  height: 200px;
-
+export const EditPostContentForm = styled.form`
+  padding: 5px 15px;
+  background-color: #eff5f5;
   display: flex;
   flex-direction: column;
   textarea {
     height: 150px;
-    outline: none;
-    resize: none;
+    width: 100%;
     padding: 10px 20px;
     background-color: white;
     border: 1px solid #d6e4e5;
-    border-radius: 10px;
+    border-radius: 15px;
+    outline: none;
+    resize: none;
   }
 
   textarea::-webkit-scrollbar {
@@ -463,13 +454,13 @@ export const EditPostFormInnerDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 5px;
   button {
     border: none;
     background-color: #497174;
     color: white;
     border-radius: 5px;
-    padding: 5px 5px;
+    padding: 1px 5px;
   }
 `;
 export const EditPostFormCancelLink = styled(Link)`
