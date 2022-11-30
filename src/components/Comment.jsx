@@ -30,8 +30,8 @@ const Comment = (props) => {
             <CommentUserImg src={comment.user.imageUrl} alt="profile pic" />
             <p> {comment.user.name}</p>
           </CommentUserInfoLink>
-        </CommentUserInfoDiv>
         <ReactTimeAgo date={createdAt} locale="en-US" />
+        </CommentUserInfoDiv>
         {user && user._id == comment.user._id && (
           <CommentPopup
             showCommentPopup={showCommentPopup}

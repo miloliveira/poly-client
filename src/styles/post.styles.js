@@ -134,6 +134,10 @@ export const PostInfoDiv = styled.div`
   }
 `;
 export const PostUserInfoDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   max-width: 70%;
 `;
 
@@ -172,6 +176,7 @@ export const AboveContentPostPopupLink = styled(Link)`
   width: 100%;
   border-radius: 5px;
   text-decoration: none;
+
   text-align: center;
   &:hover {
     border: 2px solid white;
@@ -196,6 +201,7 @@ export const PostUserInfoLink = styled(Link)`
     color: black;
     width: auto;
     text-align: center;
+    font-weight: bold;
   }
 `;
 export const PostUserImg = styled.img`
@@ -317,6 +323,9 @@ export const CommentInfoDiv = styled.div`
   justify-content: space-between;
 `;
 export const CommentUserInfoDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: auto;
   background-color: #eff5f5;
   padding-left: 10px;
@@ -362,6 +371,7 @@ export const CommentUserInfoLink = styled(Link)`
     color: black;
     width: auto;
     text-align: center;
+    font-weight: bold;
   }
 `;
 
@@ -414,7 +424,7 @@ export const EditCommentFormInnerDiv = styled.div`
     background-color: #497174;
     color: white;
     border-radius: 5px;
-    padding: 5px 5px;
+    padding: 1px 5px;
   }
 `;
 
