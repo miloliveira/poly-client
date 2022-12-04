@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import {
   LoginForm,
-  LoginErrorMessage,
+  AuthErrorMessage,
   ErrorMessageIcon,
 } from "../styles/auth.styles";
 const Login = () => {
@@ -56,10 +56,10 @@ const Login = () => {
 
       <button type="submit">Login</button>
       {errorMessage && (
-        <LoginErrorMessage>
+        <AuthErrorMessage>
           <ErrorMessageIcon />
           <p>{errorMessage}</p>
-        </LoginErrorMessage>
+        </AuthErrorMessage>
       )}
     </LoginForm>
   );

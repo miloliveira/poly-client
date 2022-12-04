@@ -1,6 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  SignupForm,
+  ErrorMessageIcon,
+  AuthErrorMessage,
+} from "../styles/auth.styles";
 const Signup = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -28,8 +33,8 @@ const Signup = (props) => {
   return (
     <div>
       <h1>Welcome! Create your account and join the community</h1>
-      <form onSubmit={handleSubmit}>
-        <label>username</label>
+      <SignupForm onSubmit={handleSubmit}>
+        <label>Username</label>
         <input
           type="text"
           value={username}
@@ -38,15 +43,7 @@ const Signup = (props) => {
           }}
         />
 
-        <label>password</label>
-        <input
-          type="text"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <label>name</label>
+        <label>Name</label>
         <input
           type="text"
           value={name}
@@ -54,9 +51,22 @@ const Signup = (props) => {
             setName(e.target.value);
           }}
         />
+        <label>Password</label>
+        <input
+          type="text"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
         <button type="submit">Signup</button>
-      </form>
-      {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && (
+          <AuthErrorMessage>
+            <ErrorMessageIcon />
+            <p>{errorMessage}</p>
+          </AuthErrorMessage>
+        )}
+      </SignupForm>
     </div>
   );
 };
