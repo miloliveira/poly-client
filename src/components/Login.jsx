@@ -2,7 +2,11 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-
+import {
+  LoginForm,
+  LoginErrorMessage,
+  ErrorMessageIcon,
+} from "../styles/auth.styles";
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,31 +33,35 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <label>username</label>
-        <input
-          type="text"
-          value={username}
-          placeholder="ex: john123"
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
-        <label>password</label>
-        <input
-          type="text"
-          value={password}
-          placeholder="your password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+    <LoginForm onSubmit={handleLogin}>
+      <h4>Log in into your account</h4>
+      <label>Username</label>
+      <input
+        type="text"
+        value={username}
+        placeholder="ex: john123"
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      />
+      <label>Password</label>
+      <input
+        type="text"
+        value={password}
+        placeholder="your password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
 
-        <button type="submit">Login</button>
-        {errorMessage && <p>{errorMessage}</p>}
-      </form>
-    </div>
+      <button type="submit">Login</button>
+      {errorMessage && (
+        <LoginErrorMessage>
+          <ErrorMessageIcon />
+          <p>{errorMessage}</p>
+        </LoginErrorMessage>
+      )}
+    </LoginForm>
   );
 };
 
