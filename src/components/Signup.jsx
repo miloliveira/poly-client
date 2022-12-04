@@ -31,43 +31,41 @@ const Signup = (props) => {
   };
 
   return (
-    <div>
-      <h1>Welcome! Create your account and join the community</h1>
-      <SignupForm onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
+    <SignupForm onSubmit={handleSubmit}>
+      <h5>Welcome! Create your account and join the community</h5>
+      <label>Username</label>
+      <input
+        type="text"
+        value={username}
+        onChange={(e) => {
+          setUsername(e.target.value);
+        }}
+      />
 
-        <label>Name</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <label>Password</label>
-        <input
-          type="text"
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-        <button type="submit">Signup</button>
-        {errorMessage && (
-          <AuthErrorMessage>
-            <ErrorMessageIcon />
-            <p>{errorMessage}</p>
-          </AuthErrorMessage>
-        )}
-      </SignupForm>
-    </div>
+      <label>Name</label>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => {
+          setName(e.target.value);
+        }}
+      />
+      <label>Password</label>
+      <input
+        type="text"
+        value={password}
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+      <button type="submit">Signup</button>
+      {errorMessage && (
+        <AuthErrorMessage>
+          <ErrorMessageIcon />
+          <p>{errorMessage}</p>
+        </AuthErrorMessage>
+      )}
+    </SignupForm>
   );
 };
 

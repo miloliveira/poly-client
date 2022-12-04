@@ -1,4 +1,3 @@
-import { style } from "@mui/system";
 import styled from "styled-components";
 import ErrorIcon from "@mui/icons-material/Error";
 
@@ -10,6 +9,7 @@ export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
   input {
     border-radius: 10px;
     padding: 0px 5px;
@@ -24,7 +24,7 @@ export const LoginForm = styled.form`
     width: 70px;
     height: 30px;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 `;
 
@@ -46,6 +46,7 @@ export const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
   input {
     border-radius: 10px;
     padding: 0px 5px;
@@ -60,6 +61,6 @@ export const SignupForm = styled.form`
     width: 70px;
     height: 30px;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 `;
