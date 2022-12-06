@@ -119,7 +119,6 @@ const Post = (props) => {
   useEffect(() => {
     checkIfLiked();
     checkIfFollows();
-    dispatch(isUpdatedTrue());
   }, [isUpdatedGlobal]);
 
   return (
@@ -152,7 +151,6 @@ const Post = (props) => {
           postId={post._id}
           content={post.content}
           setEditing={setEditing}
-          setShowPostPopup={setShowPostPopup}
         />
       ) : (
         <EachPostContent>{post.content}</EachPostContent>

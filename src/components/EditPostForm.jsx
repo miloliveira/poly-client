@@ -1,19 +1,15 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import {
   EditPostContentForm,
   EditPostFormInnerDiv,
-  EditPostFormCancelLink,
 } from "../styles/post.styles";
 
 const EditPostForm = (props) => {
-  const { postId, content, setEditing, setShowPostPopup } = props;
-
+  const { postId, content, setEditing } = props;
   const dispatch = useDispatch();
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 
   const [updatedContent, setUpdatedContent] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);

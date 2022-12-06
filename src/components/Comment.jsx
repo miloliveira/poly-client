@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import ReactTimeAgo from "react-time-ago";
 import CommentPopup from "./CommentPopup";
@@ -11,16 +11,13 @@ import {
   EachCommentContent,
 } from "../styles/post.styles";
 import EditCommentForm from "./EditCommentForm";
-import isUpdatedGlobal from "../redux/isUpdatedGlobal";
+
 const Comment = (props) => {
   const { comment } = props;
   const [editing, setEditing] = useState(false);
   const [showCommentPopup, setShowCommentPopup] = useState(false);
   const { user } = useContext(AuthContext);
-
   const createdAt = new Date(comment.createdAt).getTime();
-
-  useEffect(() => {}, [isUpdatedGlobal]);
 
   return (
     <EachCommentFromFeed>
