@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 const CreateComment = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
+
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);

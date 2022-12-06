@@ -129,9 +129,13 @@ export const PostInfoDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   button {
+    background-color: #eff5f5;
     color: #497174;
     border: none;
   }
+`;
+export const FollowBtnString = styled.p`
+  margin: 0;
 `;
 export const PostUserInfoDiv = styled.div`
   display: flex;

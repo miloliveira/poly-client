@@ -12,7 +12,7 @@ import {
 } from "../styles/post.styles";
 const CreatePost = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
+
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState({});
   const [content, setContent] = useState("");
@@ -82,11 +82,13 @@ const CreatePost = (props) => {
     let isMounted = true;
 
     const getUser = async () => {
-      axios.get(`${process.env.REACT_APP_API_URL}/in/${userId}`).then((response) => {
-        if (isMounted) {
-          setCurrentUser(response.data);
-        }
-      });
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/in/${userId}`)
+        .then((response) => {
+          if (isMounted) {
+            setCurrentUser(response.data);
+          }
+        });
     };
     getUser();
     return () => {

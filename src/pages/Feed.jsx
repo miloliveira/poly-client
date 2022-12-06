@@ -14,7 +14,6 @@ import {
 } from "../styles/post.styles";
 const Feed = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [allPosts, setAllPosts] = useState([]);

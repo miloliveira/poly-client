@@ -13,7 +13,7 @@ import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 
 const PostPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
+  
   const dispatch = useDispatch();
   const { postId, editing, setEditing, showPostPopup, setShowPostPopup } =
     props;

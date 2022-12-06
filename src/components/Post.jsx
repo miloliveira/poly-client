@@ -4,8 +4,9 @@ import ReactTimeAgo from "react-time-ago";
 import ViewComments from "../components/ViewComments";
 import CreateComment from "../components/CreateComment";
 import PostPopup from "./PostPopup";
-import FollowBtn from "./FollowBtn";
 import EditPostForm from "./EditPostForm";
+import Follow from "./Follow";
+import Unfollow from "./Unfollow";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import { AuthContext } from "../context/auth.context";
@@ -32,11 +33,13 @@ const Post = (props) => {
   const [editing, setEditing] = useState(false);
   const [showPostPopup, setShowPostPopup] = useState(false);
   const [togleComment, setTogleComment] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(false);
   const getToken = localStorage.getItem("authToken");
   const { isLoggedIn, user } = useContext(AuthContext);
+  let followUserId = post.user._id;
 
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
+
   const dispatch = useDispatch();
   const numberOfLikes = post.likes.length;
   const numberOfComments = post.comments.length;
@@ -73,14 +76,50 @@ const Post = (props) => {
     }
   };
 
-  useEffect(() => {
+  const handleFollow = async () => {
+    try {
+      const body = await { followUserId };
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/in/${user._id}/follow`,
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
+      await dispatch(isUpdatedFalse());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const checkIfLiked = () => {
     if (isLoggedIn && post.likes.includes(user._id)) {
       setIsLiked(true);
-      dispatch(isUpdatedTrue());
-    } else if (isLoggedIn && !post.likes.includes(user._id)) {
+    } else {
       setIsLiked(false);
-      dispatch(isUpdatedTrue());
     }
+  };
+
+  const checkIfFollows = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/in/${user._id}`
+    );
+
+    const currentUser = await response.data;
+
+    if (currentUser.following.includes(followUserId)) {
+      setIsFollowing(true);
+    } else {
+      setIsFollowing(false);
+    }
+  };
+
+  useEffect(() => {
+    checkIfLiked();
+    checkIfFollows();
+    dispatch(isUpdatedTrue());
   }, [isUpdatedGlobal]);
 
   return (
@@ -94,7 +133,9 @@ const Post = (props) => {
           <ReactTimeAgo date={createdAt} locale="en-US" />
         </PostUserInfoDiv>
         {isLoggedIn && user._id !== post.user._id && (
-          <FollowBtn post={post} followUserId={post.user._id} />
+          <button onClick={() => handleFollow()}>
+            {isFollowing ? <Unfollow /> : <Follow />}
+          </button>
         )}
         {user && user._id == post.user._id && (
           <PostPopup
