@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const ProfilePage = styled.div`
   height: 100vh;
@@ -11,7 +10,7 @@ export const ProfilePage = styled.div`
 
 export const ProfileMainDiv = styled.div`
   height: 100%;
-  width: 60%;
+  width: 50%;
 `;
 export const ProfileUserBannerDiv = styled.div`
   background-color: white;

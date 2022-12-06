@@ -59,11 +59,6 @@ const Feed = () => {
               })}
           </FeedPostList>
         </FeedMainContentDiv>
-        <FeedLeftContentDiv>
-          <p>Hello</p>
-          <p>This is the left side content</p>
-          <p>bla bla bla</p>
-        </FeedLeftContentDiv>
       </FeedContentDiv>
       {errorMessage && <p>{errorMessage}</p>}
     </FeedPageDiv>

@@ -119,6 +119,7 @@ const Post = (props) => {
   useEffect(() => {
     checkIfLiked();
     checkIfFollows();
+    dispatch(isUpdatedTrue());
   }, [isUpdatedGlobal]);
 
   return (

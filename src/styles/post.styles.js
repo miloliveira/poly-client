@@ -39,8 +39,8 @@ export const FeedPageDiv = styled.div`
 export const FeedContentDiv = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 80%;
+  justify-content: space-evenly;
+  width: 60%;
 `;
 
 export const FeedLeftContentDiv = styled.div`
@@ -51,7 +51,7 @@ export const FeedMainContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 60%;
 `;
 
 export const CreatePostDiv = styled.div`
@@ -97,8 +97,9 @@ export const CreatePostForm = styled.form`
     width: 70px;
     height: 30px;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 5px 10px;
+    margin-top: 5px;
   }
 `;
 export const FeedPostList = styled.div`
