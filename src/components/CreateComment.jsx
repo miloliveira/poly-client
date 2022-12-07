@@ -29,7 +29,6 @@ const CreateComment = (props) => {
       await setErrorMessage("");
       await setContent("");
       await setTogleComment(true);
-      console.log(response);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
       console.log(errorMessage);

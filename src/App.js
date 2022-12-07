@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import ProfileSettings from "./pages/ProfileSettings";
 import Activity from "./pages/Activity";
 import Feed from "./pages/Feed";
+import Testing from "./pages/Testing";
 import { GlobalStyle } from "./styles/global.styles";
 
 import { AuthContext } from "./context/auth.context";
@@ -17,12 +18,12 @@ function App() {
       <GlobalStyle />
       <NavBar />
       <Routes>
-        <Route path="/" element={isLoggedIn ? <Feed /> :<Home /> } />
+        <Route path="/" element={isLoggedIn ? <Feed /> : <Home />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/in/:userId" element={<Profile />} />
         <Route path="/in/:userId/activity" element={<Activity />} />
         <Route path="/edit/:userId" element={<ProfileSettings />} />
-        
+        <Route path="/testing" element={<Testing />} />
       </Routes>
     </div>
   );

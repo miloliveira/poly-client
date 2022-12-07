@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
 import CreatePost from "../components/CreatePost";
 import { AuthContext } from "../context/auth.context";
@@ -12,6 +12,7 @@ import {
   FeedLeftContentDiv,
   FeedMainContentDiv,
 } from "../styles/post.styles";
+
 const Feed = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   const dispatch = useDispatch();
