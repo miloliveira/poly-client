@@ -3,6 +3,11 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
+import {
+  EditProfilePage,
+  EditProfileForm,
+  DeleteProfileButton,
+} from "../styles/EditProfile.styles";
 const ProfileSettings = () => {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
   const { userId } = useParams();
@@ -112,10 +117,22 @@ const ProfileSettings = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Edit your profile info</h2>
+    <EditProfilePage>
+      <EditProfileForm onSubmit={handleProfileEdit}>
+        <h4>Edit your profile information</h4>
+        <div>
+          <input
+            type="file"
+            name="imageUrl"
+            onChange={(e) => handleFileUpload(e)}
+          />
 
-      <form onSubmit={handleProfileEdit}>
+          {imageUrl && (
+            <>
+              <img src={imageUrl} alt="profile pic" />
+            </>
+          )}
+        </div>
         <label>Name</label>
         <input
           type="text"
@@ -134,7 +151,7 @@ const ProfileSettings = () => {
           }}
         />
 
-        <label>about</label>
+        <label>About</label>
         <input
           type="text"
           value={about}
@@ -143,7 +160,7 @@ const ProfileSettings = () => {
           }}
         />
 
-        <label>location</label>
+        <label>Location</label>
         <input
           type="text"
           value={location}
@@ -152,7 +169,7 @@ const ProfileSettings = () => {
           }}
         />
 
-        <label>occupation</label>
+        <label>Occupation</label>
         <input
           type="text"
           value={occupation}
@@ -160,7 +177,7 @@ const ProfileSettings = () => {
             setOccupation(e.target.value);
           }}
         />
-        <label>education</label>
+        <label>Education</label>
         <input
           type="text"
           value={education}
@@ -169,29 +186,16 @@ const ProfileSettings = () => {
           }}
         />
 
-        <label>image</label>
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => handleFileUpload(e)}
-        />
-
-        {imageUrl && (
-          <>
-            <img src={imageUrl} alt="profile pic" />
-          </>
-        )}
-
-        <button type="submit">Edit</button>
-      </form>
-      <button
+        <button type="submit">Save changes</button>
+      </EditProfileForm>
+      <DeleteProfileButton
         onClick={() => {
           deleteUser(user._id);
         }}
       >
         Delete profile
-      </button>
-    </div>
+      </DeleteProfileButton>
+    </EditProfilePage>
   );
 };
 
