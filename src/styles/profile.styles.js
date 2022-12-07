@@ -66,7 +66,10 @@ export const AboutDiv = styled.div`
   padding: 10px;
   margin-bottom: 10px;
 `;
-
+export const AboutDropDownButton = styled.button`
+  background-color: white;
+  border: none;
+`;
 export const RecentActivityDiv = styled.div`
   background-color: white;
   border-radius: 15px;

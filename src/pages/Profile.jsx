@@ -13,6 +13,7 @@ import {
   BannerFollowDiv,
   ProfileImage,
   AboutDiv,
+  AboutDropDownButton,
   DropDownIcon,
   DropUpIcon,
   RecentActivityDiv,
@@ -84,13 +85,13 @@ const Profile = () => {
                 <p>Education: {profileUser.education}</p>
               </div>
             )}
-            <button
+            <AboutDropDownButton
               onClick={() => {
                 setShowAboutSection(!showAboutSection);
               }}
             >
               {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
-            </button>
+            </AboutDropDownButton>
           </AboutDiv>
           {/*  <p>
             {profileUser.occupation} - {profileUser.location}
@@ -108,36 +109,6 @@ const Profile = () => {
 
             <Link to={`/in/${user._id}/activity`}>Check full activity</Link>
           </RecentActivityDiv>
-
-          {/* 
-           <p>followers</p>
-          {!isLoggedIn && (
-            <div>
-              <p>{profileUser.followers.length} followers </p>
-              <p>log in to check the complete info</p>
-            </div>
-          )} */}
-          {/* {isLoggedIn &&
-            profileUser.followers.length > 0 &&
-            profileUser.followers.map((follower) => {
-              return (
-                <div>
-                  <p>{follower.name}</p>
-                </div>
-              );
-            })} */}
-
-          {/*
-           <p>following</p>
-            {isLoggedIn &&
-            profileUser.following.length > 0 &&
-            profileUser.following.map((follow) => {
-              return (
-                <div>
-                  <p>{follow.name}</p>
-                </div>
-              );
-            })} */}
         </ProfileMainDiv>
       )}
     </ProfilePage>
