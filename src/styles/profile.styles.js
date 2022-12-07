@@ -1,5 +1,16 @@
 import styled from "styled-components";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
+//icons
+export const DropDownIcon = styled(ArrowDropDownIcon)`
+  color: #497174;
+`;
+export const DropUpIcon = styled(ArrowDropUpIcon)`
+  color: #497174;
+`;
+
+//
 export const ProfilePage = styled.div`
   height: 100vh;
   width: 100%;

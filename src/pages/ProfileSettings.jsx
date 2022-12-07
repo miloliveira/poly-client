@@ -23,6 +23,10 @@ const ProfileSettings = () => {
       .then((response) => {
         console.log(response.data);
         setName(response.data.name);
+        setAbout(response.data.about);
+        setEducation(response.data.education);
+        setOccupation(response.data.occupation);
+        setLocation(response.data.location);
         setUsername(response.data.username);
         setimageUrl(response.data.imageUrl);
       });

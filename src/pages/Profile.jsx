@@ -13,6 +13,8 @@ import {
   BannerFollowDiv,
   ProfileImage,
   AboutDiv,
+  DropDownIcon,
+  DropUpIcon,
   RecentActivityDiv,
   ActivityPostsDiv,
 } from "../styles/profile.styles";
@@ -25,6 +27,7 @@ const Profile = () => {
   const { userId } = useParams();
   const [userPosts, setUserPosts] = useState([]);
   const [likedPosts, setlikedPosts] = useState([]);
+  const [showAboutSection, setShowAboutSection] = useState(false);
   const { user, isLoggedIn } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -49,7 +52,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-  }, [isUpdatedGlobal]);
+  }, [userId, isUpdatedGlobal]);
 
   return (
     <ProfilePage>
@@ -74,6 +77,20 @@ const Profile = () => {
             ) : (
               <p>{profileUser.about}</p>
             )}
+            {showAboutSection && (
+              <div>
+                <p>Occupation: {profileUser.occupation}</p>
+                <p>Location: {profileUser.location}</p>
+                <p>Education: {profileUser.education}</p>
+              </div>
+            )}
+            <button
+              onClick={() => {
+                setShowAboutSection(!showAboutSection);
+              }}
+            >
+              {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
+            </button>
           </AboutDiv>
           {/*  <p>
             {profileUser.occupation} - {profileUser.location}
