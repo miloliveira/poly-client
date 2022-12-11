@@ -7,6 +7,7 @@ import {
   ErrorMessageIcon,
   AuthErrorMessage,
 } from "../styles/auth.styles";
+import { fontSize } from "@mui/system";
 const Signup = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -64,6 +65,12 @@ const Signup = (props) => {
         rules={["minLength", "number", "capital"]}
         minLength={6}
         value={password}
+        validColor={"#497174"}
+        invalidColor={"#eb6440"}
+        style={{
+          color: "#497174",
+        }}
+        iconSize={16}
         onChange={(isValid) => {}}
       />
     </SignupForm>
