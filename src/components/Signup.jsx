@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import PasswordChecklist from "react-password-checklist";
 import {
   SignupForm,
   ErrorMessageIcon,
@@ -59,12 +60,12 @@ const Signup = (props) => {
         }}
       />
       <button type="submit">Signup</button>
-      {errorMessage && (
-        <AuthErrorMessage>
-          <ErrorMessageIcon />
-          <p>{errorMessage}</p>
-        </AuthErrorMessage>
-      )}
+      <PasswordChecklist
+        rules={["minLength", "number", "capital"]}
+        minLength={6}
+        value={password}
+        onChange={(isValid) => {}}
+      />
     </SignupForm>
   );
 };
