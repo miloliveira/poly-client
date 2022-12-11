@@ -1,66 +1,53 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-
+import React, { useState } from "react";
+import axios from "axios";
+import service from "../api/service";
 const Testing = () => {
-  const div1 = useRef(null);
-  const [errorMessage, setErrorMessage] = useState(undefined);
-  const [allPosts, setAllPosts] = useState([]);
-
-  const scrollDown = () => {
-    window.scrollTo({
-      top: div1.current.offsetTop,
-      behavior: "smooth",
-    });
+  const [fileInputState, setFileInputState] = useState("");
+  const [selectedFile, setSelectedFile] = useState("");
+  const [previewSource, setPreviewSource] = useState();
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    previewFile(file);
+  };
+  const previewFile = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onloadend = () => {
+      setPreviewSource(reader.result);
+    };
   };
 
-  useEffect(() => {}, []);
+  const handleSubmitFile = (e) => {
+    //console.log("submitting");
+    e.preventDefault();
+    if (!previewFile) {
+      return;
+    }
+
+    uploadImage(previewSource);
+  };
+  const uploadImage = async (base64EncodedImage) => {
+    try {
+      console.log(base64EncodedImage);
+      const body = await JSON.stringify({ data: base64EncodedImage });
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/upload`, body, {
+        headers: { "Content-Type": "application/json" },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
-      <hr />
-      <div ref={div1}>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          magnam possimus fuga ad laboriosam ipsam dolorem voluptatibus facere
-          voluptates aspernatur sit earum suscipit nam eligendi similique
-          provident ex, ipsum dolore.
-        </h1>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          magnam possimus fuga ad laboriosam ipsam dolorem voluptatibus facere
-          voluptates aspernatur sit earum suscipit nam eligendi similique
-          provident ex, ipsum dolore.
-        </h1>
-      </div>
-      <hr />
-      <div>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          magnam possimus fuga ad laboriosam ipsam dolorem voluptatibus facere
-          voluptates aspernatur sit earum suscipit nam eligendi similique
-          provident ex, ipsum dolore.
-        </h1>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          magnam possimus fuga ad laboriosam ipsam dolorem voluptatibus facere
-          voluptates aspernatur sit earum suscipit nam eligendi similique
-          provident ex, ipsum dolore.
-        </h1>
-      </div>
-      <hr />
-      <div>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          magnam possimus fuga ad laboriosam ipsam dolorem voluptatibus facere
-          voluptates aspernatur sit earum suscipit nam eligendi similique
-          provident ex, ipsum dolore.
-        </h1>
-        <h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-          magnam possimus fuga ad laboriosam ipsam dolorem voluptatibus facere
-          voluptates aspernatur sit earum suscipit nam eligendi similique
-          provident ex, ipsum dolore.
-        </h1>
-      </div>
-      <button onClick={scrollDown}></button>
+      <p>upload</p>
+      <form onSubmit={handleSubmitFile}>
+        <input type="file" onChange={handleFileUpload} value={fileInputState} />
+        <button type="submit">upload</button>
+      </form>
+      {previewSource && (
+        <img src={previewSource} alt="chosen pic" style={{ width: "300px" }} />
+      )}
     </div>
   );
 };

@@ -112,11 +112,11 @@ const CreatePost = (props) => {
           }}
         />
 
-        {/* <input
+        <input
           type="file"
           name="imageUrl"
           onChange={(e) => handleFileUpload(e)}
-        /> */}
+        />
 
         <button type="submit">Post</button>
         {errorMessage && <p>{errorMessage}</p>}

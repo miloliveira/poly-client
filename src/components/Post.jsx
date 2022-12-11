@@ -164,13 +164,13 @@ const Post = (props) => {
         <EachPostContent>{post.content}</EachPostContent>
       )}
 
-      {/* {post.imageUrl && (
+      {post.imageUrl && (
         <img
           src={post.imageUrl}
           alt="post pic"
           style={{ width: 200, height: 200 }}
         />
-      )} */}
+      )}
 
       <EachPostReactionsDiv>
         {numberOfLikes == 0 ? (

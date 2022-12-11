@@ -52,7 +52,7 @@ const ProfileSettings = () => {
     setIsUploading(true);
 
     uploadData.append("imageUrl", e.target.files[0]);
-
+    console.log("bla");
     service
       .uploadImage(uploadData)
       .then((response) => {
