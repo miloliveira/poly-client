@@ -6,6 +6,7 @@ import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import Location from "../components/Location";
+import Education from "../components/Education";
 import {
   ProfilePage,
   ProfileMainDiv,
@@ -85,8 +86,9 @@ const Profile = () => {
                 {profileUser.location && (
                   <Location location={profileUser.location} />
                 )}
-
-                <p>Education: {profileUser.education}</p>
+                {profileUser.education && (
+                  <Education education={profileUser.education} />
+                )}
               </div>
             )}
             <AboutDropDownButton

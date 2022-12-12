@@ -1,16 +1,16 @@
 import React from "react";
 import {
-  LocationIcon,
+  EducationIcon,
   InnerAboutSectionComponent,
 } from "../styles/profile.styles";
-const Location = (props) => {
-  const { location } = props;
+const Education = (props) => {
+  const { education } = props;
   return (
     <InnerAboutSectionComponent>
-      <LocationIcon />
-      <p>{location}</p>
+      <EducationIcon />
+      <p>{education}</p>
     </InnerAboutSectionComponent>
   );
 };
 
-export default Location;
+export default Education;

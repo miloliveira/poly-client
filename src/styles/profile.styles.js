@@ -2,6 +2,7 @@ import styled from "styled-components";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import SchoolIcon from "@mui/icons-material/School";
 //icons
 export const DropDownIcon = styled(ArrowDropDownIcon)`
   color: #497174;
@@ -12,7 +13,9 @@ export const DropUpIcon = styled(ArrowDropUpIcon)`
 export const LocationIcon = styled(LocationOnIcon)`
   color: #497174;
 `;
-
+export const EducationIcon = styled(SchoolIcon)`
+  color: #497174;
+`;
 //
 export const ProfilePage = styled.div`
   height: 100vh;
@@ -74,12 +77,13 @@ export const AboutDropDownButton = styled.button`
   border: none;
 `;
 //About section components
-export const LocationComponent = styled.div`
+export const InnerAboutSectionComponent = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   p {
-    margin: 0;
+    margin-left: 5px;
+    margin-bottom: 0;
   }
 `;
 
