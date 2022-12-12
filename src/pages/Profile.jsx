@@ -5,6 +5,7 @@ import { AuthContext } from "../context/auth.context";
 import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import Location from "../components/Location";
 import {
   ProfilePage,
   ProfileMainDiv,
@@ -81,7 +82,10 @@ const Profile = () => {
             {showAboutSection && (
               <div>
                 <p>Occupation: {profileUser.occupation}</p>
-                <p>Location: {profileUser.location}</p>
+                {profileUser.location && (
+                  <Location location={profileUser.location} />
+                )}
+
                 <p>Education: {profileUser.education}</p>
               </div>
             )}
@@ -93,9 +97,6 @@ const Profile = () => {
               {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
             </AboutDropDownButton>
           </AboutDiv>
-          {/*  <p>
-            {profileUser.occupation} - {profileUser.location}
-          </p> */}
           <RecentActivityDiv>
             <h4>Recent activity</h4>
             <ActivityPostsDiv>

@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 //icons
 export const DropDownIcon = styled(ArrowDropDownIcon)`
   color: #497174;
 `;
 export const DropUpIcon = styled(ArrowDropUpIcon)`
+  color: #497174;
+`;
+export const LocationIcon = styled(LocationOnIcon)`
   color: #497174;
 `;
 
@@ -70,6 +73,16 @@ export const AboutDropDownButton = styled.button`
   background-color: white;
   border: none;
 `;
+//About section components
+export const LocationComponent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+`;
+
 export const RecentActivityDiv = styled.div`
   background-color: white;
   border-radius: 15px;
