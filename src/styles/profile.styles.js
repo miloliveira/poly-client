@@ -3,6 +3,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SchoolIcon from "@mui/icons-material/School";
+import WorkIcon from "@mui/icons-material/Work";
+import PostAddIcon from "@mui/icons-material/PostAdd";
 //icons
 export const DropDownIcon = styled(ArrowDropDownIcon)`
   color: #497174;
@@ -14,6 +16,12 @@ export const LocationIcon = styled(LocationOnIcon)`
   color: #497174;
 `;
 export const EducationIcon = styled(SchoolIcon)`
+  color: #497174;
+`;
+export const OccupationIcon = styled(WorkIcon)`
+  color: #497174;
+`;
+export const AddAboutInfoIcon = styled(PostAddIcon)`
   color: #497174;
 `;
 //

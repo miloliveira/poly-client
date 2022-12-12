@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import Location from "../components/Location";
 import Education from "../components/Education";
+import Occupation from "../components/Occupation";
 import {
   ProfilePage,
   ProfileMainDiv,
@@ -15,6 +16,7 @@ import {
   BannerFollowDiv,
   ProfileImage,
   AboutDiv,
+  AddAboutInfoIcon,
   AboutDropDownButton,
   DropDownIcon,
   DropUpIcon,
@@ -75,20 +77,29 @@ const Profile = () => {
           </ProfileUserBannerDiv>
           <AboutDiv>
             <h4>About</h4>
-            {user == profileUser._id && !profileUser.about ? (
-              <p>Fill your about Section in the settings</p>
+            {user._id === userId && !profileUser.about ? (
+              <p>Complete your about Section in the settings</p>
             ) : (
               <p>{profileUser.about}</p>
             )}
             {showAboutSection && (
               <div>
-                <p>Occupation: {profileUser.occupation}</p>
                 {profileUser.location && (
                   <Location location={profileUser.location} />
                 )}
                 {profileUser.education && (
                   <Education education={profileUser.education} />
                 )}
+                {profileUser.occupation && (
+                  <Occupation occupation={profileUser.occupation} />
+                )}
+                {(user._id === userId && !profileUser.occupation) ||
+                  !profileUser.education ||
+                  (!profileUser.location && (
+                    <Link to={`/edit/${userId}`} className="nav-link">
+                      <AddAboutInfoIcon />
+                    </Link>
+                  ))}
               </div>
             )}
             <AboutDropDownButton
