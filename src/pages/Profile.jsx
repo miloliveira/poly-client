@@ -16,7 +16,11 @@ import {
   BannerFollowDiv,
   ProfileImage,
   AboutDiv,
+  AboutInnerDiv,
+  AboutInnerDivComponents,
+  AddAboutInfoDiv,
   AddAboutInfoIcon,
+  AboutDropDownDiv,
   AboutDropDownButton,
   DropDownIcon,
   DropUpIcon,
@@ -78,37 +82,43 @@ const Profile = () => {
           <AboutDiv>
             <h4>About</h4>
             {user._id === userId && !profileUser.about ? (
-              <p>Complete your about Section in the settings</p>
+              <p>Complete your about section in the settings!</p>
             ) : (
               <p>{profileUser.about}</p>
             )}
             {showAboutSection && (
-              <div>
-                {profileUser.location && (
-                  <Location location={profileUser.location} />
-                )}
-                {profileUser.education && (
-                  <Education education={profileUser.education} />
-                )}
-                {profileUser.occupation && (
-                  <Occupation occupation={profileUser.occupation} />
-                )}
-                {(user._id === userId && !profileUser.occupation) ||
-                  !profileUser.education ||
-                  (!profileUser.location && (
+              <AboutInnerDiv>
+                <AboutInnerDivComponents>
+                  {profileUser.location && (
+                    <Location location={profileUser.location} />
+                  )}
+                  {profileUser.education && (
+                    <Education education={profileUser.education} />
+                  )}
+                  {profileUser.occupation && (
+                    <Occupation occupation={profileUser.occupation} />
+                  )}
+                </AboutInnerDivComponents>
+                {((user._id === userId && !profileUser.occupation) ||
+                  (user._id === userId && !profileUser.education) ||
+                  (user._id === userId && !profileUser.location)) && (
+                  <AddAboutInfoDiv>
                     <Link to={`/edit/${userId}`} className="nav-link">
                       <AddAboutInfoIcon />
                     </Link>
-                  ))}
-              </div>
+                  </AddAboutInfoDiv>
+                )}
+              </AboutInnerDiv>
             )}
-            <AboutDropDownButton
-              onClick={() => {
-                setShowAboutSection(!showAboutSection);
-              }}
-            >
-              {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
-            </AboutDropDownButton>
+            <AboutDropDownDiv>
+              <AboutDropDownButton
+                onClick={() => {
+                  setShowAboutSection(!showAboutSection);
+                }}
+              >
+                {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
+              </AboutDropDownButton>
+            </AboutDropDownDiv>
           </AboutDiv>
           <RecentActivityDiv>
             <h4>Recent activity</h4>

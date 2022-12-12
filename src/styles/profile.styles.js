@@ -79,12 +79,30 @@ export const AboutDiv = styled.div`
   border: 1px solid #d6e4e5;
   padding: 10px;
   margin-bottom: 10px;
+  width: 100%;
 `;
 export const AboutDropDownButton = styled.button`
   background-color: white;
   border: none;
 `;
-//About section components
+
+export const AboutInnerDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const AboutInnerDivComponents = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
+export const AddAboutInfoDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+//About section location, occupation and education components
 export const InnerAboutSectionComponent = styled.div`
   display: flex;
   flex-direction: row;
@@ -94,7 +112,12 @@ export const InnerAboutSectionComponent = styled.div`
     margin-bottom: 0;
   }
 `;
-
+//
+export const AboutDropDownDiv = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`;
 export const RecentActivityDiv = styled.div`
   background-color: white;
   border-radius: 15px;
