@@ -56,7 +56,6 @@ export const FeedMainContentDiv = styled.div`
 
 export const CreatePostDiv = styled.div`
   display: flex;
-  flex-direction: row;
   width: 100%;
 `;
 
@@ -75,7 +74,6 @@ export const CreatePostForm = styled.form`
   flex-direction: column;
   align-items: flex-end;
   width: 100%;
-
   textarea {
     width: 100%;
     height: 50px;
@@ -89,6 +87,17 @@ export const CreatePostForm = styled.form`
   }
   textarea::-webkit-scrollbar {
     display: none;
+  }
+  input {
+    cursor: pointer;
+  }
+
+  input::file-selector-button {
+    color: #497174;
+    background-color: #eff5f5;
+    border: 1px solid #d6e4e5;
+    border-radius: 15px;
+    cursor: pointer;
   }
 
   button {
