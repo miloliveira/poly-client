@@ -90,6 +90,7 @@ export const CreatePostForm = styled.form`
   }
   input {
     cursor: pointer;
+    width: 100%;
   }
 
   input::file-selector-button {

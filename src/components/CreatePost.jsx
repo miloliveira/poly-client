@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import service from "../api/service";
@@ -11,6 +11,7 @@ import {
   CreatePostForm,
 } from "../styles/post.styles";
 const CreatePost = (props) => {
+  const imageInputRef = useRef();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 
   const dispatch = useDispatch();
@@ -71,8 +72,8 @@ const CreatePost = (props) => {
       console.log(response);
       await setContent("");
       await setErrorMessage("");
-
       await dispatch(isUpdatedFalse());
+      imageInputRef.current.value = "";
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
@@ -116,6 +117,7 @@ const CreatePost = (props) => {
           type="file"
           name="imageUrl"
           onChange={(e) => handleFileUpload(e)}
+          ref={imageInputRef}
         />
 
         <button type="submit">Post</button>
