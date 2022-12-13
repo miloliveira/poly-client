@@ -240,9 +240,7 @@ export const PostContent = styled.p`
   margin: 0px;
   padding: 10px;
   width: 100%;
-  height: 50px;
   height: auto;
-  overflow-y: auto;
   background-color: white;
   word-wrap: break-word;
 `;

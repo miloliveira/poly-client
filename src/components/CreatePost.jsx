@@ -119,7 +119,6 @@ const CreatePost = (props) => {
           ref={imageInputRef}
         />
 
-
         <button type="submit">Post</button>
         {errorMessage && <p>{errorMessage}</p>}
       </CreatePostForm>

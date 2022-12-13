@@ -165,6 +165,7 @@ const Post = (props) => {
       ) : (
         <EachPostContentDiv>
           <PostContent>{post.content}</PostContent>
+
           {post.imageUrl && <PostImage src={post.imageUrl} alt="post pic" />}
         </EachPostContentDiv>
       )}
