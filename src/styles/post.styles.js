@@ -228,14 +228,27 @@ export const PostUserImg = styled.img`
   border-radius: 100px;
 `;
 
-export const EachPostContent = styled.p`
-  margin-bottom: 5px;
-  padding: 15px;
+export const EachPostContentDiv = styled.div`
   width: 100%;
-  height: auto;
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+`;
 
+export const PostContent = styled.p`
+  margin: 0px;
+  padding: 10px;
+  width: 100%;
+  height: 50px;
+  height: auto;
+  overflow-y: auto;
+  background-color: white;
   word-wrap: break-word;
+`;
+export const PostImage = styled.img`
+  max-width: 100%;
+  height: auto;
 `;
 
 export const EachPostReactionsDiv = styled.div`

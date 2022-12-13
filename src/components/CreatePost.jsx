@@ -112,13 +112,13 @@ const CreatePost = (props) => {
             setContent(e.target.value);
           }}
         />
-
         <input
           type="file"
           name="imageUrl"
           onChange={(e) => handleFileUpload(e)}
           ref={imageInputRef}
         />
+
 
         <button type="submit">Post</button>
         {errorMessage && <p>{errorMessage}</p>}

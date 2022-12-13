@@ -16,7 +16,9 @@ import {
   PostUserInfoDiv,
   PostUserInfoLink,
   PostUserImg,
-  EachPostContent,
+  EachPostContentDiv,
+  PostContent,
+  PostImage,
   EachPostReactionsDiv,
   NumberOfCommentsP,
   NumberOfLikesP,
@@ -161,15 +163,10 @@ const Post = (props) => {
           setEditing={setEditing}
         />
       ) : (
-        <EachPostContent>{post.content}</EachPostContent>
-      )}
-
-      {post.imageUrl && (
-        <img
-          src={post.imageUrl}
-          alt="post pic"
-          style={{ width: 200, height: 200 }}
-        />
+        <EachPostContentDiv>
+          <PostContent>{post.content}</PostContent>
+          {post.imageUrl && <PostImage src={post.imageUrl} alt="post pic" />}
+        </EachPostContentDiv>
       )}
 
       <EachPostReactionsDiv>
