@@ -26,7 +26,6 @@ export const AddAboutInfoIcon = styled(PostAddIcon)`
 `;
 //
 export const ProfilePage = styled.div`
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -34,7 +33,7 @@ export const ProfilePage = styled.div`
 `;
 
 export const ProfileMainDiv = styled.div`
-  height: 100%;
+  height: auto;
   width: 50%;
 `;
 export const ProfileUserBannerDiv = styled.div`
@@ -119,6 +118,7 @@ export const AboutDropDownDiv = styled.div`
   justify-content: flex-start;
 `;
 export const RecentActivityDiv = styled.div`
+  width: 100%;
   background-color: white;
   border-radius: 15px;
   border: 1px solid #d6e4e5;

@@ -8,6 +8,7 @@ import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import Location from "../components/Location";
 import Education from "../components/Education";
 import Occupation from "../components/Occupation";
+import LoadingSpinner from "../components/LoadingSpinner";
 import {
   ProfilePage,
   ProfileMainDiv,
@@ -37,6 +38,7 @@ const Profile = () => {
   const [userPosts, setUserPosts] = useState([]);
   const [likedPosts, setlikedPosts] = useState([]);
   const [showAboutSection, setShowAboutSection] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { user, isLoggedIn } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -51,6 +53,7 @@ const Profile = () => {
 
       console.log(response.data);
       await dispatch(isUpdatedTrue());
+      await setIsLoading(false);
       await userPosts.sort(
         (x, y) => +new Date(y.createdAt) - +new Date(x.createdAt)
       );
@@ -65,76 +68,82 @@ const Profile = () => {
 
   return (
     <ProfilePage>
-      {errorMessage && <p>{errorMessage}</p>}
-      {profileUser && (
-        <ProfileMainDiv>
-          <ProfileUserBannerDiv>
-            <ProfileUserBannerInnerDiv>
-              <ProfileImage src={profileUser.imageUrl} alt="profile pic" />
-              <BannerFollowDiv>
-                <p>{profileUser.followers.length} followers</p>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          {profileUser && (
+            <ProfileMainDiv>
+              <ProfileUserBannerDiv>
+                <ProfileUserBannerInnerDiv>
+                  <ProfileImage src={profileUser.imageUrl} alt="profile pic" />
+                  <BannerFollowDiv>
+                    <p>{profileUser.followers.length} followers</p>
 
-                <p>{profileUser.following.length} following</p>
-              </BannerFollowDiv>
-            </ProfileUserBannerInnerDiv>
-            <h2>{profileUser.name}</h2>
-          </ProfileUserBannerDiv>
-          <AboutDiv>
-            <h4>About</h4>
-            {user._id === userId && !profileUser.about ? (
-              <p>Complete your about section in the settings!</p>
-            ) : (
-              <p>{profileUser.about}</p>
-            )}
-            {showAboutSection && (
-              <AboutInnerDiv>
-                <AboutInnerDivComponents>
-                  {profileUser.location && (
-                    <Location location={profileUser.location} />
-                  )}
-                  {profileUser.education && (
-                    <Education education={profileUser.education} />
-                  )}
-                  {profileUser.occupation && (
-                    <Occupation occupation={profileUser.occupation} />
-                  )}
-                </AboutInnerDivComponents>
-                {((user._id === userId && !profileUser.occupation) ||
-                  (user._id === userId && !profileUser.education) ||
-                  (user._id === userId && !profileUser.location)) && (
-                  <AddAboutInfoDiv>
-                    <Link to={`/edit/${userId}`} className="nav-link">
-                      <AddAboutInfoIcon />
-                    </Link>
-                  </AddAboutInfoDiv>
+                    <p>{profileUser.following.length} following</p>
+                  </BannerFollowDiv>
+                </ProfileUserBannerInnerDiv>
+                <h2>{profileUser.name}</h2>
+              </ProfileUserBannerDiv>
+              <AboutDiv>
+                <h4>About</h4>
+                {user._id === userId && !profileUser.about ? (
+                  <p>Complete your about section in the settings!</p>
+                ) : (
+                  <p>{profileUser.about}</p>
                 )}
-              </AboutInnerDiv>
-            )}
-            <AboutDropDownDiv>
-              <AboutDropDownButton
-                onClick={() => {
-                  setShowAboutSection(!showAboutSection);
-                }}
-              >
-                {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
-              </AboutDropDownButton>
-            </AboutDropDownDiv>
-          </AboutDiv>
-          <RecentActivityDiv>
-            <h4>Recent activity</h4>
-            <ActivityPostsDiv>
-              {userPosts.length > 0 && (
-                <div>
-                  <p>{profileUser.name} posted this</p>
-                  <Post post={userPosts[0]} />
-                </div>
-              )}
-            </ActivityPostsDiv>
+                {showAboutSection && (
+                  <AboutInnerDiv>
+                    <AboutInnerDivComponents>
+                      {profileUser.location && (
+                        <Location location={profileUser.location} />
+                      )}
+                      {profileUser.education && (
+                        <Education education={profileUser.education} />
+                      )}
+                      {profileUser.occupation && (
+                        <Occupation occupation={profileUser.occupation} />
+                      )}
+                    </AboutInnerDivComponents>
+                    {((user._id === userId && !profileUser.occupation) ||
+                      (user._id === userId && !profileUser.education) ||
+                      (user._id === userId && !profileUser.location)) && (
+                      <AddAboutInfoDiv>
+                        <Link to={`/edit/${userId}`} className="nav-link">
+                          <AddAboutInfoIcon />
+                        </Link>
+                      </AddAboutInfoDiv>
+                    )}
+                  </AboutInnerDiv>
+                )}
+                <AboutDropDownDiv>
+                  <AboutDropDownButton
+                    onClick={() => {
+                      setShowAboutSection(!showAboutSection);
+                    }}
+                  >
+                    {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
+                  </AboutDropDownButton>
+                </AboutDropDownDiv>
+              </AboutDiv>
+              <RecentActivityDiv>
+                <h4>Recent activity</h4>
+                <ActivityPostsDiv>
+                  {userPosts.length > 0 && (
+                    <div>
+                      <p>{profileUser.name} posted this</p>
+                      <Post post={userPosts[0]} />
+                    </div>
+                  )}
+                </ActivityPostsDiv>
 
-            <Link to={`/in/${user._id}/activity`}>Check full activity</Link>
-          </RecentActivityDiv>
-        </ProfileMainDiv>
+                <Link to={`/in/${user._id}/activity`}>Check full activity</Link>
+              </RecentActivityDiv>
+            </ProfileMainDiv>
+          )}
+        </>
       )}
+      {errorMessage && <p>{errorMessage}</p>}
     </ProfilePage>
   );
 };
