@@ -106,16 +106,18 @@ const Post = (props) => {
   };
 
   const checkIfFollows = async () => {
-    const response = await axios.get(
-      `${process.env.REACT_APP_API_URL}/in/${user._id}`
-    );
+    if (isLoggedIn) {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/in/${user._id}`
+      );
 
-    const currentUser = await response.data;
+      const currentUser = await response.data;
 
-    if (currentUser.following.includes(followUserId)) {
-      setIsFollowing(true);
-    } else {
-      setIsFollowing(false);
+      if (currentUser.following.includes(followUserId)) {
+        setIsFollowing(true);
+      } else {
+        setIsFollowing(false);
+      }
     }
   };
   /*  const scrollToCreatedComment = () => {
