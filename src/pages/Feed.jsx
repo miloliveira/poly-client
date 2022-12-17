@@ -18,7 +18,7 @@ const Feed = () => {
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [allPosts, setAllPosts] = useState([]);
-
+  const [windowSize, setWindowSize] = useState(getWindowSize());
   const { isLoggedIn, user } = useContext(AuthContext);
 
   const getPosts = async () => {
@@ -38,8 +38,22 @@ const Feed = () => {
   allPosts.sort((x, y) => +new Date(y.createdAt) - +new Date(x.createdAt));
   //console.log("this is it", allPosts);
 
+  //tracking window innerWidth
+  function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
+  }
+
   useEffect(() => {
     getPosts();
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
   }, [isUpdatedGlobal]);
 
   return (
@@ -50,6 +64,7 @@ const Feed = () => {
           <p>This is the left side content</p>
           <p>bla bla bla</p>
         </FeedLeftContentDiv>
+
         <FeedMainContentDiv>
           {isLoggedIn && <CreatePost userId={user._id} />}
 
