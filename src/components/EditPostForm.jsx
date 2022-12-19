@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import service from "../api/service";
 import {
   EditPostContentForm,
   EditPostFormInnerDiv,
@@ -11,14 +12,42 @@ const EditPostForm = (props) => {
   const { postId, content, setEditing } = props;
   const dispatch = useDispatch();
 
+  const [isUploading, setIsUploading] = useState(false);
   const [updatedContent, setUpdatedContent] = useState("");
+  const [imageUrl, setimageUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const getToken = localStorage.getItem("authToken");
+
+  const handleFileUpload = (e) => {
+    const uploadData = new FormData();
+    setIsUploading(true);
+
+    uploadData.append("imageUrl", e.target.files[0]);
+    console.log("bla");
+    service
+      .uploadImage(uploadData)
+      .then((response) => {
+        setIsUploading(false);
+        console.log("this is the response of upploading", response);
+        setimageUrl(response.fileUrl);
+      })
+      .catch((error) => console.log(error));
+  };
 
   const handleEditPost = async (e) => {
     try {
       e.preventDefault();
-      const body = await { content: updatedContent };
+      if (isUploading) {
+        alert("Image still upploading");
+        return;
+      }
+      let body;
+
+      if (imageUrl) {
+        body = await { content: updatedContent, imageUrl };
+      } else {
+        body = await { content: updatedContent };
+      }
       await axios.put(
         `${process.env.REACT_APP_API_URL}/post-update/${postId}`,
         body,
@@ -29,6 +58,7 @@ const EditPostForm = (props) => {
         }
       );
       console.log("the post was updated");
+
       await setErrorMessage("");
       await dispatch(isUpdatedFalse());
       await setEditing(false);
@@ -38,6 +68,7 @@ const EditPostForm = (props) => {
   };
   useEffect(() => {
     setUpdatedContent(content);
+    setimageUrl(imageUrl);
   }, []);
   return (
     <EditPostContentForm onSubmit={handleEditPost}>
@@ -46,6 +77,11 @@ const EditPostForm = (props) => {
         onChange={(e) => {
           setUpdatedContent(e.target.value);
         }}
+      />
+      <input
+        type="file"
+        name="imageUrl"
+        onChange={(e) => handleFileUpload(e)}
       />
       {errorMessage && <p>{errorMessage}</p>}
       <EditPostFormInnerDiv>

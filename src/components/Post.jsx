@@ -162,6 +162,7 @@ const Post = (props) => {
         <EditPostForm
           postId={post._id}
           content={post.content}
+          imageUrl={post.imageUrl}
           setEditing={setEditing}
         />
       ) : (
