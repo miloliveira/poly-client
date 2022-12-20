@@ -75,6 +75,8 @@ export const BannerFollowDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  width: 170px;
   @media screen and (max-width: 700px) {
     flex-direction: column;
     justify-content: center;
@@ -86,6 +88,7 @@ export const BannerFollowDiv = styled.div`
   p {
     margin: 0;
     font-weight: bold;
+    color: #497174;
   }
 `;
 export const ProfileImage = styled.img`
