@@ -35,12 +35,24 @@ export const FeedPageDiv = styled.div`
   flex-direction: row;
   justify-content: center;
   padding-top: 30px;
+  width: 100%;
 `;
 export const FeedContentDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 60%;
+  width: 70%;
+  @media screen and (max-width: 1200px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+  }
 `;
 
 export const FeedLeftContentDiv = styled.div`
@@ -51,7 +63,18 @@ export const FeedMainContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
+  width: 70%;
+  @media screen and (max-width: 1200px) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+  }
 `;
 
 export const CreatePostDiv = styled.div`
@@ -119,7 +142,6 @@ export const FeedPostList = styled.div`
   background-color: #eff5f5;
   width: 100%;
   height: auto;
-  padding-bottom: 20px;
 `;
 
 export const PostFromFeedList = styled.div`
@@ -139,6 +161,7 @@ export const PostInfoDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-size: 0.9rem;
   button {
     background-color: #eff5f5;
     color: #497174;
@@ -147,6 +170,7 @@ export const PostInfoDiv = styled.div`
 `;
 export const FollowBtnString = styled.p`
   margin: 0;
+  font-weight: bold;
 `;
 export const PostUserInfoDiv = styled.div`
   display: flex;
@@ -204,24 +228,28 @@ export const PostUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
   width: auto;
-  height: 40px;
+  height: 50px;
   text-decoration: none;
-
   align-items: center;
   color: black;
+`;
+
+export const NameAndTimeAgoDiv = styled.div`
+  margin: 0px 10px;
+  text-decoration: none;
+  color: black;
+
   p {
-    position: relative;
-    margin: 0px 10px;
-    text-decoration: none;
-    color: black;
+    margin: 0px;
     width: auto;
-    text-align: center;
+    text-align: left;
     font-weight: bold;
   }
 `;
+
 export const PostUserImg = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 15px;
   object-fit: cover;
   object-position: 20% 10%;
@@ -260,9 +288,11 @@ export const EachPostReactionsDiv = styled.div`
 `;
 export const NumberOfCommentsP = styled.p`
   margin-right: 10px;
+  font-size: 0.9rem;
 `;
 export const NumberOfLikesP = styled.p`
   margin-left: 10px;
+  font-size: 0.9rem;
 `;
 
 export const EachPostButtonsDiv = styled.div`
@@ -293,9 +323,7 @@ export const CreateCommentForm = styled.form`
   textarea {
     width: 90%;
     height: 40px;
-
     background-color: white;
-
     border: 1px solid #d6e4e5;
     border-radius: 25px;
     padding: 10px 20px 0px 20px;
@@ -310,9 +338,7 @@ export const CreateCommentForm = styled.form`
   }
   button {
     background-color: white;
-
     border: none;
-
     margin-top: 5px;
   }
 `;
@@ -329,6 +355,7 @@ export const ViewCommentsList = styled.div`
 `;
 export const CommentsListInnerDiv = styled.div`
   width: 85%;
+  height: auto;
   display: flex;
   flex-direction: column;
 `;
@@ -341,7 +368,7 @@ export const EachCommentFromFeed = styled.div`
   background-color: #eff5f5;
   border-radius: 10px;
   padding-top: 10px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 export const CommentInfoDiv = styled.div`
   display: flex;
@@ -474,6 +501,18 @@ export const EditPostContentForm = styled.form`
   textarea::-webkit-scrollbar {
     display: none;
   }
+  input {
+    cursor: pointer;
+    width: 100%;
+  }
+
+  input::file-selector-button {
+    color: #497174;
+    background-color: #eff5f5;
+    border: 1px solid #d6e4e5;
+    border-radius: 15px;
+    cursor: pointer;
+  }
 `;
 
 export const EditPostFormInnerDiv = styled.div`
@@ -481,11 +520,12 @@ export const EditPostFormInnerDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin-top: 5px;
+
   button {
     border: none;
     background-color: #497174;
     color: white;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 1px 5px;
   }
 `;

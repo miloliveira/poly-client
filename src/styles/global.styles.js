@@ -9,7 +9,7 @@ box-sizing:border-box
 
 body {
     font-family: 'Nunito', sans-serif;
-    font-size:14px;
+    font-size:1rem;
     background-color: #EFF5F5;
 }
 

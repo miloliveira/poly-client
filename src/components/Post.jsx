@@ -16,6 +16,7 @@ import {
   PostUserInfoDiv,
   PostUserInfoLink,
   PostUserImg,
+  NameAndTimeAgoDiv,
   EachPostContentDiv,
   PostContent,
   PostImage,
@@ -139,9 +140,11 @@ const Post = (props) => {
         <PostUserInfoDiv>
           <PostUserInfoLink to={`/in/${post.user._id}`}>
             <PostUserImg src={post.user.imageUrl} alt="profile pic" />
-            <p>{post.user.name}</p>
+            <NameAndTimeAgoDiv>
+              <p>{post.user.name}</p>
+              <ReactTimeAgo date={createdAt} locale="en-US" />
+            </NameAndTimeAgoDiv>
           </PostUserInfoLink>
-          <ReactTimeAgo date={createdAt} locale="en-US" />
         </PostUserInfoDiv>
         {isLoggedIn && user._id !== post.user._id && (
           <button onClick={() => handleFollow()}>
