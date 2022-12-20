@@ -5,7 +5,9 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
 import PostAddIcon from "@mui/icons-material/PostAdd";
+
 //icons
+
 export const DropDownIcon = styled(ArrowDropDownIcon)`
   color: #497174;
 `;
@@ -34,7 +36,18 @@ export const ProfilePage = styled.div`
 
 export const ProfileMainDiv = styled.div`
   height: auto;
-  width: 50%;
+  width: 60%;
+  @media screen and (max-width: 1200px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+  }
 `;
 export const ProfileUserBannerDiv = styled.div`
   background-color: white;
@@ -44,10 +57,13 @@ export const ProfileUserBannerDiv = styled.div`
   flex-direction: column;
   margin-top: 10px;
   margin-bottom: 10px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   border-radius: 15px;
   border: 1px solid #d6e4e5;
-  padding: 0px 20px;
+  padding: 20px 20px;
+  h2 {
+    margin: 0;
+  }
 `;
 export const ProfileUserBannerInnerDiv = styled.div`
   width: 100%;
@@ -59,18 +75,43 @@ export const BannerFollowDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+    justify-content: center;
+  }
 
+  @media screen and (max-width: 400px) {
+    flex-direction: column;
+  }
   p {
     margin: 0;
+    font-weight: bold;
   }
 `;
 export const ProfileImage = styled.img`
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
+  width: 130px;
+  height: 130px;
+  border-radius: 130px;
   object-fit: cover;
   object-position: 20% 10%;
-  border-radius: 100px;
+
+  @media screen and (max-width: 1200px) {
+    width: 130px;
+    height: 130px;
+    border-radius: 130px;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 120px;
+    height: 120px;
+    border-radius: 120px;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+  }
 `;
 export const AboutDiv = styled.div`
   background-color: white;
