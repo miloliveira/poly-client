@@ -85,8 +85,8 @@ const Profile = () => {
                 </ProfileUserBannerInnerDiv>
                 <h2>{profileUser.name}</h2>
               </ProfileUserBannerDiv>
-              {(userId === user._id ||
-                profileUser.about ||
+              {(user && userId === user._id ||
+                user && profileUser.about ||
                 profileUser.occupation ||
                 profileUser.occupation ||
                 profileUser.occupation) && (
@@ -149,7 +149,7 @@ const Profile = () => {
                   )}
                 </ActivityPostsDiv>
 
-                <Link to={`/in/${user._id}/activity`}>Check full activity</Link>
+               {/*  <Link to={`/in/${user._id}/activity`}>Check full activity</Link> */}
               </RecentActivityDiv>
             </ProfileMainDiv>
           )}
