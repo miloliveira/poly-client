@@ -34,7 +34,7 @@ export const FeedPageDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 30px;
+
   width: 100%;
 `;
 export const FeedContentDiv = styled.div`
@@ -80,6 +80,7 @@ export const FeedMainContentDiv = styled.div`
 export const CreatePostDiv = styled.div`
   display: flex;
   width: 100%;
+  margin-top: 30px;
 `;
 
 export const CreatePostUserImg = styled.img`
