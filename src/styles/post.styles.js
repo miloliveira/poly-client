@@ -99,14 +99,14 @@ export const CreatePostForm = styled.form`
   width: 100%;
   textarea {
     width: 100%;
-    height: 50px;
+    height: 40px;
     border: 1px solid #d6e4e5;
     border-radius: 25px;
     background-color: white;
     padding: 10px 20px 0px 20px;
-
     outline: none;
     resize: none;
+    font-size: 0.9rem;
   }
   textarea::-webkit-scrollbar {
     display: none;
@@ -114,6 +114,7 @@ export const CreatePostForm = styled.form`
   input {
     cursor: pointer;
     width: 100%;
+    font-size: 0.8rem;
   }
 
   input::file-selector-button {
@@ -380,7 +381,11 @@ export const EachCommentFromFeed = styled.div`
 export const CommentInfoDiv = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: space-between;
+
+  min-height: 30px;
+  width: 100%;
 `;
 export const CommentUserInfoDiv = styled.div`
   display: flex;
@@ -422,9 +427,10 @@ export const AboveContentCommentPopup = styled.div`
 export const CommentUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   width: auto;
-  height: 30px;
+  min-height: 30px;
   text-decoration: none;
   padding: 0;
   p {
@@ -437,7 +443,11 @@ export const CommentUserInfoLink = styled(Link)`
     font-size: 0.8rem;
   }
 `;
-
+export const CommentUserInfoLinkInnerDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 export const CommentUserImg = styled.img`
   width: 25px;
   height: 25px;

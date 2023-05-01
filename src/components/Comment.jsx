@@ -7,6 +7,7 @@ import {
   CommentInfoDiv,
   CommentUserInfoDiv,
   CommentUserInfoLink,
+  CommentUserInfoLinkInnerDiv,
   CommentUserImg,
   EachCommentContent,
   ReactTimeAgoDiv,
@@ -26,8 +27,10 @@ const Comment = (props) => {
       <CommentInfoDiv>
         <CommentUserInfoDiv>
           <CommentUserInfoLink to={`/in/${comment.user._id}`}>
+            <CommentUserInfoLinkInnerDiv>
             <CommentUserImg src={comment.user.imageUrl} alt="profile pic" />
             <p> {comment.user.name}</p>
+            </CommentUserInfoLinkInnerDiv>
             <ReactTimeAgoDiv>
               <ReactTimeAgo date={createdAt} locale="en-US" />
             </ReactTimeAgoDiv>

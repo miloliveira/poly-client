@@ -59,13 +59,13 @@ const Feed = () => {
   return (
     <FeedPageDiv>
       <FeedContentDiv>
-        {windowSize.innerWidth > 1200 && (
+        {/* {windowSize.innerWidth > 1200 && (
           <FeedLeftContentDiv>
             <p>Hello</p>
             <p>This is the left side content</p>
             <p>bla bla bla</p>
           </FeedLeftContentDiv>
-        )}
+        )} */}
 
         <FeedMainContentDiv>
           {isLoggedIn && <CreatePost userId={user._id} />}
