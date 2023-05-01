@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
 import CreatePost from "../components/CreatePost";
+import LoadingSpinner from "../components/LoadingSpinner";
 import { AuthContext } from "../context/auth.context";
 import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +19,8 @@ const Feed = () => {
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [allPosts, setAllPosts] = useState([]);
-  const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [isLoading, setIsLoading] = useState(true);
+  /* const [windowSize, setWindowSize] = useState(getWindowSize()); */
   const { isLoggedIn, user } = useContext(AuthContext);
 
   const getPosts = async () => {
@@ -27,6 +29,7 @@ const Feed = () => {
         `${process.env.REACT_APP_API_URL}/posts`
       );
       await setAllPosts(response.data);
+      setIsLoading(false);
       dispatch(isUpdatedTrue());
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
@@ -39,27 +42,30 @@ const Feed = () => {
   //console.log("this is it", allPosts);
 
   //tracking window innerWidth
-  function getWindowSize() {
+  /* function getWindowSize() {
     const { innerWidth, innerHeight } = window;
     return { innerWidth, innerHeight };
-  }
+  } */
 
   useEffect(() => {
     getPosts();
-    function handleWindowResize() {
+    /*  function handleWindowResize() {
       setWindowSize(getWindowSize());
     }
 
     window.addEventListener("resize", handleWindowResize);
     return () => {
       window.removeEventListener("resize", handleWindowResize);
-    };
+    }; */
   }, [isUpdatedGlobal]);
 
   return (
     <FeedPageDiv>
-      <FeedContentDiv>
-        {/* {windowSize.innerWidth > 1200 && (
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <FeedContentDiv>
+          {/* {windowSize.innerWidth > 1200 && (
           <FeedLeftContentDiv>
             <p>Hello</p>
             <p>This is the left side content</p>
@@ -67,17 +73,18 @@ const Feed = () => {
           </FeedLeftContentDiv>
         )} */}
 
-        <FeedMainContentDiv>
-          {isLoggedIn && <CreatePost userId={user._id} />}
+          <FeedMainContentDiv>
+            {isLoggedIn && <CreatePost userId={user._id} />}
 
-          <FeedPostList>
-            {allPosts &&
-              allPosts.map((post) => {
-                return <Post key={post._id} post={post} />;
-              })}
-          </FeedPostList>
-        </FeedMainContentDiv>
-      </FeedContentDiv>
+            <FeedPostList>
+              {allPosts &&
+                allPosts.map((post) => {
+                  return <Post key={post._id} post={post} />;
+                })}
+            </FeedPostList>
+          </FeedMainContentDiv>
+        </FeedContentDiv>
+      )}
       {errorMessage && <p>{errorMessage}</p>}
     </FeedPageDiv>
   );

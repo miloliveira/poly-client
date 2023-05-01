@@ -79,22 +79,14 @@ const CreatePost = (props) => {
     }
   };
 
+  const getUser = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/in/${userId}`
+    );
+    setCurrentUser(response.data);
+  };
   useEffect(() => {
-    let isMounted = true;
-
-    const getUser = async () => {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/in/${userId}`)
-        .then((response) => {
-          if (isMounted) {
-            setCurrentUser(response.data);
-          }
-        });
-    };
     getUser();
-    return () => {
-      isMounted = false;
-    };
   }, []);
 
   return (
