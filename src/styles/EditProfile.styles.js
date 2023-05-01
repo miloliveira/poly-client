@@ -21,6 +21,7 @@ export const EditProfileForm = styled.form`
     border: 1px solid #d6e4e5;
     outline: none;
   }
+
   button {
     margin-bottom: 10px;
     background-color: #497174;
@@ -41,6 +42,25 @@ export const EditProfileForm = styled.form`
     border-radius: 100px;
   }
 `;
+
+export const InputProfilePicDiv = styled.div`
+  input {
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d6e4e5;
+    outline: none;
+    padding: 0;
+  }
+
+  input::file-selector-button {
+    color: #497174;
+    background-color: #eff5f5;
+    border: 1px solid #d6e4e5;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+`;
+
 export const DeleteProfileButton = styled.button`
   background-color: #eb6440;
   color: white;

@@ -6,6 +6,7 @@ import service from "../api/service";
 import {
   EditProfilePage,
   EditProfileForm,
+  InputProfilePicDiv,
   DeleteProfileButton,
 } from "../styles/EditProfile.styles";
 const ProfileSettings = () => {
@@ -120,7 +121,7 @@ const ProfileSettings = () => {
     <EditProfilePage>
       <EditProfileForm onSubmit={handleProfileEdit}>
         <h4>Edit your profile information</h4>
-        <div>
+        <InputProfilePicDiv>
           <input
             type="file"
             name="imageUrl"
@@ -132,7 +133,7 @@ const ProfileSettings = () => {
               <img src={imageUrl} alt="profile pic" />
             </>
           )}
-        </div>
+        </InputProfilePicDiv>
         <label>Name</label>
         <input
           type="text"
