@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import service from "../api/service";
 const Testing = () => {
   const [fileInputState, setFileInputState] = useState("");
   const [selectedFile, setSelectedFile] = useState("");
@@ -40,14 +39,14 @@ const Testing = () => {
 
   return (
     <div>
-      <p>upload</p>
+      {/* <p>upload</p>
       <form onSubmit={handleSubmitFile}>
         <input type="file" onChange={handleFileUpload} value={fileInputState} />
         <button type="submit">upload</button>
       </form>
       {previewSource && (
         <img src={previewSource} alt="chosen pic" style={{ width: "300px" }} />
-      )}
+      )} */}
     </div>
   );
 };
