@@ -17,6 +17,7 @@ import {
   PostUserInfoLink,
   PostUserImg,
   NameAndTimeAgoDiv,
+  ReactTimeAgoDiv,
   EachPostContentDiv,
   PostContent,
   PostImage,
@@ -142,7 +143,9 @@ const Post = (props) => {
             <PostUserImg src={post.user.imageUrl} alt="profile pic" />
             <NameAndTimeAgoDiv>
               <p>{post.user.name}</p>
-              <ReactTimeAgo date={createdAt} locale="en-US" />
+              <ReactTimeAgoDiv>
+                <ReactTimeAgo date={createdAt} locale="en-US" />
+              </ReactTimeAgoDiv>
             </NameAndTimeAgoDiv>
           </PostUserInfoLink>
         </PostUserInfoDiv>

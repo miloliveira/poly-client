@@ -246,6 +246,11 @@ export const NameAndTimeAgoDiv = styled.div`
     font-weight: bold;
   }
 `;
+export const ReactTimeAgoDiv = styled.div`
+  margin: 0;
+  font-size: 0.7rem;
+  color: black;
+`;
 
 export const PostUserImg = styled.img`
   width: 40px;
@@ -271,6 +276,7 @@ export const PostContent = styled.p`
   height: auto;
   background-color: white;
   word-wrap: break-word;
+  font-size: 1rem;
 `;
 export const PostImage = styled.img`
   max-width: 100%;
@@ -288,11 +294,11 @@ export const EachPostReactionsDiv = styled.div`
 `;
 export const NumberOfCommentsP = styled.p`
   margin-right: 10px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 `;
 export const NumberOfLikesP = styled.p`
   margin-left: 10px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 `;
 
 export const EachPostButtonsDiv = styled.div`
@@ -329,6 +335,7 @@ export const CreateCommentForm = styled.form`
     padding: 10px 20px 0px 20px;
     outline: none;
     resize: none;
+    font-size: 0.9rem;
   }
   textarea::-webkit-scrollbar {
     display: none;
@@ -367,7 +374,7 @@ export const EachCommentFromFeed = styled.div`
   height: auto;
   background-color: #eff5f5;
   border-radius: 10px;
-  padding-top: 10px;
+  padding-top: 5px;
   margin-bottom: 10px;
 `;
 export const CommentInfoDiv = styled.div`
@@ -382,11 +389,12 @@ export const CommentUserInfoDiv = styled.div`
   width: auto;
   background-color: #eff5f5;
   padding-left: 10px;
+  font-size: 0.9rem;
 `;
 //Comment Popup component
 export const CommentPopupDiv = styled.div`
   position: relative;
-  margin-right: 20px;
+  margin-right: 10px;
   button {
     border: none;
   }
@@ -414,8 +422,9 @@ export const AboveContentCommentPopup = styled.div`
 export const CommentUserInfoLink = styled(Link)`
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: auto;
-  height: 25px;
+  height: 30px;
   text-decoration: none;
   padding: 0;
   p {
@@ -425,12 +434,13 @@ export const CommentUserInfoLink = styled(Link)`
     width: auto;
     text-align: center;
     font-weight: bold;
+    font-size: 0.8rem;
   }
 `;
 
 export const CommentUserImg = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 15px;
   object-fit: cover;
   object-position: 20% 10%;
@@ -443,6 +453,7 @@ export const EachCommentContent = styled.p`
   width: 100%;
   background-color: #eff5f5;
   word-wrap: break-word;
+  font-size: 0.9rem;
 `;
 //edit comments
 export const EditCommentContentForm = styled.form`

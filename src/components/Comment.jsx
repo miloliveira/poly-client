@@ -9,6 +9,8 @@ import {
   CommentUserInfoLink,
   CommentUserImg,
   EachCommentContent,
+  ReactTimeAgoDiv,
+  NameAndTimeAgoDiv,
 } from "../styles/post.styles";
 import EditCommentForm from "./EditCommentForm";
 
@@ -26,8 +28,10 @@ const Comment = (props) => {
           <CommentUserInfoLink to={`/in/${comment.user._id}`}>
             <CommentUserImg src={comment.user.imageUrl} alt="profile pic" />
             <p> {comment.user.name}</p>
+            <ReactTimeAgoDiv>
+              <ReactTimeAgo date={createdAt} locale="en-US" />
+            </ReactTimeAgoDiv>
           </CommentUserInfoLink>
-          <ReactTimeAgo date={createdAt} locale="en-US" />
         </CommentUserInfoDiv>
         {user && user._id == comment.user._id && (
           <CommentPopup
