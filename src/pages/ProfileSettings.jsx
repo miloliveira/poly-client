@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
+import LoadingSpinner from "../components/LoadingSpinner";
 import {
   EditProfilePage,
   EditProfileForm,
@@ -22,6 +23,7 @@ const ProfileSettings = () => {
   const [about, setAbout] = useState("");
   const [education, setEducation] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [isLoading, setIsLoading] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
   const getUser = () => {
     axios
@@ -35,6 +37,7 @@ const ProfileSettings = () => {
         setLocation(response.data.location);
         setUsername(response.data.username);
         setimageUrl(response.data.imageUrl);
+        setIsLoading(false);
       });
   };
 
@@ -119,83 +122,89 @@ const ProfileSettings = () => {
 
   return (
     <EditProfilePage>
-      <EditProfileForm onSubmit={handleProfileEdit}>
-        <h4>Edit your profile information</h4>
-        <InputProfilePicDiv>
-          <input
-            type="file"
-            name="imageUrl"
-            onChange={(e) => handleFileUpload(e)}
-          />
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <>
+          <EditProfileForm onSubmit={handleProfileEdit}>
+            <h4>Edit your profile information</h4>
+            <InputProfilePicDiv>
+              <input
+                type="file"
+                name="imageUrl"
+                onChange={(e) => handleFileUpload(e)}
+              />
 
-          {imageUrl && (
-            <>
-              <img src={imageUrl} alt="profile pic" />
-            </>
-          )}
-        </InputProfilePicDiv>
-        <label>Name</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
+              {imageUrl && (
+                <>
+                  <img src={imageUrl} alt="profile pic" />
+                </>
+              )}
+            </InputProfilePicDiv>
+            <label>Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
 
-        <label>Username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
+            <label>Username</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+            />
 
-        <label>About</label>
-        <input
-          type="text"
-          value={about}
-          onChange={(e) => {
-            setAbout(e.target.value);
-          }}
-        />
+            <label>About</label>
+            <input
+              type="text"
+              value={about}
+              onChange={(e) => {
+                setAbout(e.target.value);
+              }}
+            />
 
-        <label>Location</label>
-        <input
-          type="text"
-          value={location}
-          onChange={(e) => {
-            setLocation(e.target.value);
-          }}
-        />
+            <label>Location</label>
+            <input
+              type="text"
+              value={location}
+              onChange={(e) => {
+                setLocation(e.target.value);
+              }}
+            />
 
-        <label>Occupation</label>
-        <input
-          type="text"
-          value={occupation}
-          onChange={(e) => {
-            setOccupation(e.target.value);
-          }}
-        />
-        <label>Education</label>
-        <input
-          type="text"
-          value={education}
-          onChange={(e) => {
-            setEducation(e.target.value);
-          }}
-        />
+            <label>Occupation</label>
+            <input
+              type="text"
+              value={occupation}
+              onChange={(e) => {
+                setOccupation(e.target.value);
+              }}
+            />
+            <label>Education</label>
+            <input
+              type="text"
+              value={education}
+              onChange={(e) => {
+                setEducation(e.target.value);
+              }}
+            />
 
-        <button type="submit">Save changes</button>
-      </EditProfileForm>
-      <DeleteProfileButton
-        onClick={() => {
-          deleteUser(user._id);
-        }}
-      >
-        Delete profile
-      </DeleteProfileButton>
+            <button type="submit">Save changes</button>
+          </EditProfileForm>
+          <DeleteProfileButton
+            onClick={() => {
+              deleteUser(user._id);
+            }}
+          >
+            Delete profile
+          </DeleteProfileButton>
+        </>
+      )}
     </EditProfilePage>
   );
 };
