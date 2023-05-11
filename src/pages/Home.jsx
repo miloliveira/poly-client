@@ -20,16 +20,20 @@ const Home = () => {
             <HomePageShowLoginDiv>
               <Login />
               <HomePageInnerDiv>
-                <h5>Don't have an account yet? Register</h5>
-                <button onClick={() => setShowLoginToggle(false)}>here</button>
+                <h5>Don't have an account yet? </h5>
+                <button onClick={() => setShowLoginToggle(false)}>
+                  Register here
+                </button>
               </HomePageInnerDiv>
             </HomePageShowLoginDiv>
           ) : (
             <HomePageShowSignupDiv>
               <Signup setShowLoginToggle={setShowLoginToggle} />
               <HomePageInnerDiv>
-                <h5>Already have an account? Login</h5>
-                <button onClick={() => setShowLoginToggle(true)}>here</button>
+                <h5>Already have an account?</h5>
+                <button onClick={() => setShowLoginToggle(true)}>
+                  Login here
+                </button>
               </HomePageInnerDiv>
             </HomePageShowSignupDiv>
           )}

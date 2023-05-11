@@ -34,7 +34,7 @@ const Signup = (props) => {
 
   return (
     <SignupForm onSubmit={handleSubmit}>
-      <h5>Welcome! Create your account and join the community</h5>
+      <h4>Welcome! Create your account and join the community</h4>
       <label>Username</label>
       <input
         type="text"

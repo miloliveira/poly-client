@@ -10,6 +10,7 @@ export const LoginForm = styled.form`
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  width: 100%;
   input {
     border-radius: 10px;
     padding: 0px 5px;
@@ -47,6 +48,10 @@ export const SignupForm = styled.form`
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
+  h4 {
+    width: 80%;
+    text-align: center;
+  }
   input {
     border-radius: 10px;
     padding: 0px 5px;

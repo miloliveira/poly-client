@@ -9,6 +9,8 @@ export const HomePage = styled.div`
 `;
 
 export const HomePageShowLoginDiv = styled.div`
+  color: red;
+  width: 100%;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -25,13 +27,15 @@ export const HomePageShowSignupDiv = styled.div`
 export const HomePageInnerDiv = styled.div`
   margin-top: 20px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
   align-items: center;
   h5 {
     margin: 0;
   }
   button {
     margin-left: 5px;
+    margin-top: 5px;
     font-weight: bold;
     color: #497174;
     padding: 3px 10px;
