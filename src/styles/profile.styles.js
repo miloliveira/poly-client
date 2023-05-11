@@ -83,6 +83,7 @@ export const BannerFollowDiv = styled.div`
   }
 
   @media screen and (max-width: 400px) {
+    font-size: 0.9rem;
     flex-direction: column;
   }
   p {
@@ -123,6 +124,13 @@ export const AboutDiv = styled.div`
   padding: 10px;
   margin-bottom: 10px;
   width: 100%;
+  h4 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  p {
+    font-size: 0.9rem;
+  }
 `;
 export const AboutDropDownButton = styled.button`
   background-color: white;
@@ -167,5 +175,12 @@ export const RecentActivityDiv = styled.div`
   border-radius: 15px;
   border: 1px solid #d6e4e5;
   padding: 10px;
+  h4 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  p {
+    font-size: 0.9rem;
+  }
 `;
 export const ActivityPostsDiv = styled.div``;
