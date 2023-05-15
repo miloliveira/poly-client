@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
-import MenuIcon from "@mui/icons-material/Menu";
-import SendIcon from "@mui/icons-material/Send";
 
+import SendIcon from "@mui/icons-material/Send";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 //styled icons
 export const SendPostIcon = styled(SendIcon)`
   color: #497174;
 `;
 
-export const PostPopupIcon = styled(MenuIcon)`
+export const PostPopupIcon = styled(MoreHorizIcon)`
   color: #497174;
 `;
 
