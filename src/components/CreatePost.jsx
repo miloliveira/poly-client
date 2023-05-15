@@ -97,7 +97,7 @@ const CreatePost = (props) => {
 
       <CreatePostForm onSubmit={handleCreatePost}>
         <textarea
-          placeholder="What are you thinking?"
+          placeholder="Share your thoughts here:"
           value={content}
           name="imageUrl"
           onChange={(e) => {
