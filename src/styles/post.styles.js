@@ -4,6 +4,7 @@ import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import CheckIcon from "@mui/icons-material/Check";
+import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 //styled icons
@@ -20,6 +21,10 @@ export const CommentBtnIcon = styled(InsertCommentIcon)`
 `;
 
 export const FollowingCheckIcon = styled(CheckIcon)`
+  color: #497174;
+`;
+
+export const FollowAddIcon = styled(AddIcon)`
   color: #497174;
 `;
 
@@ -175,7 +180,7 @@ export const PostInfoDiv = styled.div`
   }
 `;
 
-export const FollowComponent = styled.div`
+export const FollowDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;

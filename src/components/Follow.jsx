@@ -1,7 +1,16 @@
 import React from "react";
-import { FollowBtnString } from "../styles/post.styles";
+import {
+  FollowDiv,
+  FollowAddIcon,
+  FollowBtnString,
+} from "../styles/post.styles";
 const Follow = () => {
-  return <FollowBtnString>follow</FollowBtnString>;
+  return (
+    <FollowDiv>
+      <FollowAddIcon />
+      <FollowBtnString>Follow</FollowBtnString>
+    </FollowDiv>
+  );
 };
 
 export default Follow;

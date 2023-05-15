@@ -1,16 +1,16 @@
 import React from "react";
 
 import {
-  FollowComponent,
+  FollowDiv,
   FollowBtnString,
   FollowingCheckIcon,
 } from "../styles/post.styles";
 const Unfollow = () => {
   return (
-    <FollowComponent>
+    <FollowDiv>
       <FollowingCheckIcon />
       <FollowBtnString>Following</FollowBtnString>
-    </FollowComponent>
+    </FollowDiv>
   );
 };
 
