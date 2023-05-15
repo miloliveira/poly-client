@@ -39,7 +39,7 @@ const CreateComment = (props) => {
     <CreateCommentForm onSubmit={handleCreateComment}>
       <textarea
         value={content}
-        placeholder="Leave your comment here:"
+        placeholder="Add a comment here:"
         onChange={(e) => {
           setContent(e.target.value);
         }}
