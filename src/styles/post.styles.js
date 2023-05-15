@@ -107,7 +107,7 @@ export const CreatePostForm = styled.form`
     padding: 10px 20px 0px 20px;
     outline: none;
     resize: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   textarea::-webkit-scrollbar {
     display: none;
@@ -273,12 +273,12 @@ export const EachPostContentDiv = styled.div`
 
 export const PostContent = styled.p`
   margin: 0px;
-  padding: 10px;
+  padding: 10px 15px;
   width: 100%;
   height: auto;
   background-color: white;
   word-wrap: break-word;
-  font-size: 1rem;
+  font-size: 0.9rem;
 `;
 export const PostImage = styled.img`
   max-width: 100%;
@@ -337,7 +337,7 @@ export const CreateCommentForm = styled.form`
     padding: 10px 20px 0px 20px;
     outline: none;
     resize: none;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
   textarea::-webkit-scrollbar {
     display: none;
@@ -459,7 +459,7 @@ export const CommentUserImg = styled.img`
 `;
 
 export const EachCommentContent = styled.p`
-  padding: 5px 20px;
+  padding: 5px 15px;
   min-height: 30px;
   width: 100%;
   background-color: #eff5f5;
@@ -476,11 +476,12 @@ export const EditCommentContentForm = styled.form`
     border-radius: 15px;
     width: 100%;
     min-height: 50px;
-    padding: 5px 20px;
+    padding: 5px 15px;
     background-color: white;
     border: 1px solid #d6e4e5;
     outline: none;
     resize: none;
+    font-size: 0.9rem;
   }
 
   textarea::-webkit-scrollbar {
@@ -512,12 +513,13 @@ export const EditPostContentForm = styled.form`
   textarea {
     height: 150px;
     width: 100%;
-    padding: 10px 20px;
+    padding: 10px 15px;
     background-color: white;
     border: 1px solid #d6e4e5;
     border-radius: 15px;
     outline: none;
     resize: none;
+    font-size: 0.9rem;
   }
 
   textarea::-webkit-scrollbar {
