@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
-
+import CheckIcon from "@mui/icons-material/Check";
 import SendIcon from "@mui/icons-material/Send";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 //styled icons
@@ -16,6 +16,10 @@ export const PostPopupIcon = styled(MoreHorizIcon)`
 `;
 
 export const CommentBtnIcon = styled(InsertCommentIcon)`
+  color: #497174;
+`;
+
+export const FollowingCheckIcon = styled(CheckIcon)`
   color: #497174;
 `;
 
@@ -170,9 +174,17 @@ export const PostInfoDiv = styled.div`
     border: none;
   }
 `;
+
+export const FollowComponent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const FollowBtnString = styled.p`
   margin: 0;
   font-weight: bold;
+  font-size: 0.9rem;
 `;
 export const PostUserInfoDiv = styled.div`
   display: flex;

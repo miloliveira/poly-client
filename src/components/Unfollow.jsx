@@ -1,7 +1,17 @@
 import React from "react";
-import { FollowBtnString } from "../styles/post.styles";
+
+import {
+  FollowComponent,
+  FollowBtnString,
+  FollowingCheckIcon,
+} from "../styles/post.styles";
 const Unfollow = () => {
-  return <FollowBtnString>unfollow</FollowBtnString>;
+  return (
+    <FollowComponent>
+      <FollowingCheckIcon />
+      <FollowBtnString>Following</FollowBtnString>
+    </FollowComponent>
+  );
 };
 
 export default Unfollow;
