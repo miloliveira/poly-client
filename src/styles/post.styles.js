@@ -297,6 +297,7 @@ export const EachPostReactionsDiv = styled.div`
 export const NumberOfCommentsP = styled.p`
   margin-right: 10px;
   font-size: 0.8rem;
+  cursor: pointer;
 `;
 export const NumberOfLikesP = styled.p`
   margin-left: 10px;
