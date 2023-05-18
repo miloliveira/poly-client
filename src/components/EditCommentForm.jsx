@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
 import {
   EditCommentContentForm,
   EditCommentFormInnerDiv,
 } from "../styles/post.styles";
 const EditCommentForm = (props) => {
   const { commentId, content, setEditing } = props;
-
   const dispatch = useDispatch();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-
   const [updatedContent, setUpdatedContent] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const getToken = localStorage.getItem("authToken");

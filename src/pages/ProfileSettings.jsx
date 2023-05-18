@@ -11,7 +11,7 @@ import {
   DeleteProfileButton,
 } from "../styles/EditProfile.styles";
 const ProfileSettings = () => {
-  const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser } = useContext(AuthContext);
   const { userId } = useParams();
   const navigate = useNavigate();
   const getToken = localStorage.getItem("authToken");

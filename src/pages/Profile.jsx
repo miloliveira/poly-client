@@ -4,7 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import Location from "../components/Location";
 import Education from "../components/Education";
 import Occupation from "../components/Occupation";
@@ -39,7 +39,7 @@ const Profile = () => {
   const [likedPosts, setlikedPosts] = useState([]);
   const [showAboutSection, setShowAboutSection] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const { user, isLoggedIn } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const getUser = async () => {

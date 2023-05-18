@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
 import service from "../api/service";
 import {
   EditPostContentForm,
@@ -11,7 +11,6 @@ import {
 const EditPostForm = (props) => {
   const { postId, content, setEditing } = props;
   const dispatch = useDispatch();
-
   const [isUploading, setIsUploading] = useState(false);
   const [updatedContent, setUpdatedContent] = useState("");
   const [imageUrl, setimageUrl] = useState("");

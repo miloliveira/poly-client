@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import Comment from "./Comment";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { ViewCommentsList, CommentsListInnerDiv } from "../styles/post.styles";
 
 const ViewComments = (props) => {

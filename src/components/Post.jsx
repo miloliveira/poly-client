@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import ReactTimeAgo from "react-time-ago";
 import ViewComments from "../components/ViewComments";
 import CreateComment from "../components/CreateComment";
@@ -32,7 +32,6 @@ import {
   TogleCommentBtn,
 } from "../styles/post.styles";
 const Post = (props) => {
-  const createdComment = useRef(null);
   const { post } = props;
   const [isLiked, setIsLiked] = useState(false);
   const [editing, setEditing] = useState(false);
@@ -122,13 +121,7 @@ const Post = (props) => {
       }
     }
   };
-  /*  const scrollToCreatedComment = () => {
-    createdComment.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "end",
-    });
-  }; */
+
   useEffect(() => {
     checkIfLiked();
     checkIfFollows();
@@ -212,13 +205,7 @@ const Post = (props) => {
             {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />}
           </LikeButton>
         )}
-        {/*  <button
-          onClick={() => {
-            scrollToCreatedComment();
-          }}
-        >
-          scroll
-        </button> */}
+
         {isLoggedIn && (
           <TogleCommentBtn
             onClick={() => {
