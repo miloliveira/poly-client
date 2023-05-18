@@ -61,6 +61,12 @@ const Signup = (props) => {
         }}
       />
       <button type="submit">Signup</button>
+      {errorMessage && (
+        <AuthErrorMessage>
+          <ErrorMessageIcon />
+          <p>{errorMessage}</p>
+        </AuthErrorMessage>
+      )}
       {/* <PasswordChecklist
         rules={["minLength", "number", "capital"]}
         minLength={6}
