@@ -30,14 +30,17 @@ export const LoginForm = styled.form`
 `;
 
 export const AuthErrorMessage = styled.div`
-  width: 500px;
+  max-width: 300px;
   height: auto;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+
   p {
-    margin: 0;
+    height: 100%;
+    margin-left: 10px;
+    font-size: 0.8rem;
+    text-align: center;
   }
 `;
 
