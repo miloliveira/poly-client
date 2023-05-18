@@ -46,7 +46,7 @@ const Login = () => {
       />
       <label>Password</label>
       <input
-        type="text"
+        type="password"
         value={password}
         placeholder="your password"
         onChange={(e) => {
