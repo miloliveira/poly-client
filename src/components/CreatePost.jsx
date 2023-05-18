@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import service from "../api/service";
-import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
 import {
   CreatePostDiv,
   CreatePostUserImg,
@@ -13,23 +12,19 @@ import {
 const CreatePost = (props) => {
   const imageInputRef = useRef();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-
   const dispatch = useDispatch();
   const [currentUser, setCurrentUser] = useState({});
   const [content, setContent] = useState("");
   const [imageUrl, setimageUrl] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { user, isLoggedIn } = useContext(AuthContext);
   const { userId } = props;
   const getToken = localStorage.getItem("authToken");
 
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
     setIsUploading(true);
-
     uploadData.append("imageUrl", e.target.files[0]);
-
     service
       .uploadImage(uploadData)
       .then((response) => {
