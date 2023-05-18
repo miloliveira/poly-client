@@ -9,7 +9,6 @@ export const HomePage = styled.div`
 `;
 
 export const HomePageShowLoginDiv = styled.div`
-  color: red;
   width: 100%;
   margin-top: 20px;
   display: flex;
