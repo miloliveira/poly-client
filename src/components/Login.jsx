@@ -8,7 +8,7 @@ import {
   ErrorMessageIcon,
 } from "../styles/auth.styles";
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [loginName, setLoginName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
-      const body = await { username, password };
+      const body = await { loginName, password };
 
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/login`,
@@ -35,13 +35,13 @@ const Login = () => {
   return (
     <LoginForm onSubmit={handleLogin}>
       <h5>Welcome back</h5>
-      <label>Username</label>
+      <label>Username or email address</label>
       <input
         type="text"
-        value={username}
+        value={loginName}
         placeholder="ex: john123"
         onChange={(e) => {
-          setUsername(e.target.value);
+          setLoginName(e.target.value);
         }}
       />
       <label>Password</label>
