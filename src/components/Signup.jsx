@@ -8,6 +8,7 @@ import {
 } from "../styles/auth.styles";
 const Signup = (props) => {
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -18,7 +19,7 @@ const Signup = (props) => {
     try {
       e.preventDefault();
 
-      const body = await { username, password, name };
+      const body = await { username, email, password, name };
 
       await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, body);
 
@@ -33,6 +34,16 @@ const Signup = (props) => {
   return (
     <SignupForm onSubmit={handleSubmit}>
       <h4>Welcome! Create your account and join the community</h4>
+
+      <label>Email</label>
+      <input
+        type="text"
+        value={email}
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+
       <label>Username</label>
       <input
         type="text"
