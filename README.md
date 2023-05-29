@@ -1,7 +1,7 @@
 ## "Soon to be named" App
 
 
-A "clone" of a social network application, where you can create, read, update and delete your content, and check and interact other people's too. 
+A clone of a social network application, where you can create, read, update and delete your content, and check and interact with other people's too. 
 
 
 ## Project Status :writing_hand:
@@ -10,7 +10,7 @@ This project is currently in development.
 
 At this moment, once logged in, the user is able to create, edit, like and comment the posts. The user can also check his/her profile, and other user's too. 
 
-If not logged in, the user is able to check the existing content, but cannot interact with it, or check user's profiles.
+If not logged in, the user is able to check the existing content, but cannot interact with it.
 
 
 ## Next to come :hourglass:
@@ -37,10 +37,8 @@ To Visit App:
   - What was the context for this project? 
     > This app is a side project of mine, developed in order to consolidate the knowledge I aquired during the WebDev Bootcamp at Ironhack.
   - What did I set out to build? 
-    > My goal is to create a functional social network, where people can interact with each other and check for interesting and relevant content. 
+    > My goal is to create a functional social network that allows people to interact with each other and check for interesting and relevant content. 
   - Why was this project challenging and therefore a really good learning experience?
     > I have been trying to implement interesting features and use other resources that I had never worked with before. 
-  - What were some unexpected obstacles?
-    >When you are working on a project all by yourself, fighting a stubborn bug can be overwhelming. But with a lot of patience and the help of Dr. Google, anything is possible. 
   - What tools did I use to implement this project? 
     >I used the Create-React-App command to set the baseline of the project; Also, I used Redux-toolkit to manage global state, and other NPM packages, such as Material UI, StyledComponents and React-Time-Ago. 
