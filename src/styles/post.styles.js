@@ -50,9 +50,9 @@ export const FeedContentDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 70%;
+  width: 55%;
   @media screen and (max-width: 1200px) {
-    width: 80%;
+    width: 65%;
   }
 
   @media screen and (max-width: 700px) {
@@ -72,9 +72,9 @@ export const FeedMainContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 50%;
   @media screen and (max-width: 1200px) {
-    width: 80%;
+    width: 65%;
   }
 
   @media screen and (max-width: 700px) {
@@ -190,6 +190,9 @@ export const FollowBtnString = styled.p`
   margin: 0;
   font-weight: bold;
   font-size: 0.9rem;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
+  }
 `;
 export const PostUserInfoDiv = styled.div`
   display: flex;
@@ -263,6 +266,9 @@ export const NameAndTimeAgoDiv = styled.div`
     width: auto;
     text-align: left;
     font-weight: bold;
+    @media screen and (max-width: 400px) {
+      font-size: 0.8rem;
+    }
   }
 `;
 export const ReactTimeAgoDiv = styled.div`
@@ -278,6 +284,10 @@ export const PostUserImg = styled.img`
   object-fit: cover;
   object-position: 20% 10%;
   border-radius: 100px;
+  @media screen and (max-width: 400px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 
 export const EachPostContentDiv = styled.div`
@@ -308,7 +318,7 @@ export const EachPostReactionsDiv = styled.div`
   justify-content: space-between;
   height: 30px;
   padding: 0px;
-  border-radius: 10px;
+  border-radius: 5px;
   border-bottom: 2px solid #eff5f5;
 `;
 export const NumberOfCommentsP = styled.p`
@@ -328,6 +338,7 @@ export const EachPostButtonsDiv = styled.div`
   padding: 10px 20px 10px 20px;
   margin: 0;
   background-color: white;
+  border-radius: 15px;
 `;
 export const LikeButton = styled.button`
   border: none;
@@ -379,6 +390,7 @@ export const ViewCommentsList = styled.div`
   background-color: white;
   align-items: space-around;
   border-radius: 10px;
+  border-bottom: 1px solid #d6e4e5;
 `;
 export const CommentsListInnerDiv = styled.div`
   width: 85%;

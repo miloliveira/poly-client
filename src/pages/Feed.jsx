@@ -46,18 +46,16 @@ const Feed = () => {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <FeedContentDiv>
-          <FeedMainContentDiv>
-            {isLoggedIn && <CreatePost userId={user._id} />}
+        <FeedMainContentDiv>
+          {isLoggedIn && <CreatePost userId={user._id} />}
 
-            <FeedPostList>
-              {allPosts &&
-                allPosts.map((post) => {
-                  return <Post key={post._id} post={post} />;
-                })}
-            </FeedPostList>
-          </FeedMainContentDiv>
-        </FeedContentDiv>
+          <FeedPostList>
+            {allPosts &&
+              allPosts.map((post) => {
+                return <Post key={post._id} post={post} />;
+              })}
+          </FeedPostList>
+        </FeedMainContentDiv>
       )}
       {errorMessage && <p>{errorMessage}</p>}
     </FeedPageDiv>
