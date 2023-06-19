@@ -36,9 +36,9 @@ export const ProfilePage = styled.div`
 
 export const ProfileMainDiv = styled.div`
   height: auto;
-  width: 60%;
+  width: 55%;
   @media screen and (max-width: 1200px) {
-    width: 75%;
+    width: 65%;
   }
 
   @media screen and (max-width: 700px) {
@@ -70,6 +70,7 @@ export const ProfileUserBannerInnerDiv = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  margin-bottom: 10px;
 `;
 export const BannerFollowDiv = styled.div`
   display: flex;
@@ -80,11 +81,13 @@ export const BannerFollowDiv = styled.div`
   @media screen and (max-width: 700px) {
     flex-direction: column;
     justify-content: center;
+    align-items: end;
   }
 
   @media screen and (max-width: 400px) {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     flex-direction: column;
+    align-items: end;
   }
   p {
     margin: 0;
