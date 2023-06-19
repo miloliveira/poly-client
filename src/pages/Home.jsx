@@ -28,7 +28,7 @@ const Home = () => {
             </HomePageShowLoginDiv>
           ) : (
             <HomePageShowSignupDiv>
-              <Signup setShowLoginToggle={setShowLoginToggle} />
+              <Signup />
               <HomePageInnerDiv>
                 <h5>Already have an account?</h5>
                 <button onClick={() => setShowLoginToggle(true)}>

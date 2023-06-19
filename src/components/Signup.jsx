@@ -1,18 +1,19 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
 import {
   SignupForm,
   ErrorMessageIcon,
   AuthErrorMessage,
 } from "../styles/auth.styles";
-const Signup = (props) => {
+const Signup = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { setShowLoginToggle } = props;
+  const { storeToken, authenticateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -21,9 +22,13 @@ const Signup = (props) => {
 
       const body = await { username, email, password, name };
 
-      await axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, body);
-
-      await setShowLoginToggle(true);
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/signup`,
+        body
+      );
+      await storeToken(response.data.authToken);
+      await authenticateUser();
+      await navigate("/");
       await setErrorMessage("");
       navigate("/");
     } catch (error) {
