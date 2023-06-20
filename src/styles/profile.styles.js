@@ -172,7 +172,7 @@ export const AboutDropDownDiv = styled.div`
   display: flex;
   justify-content: flex-start;
 `;
-export const RecentActivityDiv = styled.div`
+export const ActivityDiv = styled.div`
   width: 100%;
   background-color: white;
   border-radius: 15px;

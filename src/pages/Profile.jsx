@@ -8,6 +8,7 @@ import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import Location from "../components/Location";
 import Education from "../components/Education";
 import Occupation from "../components/Occupation";
+import UserActivityPosts from "../components/UserActivityPosts";
 import LoadingSpinner from "../components/LoadingSpinner";
 import {
   ProfilePage,
@@ -25,7 +26,7 @@ import {
   AboutDropDownButton,
   DropDownIcon,
   DropUpIcon,
-  RecentActivityDiv,
+  ActivityDiv,
   ActivityPostsDiv,
 } from "../styles/profile.styles";
 const Profile = () => {
@@ -41,7 +42,7 @@ const Profile = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
-
+  const [showActivity, setShowActivity] = useState(0);
   const getUser = async () => {
     try {
       const response = await axios.get(
@@ -61,6 +62,8 @@ const Profile = () => {
       setErrorMessage(error.response.data.errorMessage);
     }
   };
+
+  const showActivityFunction = async (activity) => {};
 
   useEffect(() => {
     getUser();
@@ -142,19 +145,46 @@ const Profile = () => {
                 </AboutDiv>
               )}
 
-              <RecentActivityDiv>
+              <ActivityDiv>
                 <h4>Recent activity</h4>
-                <ActivityPostsDiv>
+                <p
+                  onClick={(e) => {
+                    setShowActivity(0);
+                  }}
+                >
+                  posts
+                </p>
+                <p
+                  onClick={(e) => {
+                    setShowActivity(1);
+                  }}
+                >
+                  comments
+                </p>
+                <p
+                  onClick={(e) => {
+                    setShowActivity(2);
+                  }}
+                >
+                  likes
+                </p>
+                {showActivity === 0 ? (
+                  <UserActivityPosts />
+                ) : showActivity === 1 ? (
+                  <p>comments</p>
+                ) : (
+                  <p>likes</p>
+                )}
+
+                {/* <ActivityPostsDiv>
                   {userPosts.length > 0 && (
                     <div>
                       <p>{profileUser.name} posted this</p>
                       <Post post={userPosts[0]} />
                     </div>
                   )}
-                </ActivityPostsDiv>
-
-                {/*  <Link to={`/in/${user._id}/activity`}>Check full activity</Link> */}
-              </RecentActivityDiv>
+                </ActivityPostsDiv> */}
+              </ActivityDiv>
             </ProfileMainDiv>
           )}
         </>
