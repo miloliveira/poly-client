@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import CreatePost from "../components/CreatePost";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -11,6 +12,7 @@ import {
   FeedPostList,
   FeedContentDiv,
   FeedMainContentDiv,
+  HomeLink,
 } from "../styles/post.styles";
 
 const Feed = () => {
@@ -47,7 +49,14 @@ const Feed = () => {
         <LoadingSpinner />
       ) : (
         <FeedMainContentDiv>
-          {isLoggedIn && <CreatePost userId={user._id} />}
+          {isLoggedIn ? (
+            <CreatePost userId={user._id} />
+          ) : (
+            <h3>
+              Want to share your insights? Login to your account or join our
+              community <HomeLink to={`/`}>here</HomeLink>
+            </h3>
+          )}
 
           <FeedPostList>
             {allPosts &&

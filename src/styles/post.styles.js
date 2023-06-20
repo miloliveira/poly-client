@@ -46,7 +46,7 @@ export const FeedPageDiv = styled.div`
 
   width: 100%;
 `;
-export const FeedContentDiv = styled.div`
+/* export const FeedContentDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -63,11 +63,11 @@ export const FeedContentDiv = styled.div`
     width: 90%;
   }
 `;
-
-export const FeedLeftContentDiv = styled.div`
+ */
+/* export const FeedLeftContentDiv = styled.div`
   width: 20%;
   background-color: #d6e4e5;
-`;
+`; */
 export const FeedMainContentDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -83,6 +83,21 @@ export const FeedMainContentDiv = styled.div`
 
   @media screen and (max-width: 400px) {
     width: 90%;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: 30px;
+  }
+`;
+
+export const HomeLink = styled(Link)`
+  text-decoration: none;
+  color: #497174;
+
+  :hover {
+    color: #497174;
+    font-weight: bold;
   }
 `;
 
