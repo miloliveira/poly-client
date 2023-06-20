@@ -169,7 +169,7 @@ const Profile = () => {
                   likes
                 </p>
                 {showActivity === 0 ? (
-                  <UserActivityPosts />
+                  <UserActivityPosts userId={userId} />
                 ) : showActivity === 1 ? (
                   <p>comments</p>
                 ) : (
