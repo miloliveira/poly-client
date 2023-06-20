@@ -92,7 +92,7 @@ const Profile = () => {
                 profileUser.occupation) && (
                 <AboutDiv>
                   <h4>About</h4>
-                  {user._id === userId && !profileUser.about ? (
+                  {user && user._id === userId && !profileUser.about ? (
                     <p>Complete your about section in the settings!</p>
                   ) : (
                     <p>{profileUser.about}</p>
