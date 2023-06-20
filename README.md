@@ -8,18 +8,18 @@ A clone of a social network application, where you can create, read, update and 
 
 This project is currently in development. 
 
-At this moment, once logged in, the user is able to create, edit, like and comment the posts. The user can also check his/her profile, and other user's too. 
+At this moment, once logged in, the user is able to create, edit, like and comment the posts. The user can also check his/her profile and edit it, and check other user's too. 
 
-If not logged in, the user is able to check the existing content, but cannot interact with it.
+If not logged in, the user is able to check the existing content, but cannot interact with it. Also, the user can check some content of other user's profiles. 
 
 
 ## Next to come :hourglass:
-image uploading; user's recent activity; updating user profile; sharing content;
+user's post, like and comment activity; sharing content;
 
 
 ## Installation and Setup Instructions :computer_mouse:
 
-Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+Clone down this repository and the [server's repo](https://github.com/miloliveira/server) too. You will need `node` and `npm` installed globally on your machine.  
 
 Installation:
 
@@ -41,4 +41,4 @@ To Visit App:
   - Why was this project challenging and therefore a really good learning experience?
     > I have been trying to implement interesting features and use other resources that I had never worked with before. 
   - What tools did I use to implement this project? 
-    >I used the Create-React-App command to set the baseline of the project; Also, I used Redux-toolkit to manage global state, and other NPM packages, such as Material UI, StyledComponents and React-Time-Ago. 
+    >I used the Create-React-App command to set the baseline of the project; Also, I used Redux-toolkit to manage global state, and other NPM packages, such as Material UI, StyledComponents and React-Time-Ago. MongoDb was the chosen DB to work with.
