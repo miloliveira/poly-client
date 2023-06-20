@@ -142,12 +142,12 @@ const Post = (props) => {
             </NameAndTimeAgoDiv>
           </PostUserInfoLink>
         </PostUserInfoDiv>
-        {isLoggedIn && user._id !== post.user._id && (
+        {user && user._id !== post.user._id && (
           <button onClick={() => handleFollow()}>
             {isFollowing ? <Unfollow /> : <Follow />}
           </button>
         )}
-        {user && user._id == post.user._id && (
+        {user && user._id === post.user._id && (
           <PostPopup
             postId={post._id}
             editing={editing}
