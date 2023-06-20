@@ -4,13 +4,13 @@ import axios from "axios";
 import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
-const UserActivityPosts = () => {
+const UserActivityPosts = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 
   const dispatch = useDispatch();
   const [postActivity, setpostActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { userId } = useParams();
+  const { userId } = props;
   const getPostActivity = async () => {
     try {
       const response = await axios.get(
