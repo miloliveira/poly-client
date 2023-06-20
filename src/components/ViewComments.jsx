@@ -16,11 +16,12 @@ const ViewComments = (props) => {
       ) : (
         <>
           <CommentsListInnerDiv>
-            {listComments.map((el) => (
-              <>
-                <Comment comment={el} key={el._id} />
-              </>
-            ))}
+            {listComments &&
+              listComments.map((el) => (
+                <>
+                  <Comment comment={el} key={el._id} />
+                </>
+              ))}
           </CommentsListInnerDiv>
         </>
       )}
