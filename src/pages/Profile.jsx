@@ -78,7 +78,11 @@ const Profile = () => {
                 <ProfileUserBannerInnerDiv>
                   <ProfileImage src={profileUser.imageUrl} alt="profile pic" />
                   <BannerFollowDiv>
-                    <p>{profileUser.followers.length} followers</p>
+                    {profileUser.followers.length === 1 ? (
+                      <p>{profileUser.followers.length} follower</p>
+                    ) : (
+                      <p>{profileUser.followers.length} followers</p>
+                    )}
 
                     <p>{profileUser.following.length} following</p>
                   </BannerFollowDiv>
