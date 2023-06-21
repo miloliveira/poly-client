@@ -118,9 +118,15 @@ const Profile = () => {
                           <Occupation occupation={profileUser.occupation} />
                         )}
                       </AboutInnerDivComponents>
-                      {((user._id === userId && !profileUser.occupation) ||
-                        (user._id === userId && !profileUser.education) ||
-                        (user._id === userId && !profileUser.location)) && (
+                      {((user &&
+                        user._id === userId &&
+                        !profileUser.occupation) ||
+                        (user &&
+                          user._id === userId &&
+                          !profileUser.education) ||
+                        (user &&
+                          user._id === userId &&
+                          !profileUser.location)) && (
                         <AddAboutInfoDiv>
                           <Link to={`/edit/${userId}`} className="nav-link">
                             <AddAboutInfoIcon />
@@ -129,19 +135,20 @@ const Profile = () => {
                       )}
                     </AboutInnerDiv>
                   )}
-                  {(profileUser.occupation ||
-                    profileUser.education ||
-                    profileUser.location) && (
-                    <AboutDropDownDiv>
-                      <AboutDropDownButton
-                        onClick={() => {
-                          setShowAboutSection(!showAboutSection);
-                        }}
-                      >
-                        {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
-                      </AboutDropDownButton>
-                    </AboutDropDownDiv>
-                  )}
+                  {user &&
+                    (profileUser.occupation ||
+                      profileUser.education ||
+                      profileUser.location) && (
+                      <AboutDropDownDiv>
+                        <AboutDropDownButton
+                          onClick={() => {
+                            setShowAboutSection(!showAboutSection);
+                          }}
+                        >
+                          {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
+                        </AboutDropDownButton>
+                      </AboutDropDownDiv>
+                    )}
                 </AboutDiv>
               )}
 
