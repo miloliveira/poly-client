@@ -10,6 +10,7 @@ import Education from "../components/Education";
 import Occupation from "../components/Occupation";
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";
+import UserActivityComments from "../components/UserActivityComments";
 import LoadingSpinner from "../components/LoadingSpinner";
 import {
   ProfilePage,
@@ -179,7 +180,7 @@ const Profile = () => {
                 {showActivity === 0 ? (
                   <UserActivityPosts userId={userId} />
                 ) : showActivity === 1 ? (
-                  <p>The user commented these posts </p>
+                  <UserActivityComments userId={userId} />
                 ) : (
                   <UserActivityLikes userId={userId} />
                 )}
