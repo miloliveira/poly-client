@@ -181,7 +181,7 @@ const Post = (props) => {
           <NumberOfLikesP>{numberOfLikes} likes this</NumberOfLikesP>
         )}
 
-        {numberOfComments > 0 && numberOfComments == 1 ? (
+        {numberOfComments > 0 && numberOfComments === 1 ? (
           <NumberOfCommentsP
             onClick={() => {
               setTogleComment(!togleComment);
