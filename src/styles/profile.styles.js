@@ -174,6 +174,8 @@ export const AboutDropDownDiv = styled.div`
 `;
 export const ActivityDiv = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 15px;
   border: 1px solid #d6e4e5;
@@ -181,9 +183,40 @@ export const ActivityDiv = styled.div`
   h4 {
     font-size: 1rem;
     font-weight: bold;
+    margin: 0;
   }
   p {
     font-size: 0.9rem;
   }
 `;
-export const ActivityPostsDiv = styled.div``;
+
+export const ActivityTabDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0px;
+`;
+
+export const ActivityTabButton = styled.button`
+  font-weight: bold;
+  padding: 0 10px;
+  margin-right: 15px;
+  font-size: 0.9rem;
+  height: 30px;
+  border: none;
+  border-radius: 15px;
+  background-color: #eff5f5;
+  color: #497174;
+  :active {
+    background-color: #497174 !important;
+    color: white !important;
+  }
+  :focus {
+    background-color: #497174 !important;
+    color: white !important;
+  }
+`;
+
+export const ActivityContentDiv = styled.div`
+  max-height: 500px;
+  overflow-y: auto;
+`;

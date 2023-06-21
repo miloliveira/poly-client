@@ -29,13 +29,15 @@ import {
   DropDownIcon,
   DropUpIcon,
   ActivityDiv,
-  ActivityPostsDiv,
+  ActivityTabDiv,
+  ActivityTabButton,
+  ActivityContentDiv,
 } from "../styles/profile.styles";
 const Profile = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 
   const dispatch = useDispatch();
-
+  const [active, setActive] = useState(true);
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
   const [userPosts, setUserPosts] = useState([]);
@@ -69,6 +71,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
+    setActive(true);
   }, [userId, isUpdatedGlobal]);
 
   return (
@@ -155,35 +158,45 @@ const Profile = () => {
               )}
 
               <ActivityDiv>
-                <h4>Recent activity</h4>
-                <p
-                  onClick={(e) => {
-                    setShowActivity(0);
-                  }}
-                >
-                  posts
-                </p>
-                <p
-                  onClick={(e) => {
-                    setShowActivity(1);
-                  }}
-                >
-                  comments
-                </p>
-                <p
-                  onClick={(e) => {
-                    setShowActivity(2);
-                  }}
-                >
-                  likes
-                </p>
-                {showActivity === 0 ? (
-                  <UserActivityPosts userId={userId} />
-                ) : showActivity === 1 ? (
-                  <UserActivityComments userId={userId} />
-                ) : (
-                  <UserActivityLikes userId={userId} />
-                )}
+                <h4>Activity</h4>
+                <ActivityTabDiv>
+                  <ActivityTabButton
+                    onClick={(e) => {
+                      setShowActivity(0);
+                    }}
+                    style={{
+                      backgroundColor: active ? "#497174" : "#EFF5F5",
+                      color: active ? "white" : "#497174",
+                    }}
+                  >
+                    posts
+                  </ActivityTabButton>
+                  <ActivityTabButton
+                    onClick={(e) => {
+                      setShowActivity(1);
+                      setActive(false);
+                    }}
+                  >
+                    comments
+                  </ActivityTabButton>
+                  <ActivityTabButton
+                    onClick={(e) => {
+                      setShowActivity(2);
+                      setActive(false);
+                    }}
+                  >
+                    likes
+                  </ActivityTabButton>
+                </ActivityTabDiv>
+                <ActivityContentDiv>
+                  {showActivity === 0 ? (
+                    <UserActivityPosts userId={userId} />
+                  ) : showActivity === 1 ? (
+                    <UserActivityComments userId={userId} />
+                  ) : (
+                    <UserActivityLikes userId={userId} />
+                  )}
+                </ActivityContentDiv>
               </ActivityDiv>
             </ProfileMainDiv>
           )}
