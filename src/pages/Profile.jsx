@@ -46,22 +46,22 @@ const Profile = () => {
   const [showActivity, setShowActivity] = useState(0);
   const getUser = async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/in/${userId}`
       );
-      await setProfileUser(response.data);
+      setProfileUser(response.data);
       console.log(response.data);
-      await dispatch(isUpdatedTrue());
-      await setIsLoading(false);
+      setIsLoading(false);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
   };
 
   useEffect(() => {
-    setIsLoading(true);
     getUser();
     setActive(true);
+    dispatch(isUpdatedTrue());
   }, [userId, isUpdatedGlobal]);
 
   return (
