@@ -16,7 +16,8 @@ const UserActivityLikes = (props) => {
       await setLikeActivity(response.data);
       console.log(likeActivity);
     } catch (error) {
-      console.log(error);
+        setErrorMessage(error.response.data.errorMessage);
+        console.log(errorMessage);
     }
   };
 
