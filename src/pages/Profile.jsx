@@ -46,7 +46,6 @@ const Profile = () => {
   const [showActivity, setShowActivity] = useState(0);
   const getUser = async () => {
     try {
-      setIsLoading(true);
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/in/${userId}`
       );
