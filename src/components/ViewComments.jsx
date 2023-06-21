@@ -14,16 +14,12 @@ const ViewComments = (props) => {
       {listComments.length < 1 ? (
         <p> No comments to show</p>
       ) : (
-        <>
-          <CommentsListInnerDiv>
-            {listComments &&
-              listComments.map((el) => (
-                <>
-                  <Comment comment={el} key={el._id} />
-                </>
-              ))}
-          </CommentsListInnerDiv>
-        </>
+        <CommentsListInnerDiv>
+          {listComments &&
+            listComments.map((el, index) => (
+              <Comment comment={el} key={index} />
+            ))}
+        </CommentsListInnerDiv>
       )}
     </ViewCommentsList>
   );
