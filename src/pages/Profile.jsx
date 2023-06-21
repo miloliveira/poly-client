@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import Location from "../components/Location";
@@ -40,8 +39,6 @@ const Profile = () => {
   const [active, setActive] = useState(true);
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
-  const [userPosts, setUserPosts] = useState([]);
-  const [likedPosts, setlikedPosts] = useState([]);
   const [showAboutSection, setShowAboutSection] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
@@ -53,23 +50,16 @@ const Profile = () => {
         `${process.env.REACT_APP_API_URL}/in/${userId}`
       );
       await setProfileUser(response.data);
-      await setUserPosts(response.data.posts);
-      await setlikedPosts(response.data.likedPosts);
-
       console.log(response.data);
       await dispatch(isUpdatedTrue());
       await setIsLoading(false);
-      await userPosts.sort(
-        (x, y) => +new Date(y.createdAt) - +new Date(x.createdAt)
-      );
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
   };
 
-  const showActivityFunction = async (activity) => {};
-
   useEffect(() => {
+    setIsLoading(true);
     getUser();
     setActive(true);
   }, [userId, isUpdatedGlobal]);
