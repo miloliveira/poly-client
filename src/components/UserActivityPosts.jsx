@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Post from "./Post";
 import { useDispatch, useSelector } from "react-redux";
-import LoadingSpinner from "../components/LoadingSpinner";
 const UserActivityPosts = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
   const [postActivity, setpostActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -24,7 +22,6 @@ const UserActivityPosts = (props) => {
 
   useEffect(() => {
     getPostActivity();
-    setIsLoading(false);
   }, [isUpdatedGlobal]);
 
   return (
