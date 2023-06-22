@@ -33,7 +33,6 @@ const UserActivityPosts = (props) => {
           return <Post key={post._id} post={post} />;
         })
       )}
-      {}
       {errorMessage && <p>{errorMessage}</p>}
     </>
   );
