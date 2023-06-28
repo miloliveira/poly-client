@@ -154,8 +154,9 @@ const Profile = () => {
                       setShowActivity(0);
                     }}
                     style={{
-                      backgroundColor: active ? "#497174" : "#EFF5F5",
-                      color: active ? "white" : "#497174",
+                      backgroundColor:
+                        showActivity === 0 ? "#497174" : "#EFF5F5",
+                      color: showActivity === 0 ? "white" : "#497174",
                     }}
                   >
                     posts
@@ -165,6 +166,11 @@ const Profile = () => {
                       setShowActivity(1);
                       setActive(false);
                     }}
+                    style={{
+                      backgroundColor:
+                        showActivity === 1 ? "#497174" : "#EFF5F5",
+                      color: showActivity === 1 ? "white" : "#497174",
+                    }}
                   >
                     comments
                   </ActivityTabButton>
@@ -172,6 +178,11 @@ const Profile = () => {
                     onClick={(e) => {
                       setShowActivity(2);
                       setActive(false);
+                    }}
+                    style={{
+                      backgroundColor:
+                        showActivity === 2 ? "#497174" : "#EFF5F5",
+                      color: showActivity === 2 ? "white" : "#497174",
                     }}
                   >
                     likes
