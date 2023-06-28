@@ -204,16 +204,6 @@ export const ActivityTabButton = styled.button`
   height: 30px;
   border: none;
   border-radius: 15px;
-  background-color: #eff5f5;
-  color: #497174;
-  :active {
-    background-color: #497174 !important;
-    color: white !important;
-  }
-  :focus {
-    background-color: #497174 !important;
-    color: white !important;
-  }
 `;
 
 export const ActivityContentDiv = styled.div`
