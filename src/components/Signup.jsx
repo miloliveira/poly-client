@@ -40,8 +40,9 @@ const Signup = () => {
     <SignupForm onSubmit={handleSubmit}>
       <h4>Welcome! Create your account and join the community</h4>
 
-      <label>Email</label>
+      <label htmlFor="email">Email</label>
       <input
+        id="email"
         type="text"
         value={email}
         onChange={(e) => {
@@ -49,8 +50,9 @@ const Signup = () => {
         }}
       />
 
-      <label>Username</label>
+      <label htmlFor="username">Username</label>
       <input
+        id="username"
         type="text"
         value={username}
         onChange={(e) => {
@@ -58,16 +60,18 @@ const Signup = () => {
         }}
       />
 
-      <label>Name</label>
+      <label htmlFor="name">Name</label>
       <input
+        id="name"
         type="text"
         value={name}
         onChange={(e) => {
           setName(e.target.value);
         }}
       />
-      <label>Password</label>
+      <label htmlFor="password">Password</label>
       <input
+        id="password"
         type="password"
         value={password}
         onChange={(e) => {
