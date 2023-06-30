@@ -35,16 +35,18 @@ const Login = () => {
   return (
     <LoginForm onSubmit={handleLogin}>
       <h3>Welcome back</h3>
-      <label>Username or email address</label>
+      <label htmlFor="loginName">Username or email address</label>
       <input
+        id="loginName"
         type="text"
         value={loginName}
         onChange={(e) => {
           setLoginName(e.target.value);
         }}
       />
-      <label>Password</label>
+      <label htmlFor="password">Password</label>
       <input
+        id="password"
         type="password"
         value={password}
         onChange={(e) => {
