@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { CreateCommentForm, SendPostIcon } from "../styles/post.styles";
+import {
+  CreateCommentForm,
+  CreateCommentLabel,
+  SendPostIcon,
+} from "../styles/post.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
 const CreateComment = (props) => {
@@ -37,13 +41,16 @@ const CreateComment = (props) => {
 
   return (
     <CreateCommentForm onSubmit={handleCreateComment}>
-      <textarea
-        value={content}
-        placeholder="Add a comment here:"
-        onChange={(e) => {
-          setContent(e.target.value);
-        }}
-      />
+      <CreateCommentLabel htmlFor={postId}>
+        <textarea
+          id={postId}
+          value={content}
+          placeholder="Add a comment here:"
+          onChange={(e) => {
+            setContent(e.target.value);
+          }}
+        />
+      </CreateCommentLabel>
       <button type="submit">
         <SendPostIcon />
       </button>
