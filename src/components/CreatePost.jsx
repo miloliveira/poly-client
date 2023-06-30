@@ -8,6 +8,7 @@ import {
   CreatePostDiv,
   CreatePostUserImg,
   CreatePostForm,
+  CreatePostLabel,
 } from "../styles/post.styles";
 const CreatePost = (props) => {
   const imageInputRef = useRef();
@@ -91,20 +92,26 @@ const CreatePost = (props) => {
       </Link>
 
       <CreatePostForm onSubmit={handleCreatePost}>
-        <textarea
-          placeholder="Share your thoughts here:"
-          value={content}
-          name="imageUrl"
-          onChange={(e) => {
-            setContent(e.target.value);
-          }}
-        />
-        <input
-          type="file"
-          name="imageUrl"
-          onChange={(e) => handleFileUpload(e)}
-          ref={imageInputRef}
-        />
+        <CreatePostLabel htmlFor="post-content">
+          <textarea
+            id="post-content"
+            placeholder="Share your thoughts here:"
+            value={content}
+            name="imageUrl"
+            onChange={(e) => {
+              setContent(e.target.value);
+            }}
+          />
+        </CreatePostLabel>
+        <CreatePostLabel htmlFor="post-imageUrl">
+          <input
+            id="post-imageUrl"
+            type="file"
+            name="imageUrl"
+            onChange={(e) => handleFileUpload(e)}
+            ref={imageInputRef}
+          />
+        </CreatePostLabel>
 
         <button type="submit">Post</button>
         {errorMessage && <p>{errorMessage}</p>}

@@ -122,6 +122,20 @@ export const CreatePostForm = styled.form`
   flex-direction: column;
   align-items: flex-end;
   width: 100%;
+
+  button {
+    background-color: #497174;
+    color: white;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    margin-top: 5px;
+  }
+`;
+export const CreatePostLabel = styled.div`
+  width: 100%;
   textarea {
     width: 100%;
     height: 40px;
@@ -149,18 +163,8 @@ export const CreatePostForm = styled.form`
     border-radius: 15px;
     cursor: pointer;
   }
-
-  button {
-    background-color: #497174;
-    color: white;
-    width: 70px;
-    height: 30px;
-    border: none;
-    border-radius: 15px;
-    padding: 5px 10px;
-    margin-top: 5px;
-  }
 `;
+
 export const FeedPostList = styled.div`
   display: flex;
   flex-direction: column;
