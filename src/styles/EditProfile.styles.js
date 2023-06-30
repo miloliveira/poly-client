@@ -9,15 +9,17 @@ export const EditProfilePage = styled.div`
 `;
 
 export const EditProfileForm = styled.form`
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
-
+  input {
+    width: 50%;
+  }
   @media screen and (max-width: 1200px) {
-    width: 80%;
+    width: 60%;
     input {
       width: 60%;
     }
@@ -33,7 +35,7 @@ export const EditProfileForm = styled.form`
   @media screen and (max-width: 400px) {
     width: 90%;
     input {
-      width: 90%;
+      width: 80%;
     }
   }
   input {
@@ -48,7 +50,7 @@ export const EditProfileForm = styled.form`
     margin-bottom: 10px;
     background-color: #497174;
     color: white;
-    width: 100px;
+    width: 110px;
     height: 30px;
     border: none;
     border-radius: 15px;
@@ -98,7 +100,7 @@ export const InputProfilePicDiv = styled.div`
 export const DeleteProfileButton = styled.button`
   background-color: #eb6440;
   color: white;
-  width: 100px;
+  width: 110px;
   height: 30px;
   border: none;
   border-radius: 15px;
