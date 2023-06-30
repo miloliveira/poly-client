@@ -129,20 +129,19 @@ const ProfileSettings = () => {
           <EditProfileForm onSubmit={handleProfileEdit}>
             <h4>Edit your profile information</h4>
             <InputProfilePicDiv>
+              <label htmlFor="imageUrl" />
               <input
+                id="imageUrl"
                 type="file"
                 name="imageUrl"
                 onChange={(e) => handleFileUpload(e)}
               />
 
-              {imageUrl && (
-                <>
-                  <img src={imageUrl} alt="profile pic" />
-                </>
-              )}
+              {imageUrl && <img src={imageUrl} alt="profile pic" />}
             </InputProfilePicDiv>
-            <label>Name</label>
+            <label htmlFor="name">Name</label>
             <input
+              id="name"
               type="text"
               value={name}
               onChange={(e) => {
@@ -150,8 +149,9 @@ const ProfileSettings = () => {
               }}
             />
 
-            <label>Username</label>
+            <label htmlFor="username">Username</label>
             <input
+              id="username"
               type="text"
               value={username}
               onChange={(e) => {
@@ -159,8 +159,9 @@ const ProfileSettings = () => {
               }}
             />
 
-            <label>About</label>
+            <label htmlFor="about">About</label>
             <input
+              id="about"
               type="text"
               value={about}
               onChange={(e) => {
@@ -168,8 +169,9 @@ const ProfileSettings = () => {
               }}
             />
 
-            <label>Location</label>
+            <label htmlFor="location">Location</label>
             <input
+              id="location"
               type="text"
               value={location}
               onChange={(e) => {
@@ -177,16 +179,18 @@ const ProfileSettings = () => {
               }}
             />
 
-            <label>Occupation</label>
+            <label htmlFor="occupation">Occupation</label>
             <input
+              id="occupation"
               type="text"
               value={occupation}
               onChange={(e) => {
                 setOccupation(e.target.value);
               }}
             />
-            <label>Education</label>
+            <label htmlFor="education">Education</label>
             <input
+              id="education"
               type="text"
               value={education}
               onChange={(e) => {
