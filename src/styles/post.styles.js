@@ -372,6 +372,15 @@ export const CreateCommentForm = styled.form`
   justify-content: space-between;
   background-color: white;
 
+  button {
+    background-color: white;
+    border: none;
+    margin-top: 5px;
+  }
+`;
+
+export const CreateCommentLabel = styled.label`
+  width: 100%;
   textarea {
     width: 90%;
     height: 40px;
@@ -388,11 +397,6 @@ export const CreateCommentForm = styled.form`
   }
   textarea:focus {
     outline: 0;
-  }
-  button {
-    background-color: white;
-    border: none;
-    margin-top: 5px;
   }
 `;
 
