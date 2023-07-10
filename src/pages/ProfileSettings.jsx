@@ -3,6 +3,8 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import service from "../api/service";
+import ChangePasswordForm from "../components/ChangePasswordForm";
+import ChangeProfileInfoForm from "../components/ChangeProfileInfoForm";
 import LoadingSpinner from "../components/LoadingSpinner";
 import {
   EditProfilePage,
@@ -11,6 +13,7 @@ import {
   DeleteProfileButton,
 } from "../styles/EditProfile.styles";
 const ProfileSettings = () => {
+  const [showChangePasswordForm, setShowChangePasswordForm] = useState(false)
   const { user, logoutUser } = useContext(AuthContext);
   const { userId } = useParams();
   const navigate = useNavigate();
@@ -41,92 +44,19 @@ const ProfileSettings = () => {
       });
   };
 
-  const deleteUser = (userId) => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/profile-delete/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${getToken}`,
-      },
-    });
-    logoutUser();
-    navigate("/");
-  };
+  
 
-  const handleFileUpload = (e) => {
-    const uploadData = new FormData();
-    setIsUploading(true);
-
-    uploadData.append("imageUrl", e.target.files[0]);
-    console.log("bla");
-    service
-      .uploadImage(uploadData)
-      .then((response) => {
-        setIsUploading(false);
-        console.log("this is the response of upploading", response);
-        setimageUrl(response.fileUrl);
-      })
-      .catch((error) => console.log(error));
-  };
-
-  const handleProfileEdit = (e) => {
-    e.preventDefault();
-    if (isUploading) {
-      alert("Image still upploading");
-      return;
-    }
-    let body;
-
-    if (imageUrl) {
-      body = {
-        username,
-        name,
-        imageUrl,
-        education,
-        occupation,
-        location,
-        about,
-      };
-    } else {
-      body = {
-        username,
-        name,
-        education,
-        occupation,
-        location,
-        about,
-      };
-    }
-
-    axios
-      .put(`${process.env.REACT_APP_API_URL}/profile-edit/${userId}`, body, {
-        headers: {
-          Authorization: `Bearer ${getToken}`,
-        },
-      })
-      .then(() => {
-        setName("");
-        setUsername("");
-        setAbout("");
-        setEducation("");
-        setLocation("");
-        setOccupation("");
-        navigate(`/in/${userId}`);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
+  
+  
+  
 
   return (
     <EditProfilePage>
-      {isLoading ? (
-        <LoadingSpinner />
-      ) : (
+
+      
+
         <>
-          <EditProfileForm onSubmit={handleProfileEdit}>
+          {/* <EditProfileForm onSubmit={handleProfileEdit}>
             <h4>Edit your profile information</h4>
             <InputProfilePicDiv>
               <label htmlFor="imageUrl" />
@@ -206,9 +136,11 @@ const ProfileSettings = () => {
             }}
           >
             Delete profile
-          </DeleteProfileButton>
+          </DeleteProfileButton> */}
+          {showChangePasswordForm ? <ChangePasswordForm userId={userId} /> : <ChangeProfileInfoForm  userId={userId} /> }
+          <button onClick={()=>setShowChangePasswordForm(!showChangePasswordForm)} >{showChangePasswordForm?  "change profile info": "change password" }</button>
         </>
-      )}
+     
     </EditProfilePage>
   );
 };
