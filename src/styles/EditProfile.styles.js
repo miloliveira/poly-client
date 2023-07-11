@@ -60,6 +60,57 @@ export const EditProfileForm = styled.form`
   }
 `;
 
+export const EditPasswordForm = styled.form`
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  input {
+    width: 50%;
+  }
+  @media screen and (max-width: 1200px) {
+    width: 60%;
+    input {
+      width: 60%;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 70%;
+    input {
+      width: 70%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+    input {
+      width: 80%;
+    }
+  }
+  input {
+    border-radius: 10px;
+    padding: 0px 5px;
+    margin-bottom: 10px;
+    border: 1px solid #d6e4e5;
+    outline: none;
+  }
+
+  button {
+    margin-bottom: 10px;
+    background-color: #497174;
+    color: white;
+    width: 155px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    :hover {
+      text-decoration-line: underline;
+    }
+  }
+`;
 export const InputProfilePicDiv = styled.div`
   width: 100%;
   display: flex;
@@ -94,6 +145,15 @@ export const InputProfilePicDiv = styled.div`
       width: 150px;
       height: 150px;
     }
+  }
+`;
+
+export const ToggleSettingsFormButton = styled.button`
+  margin-top: 30px;
+  padding: 5px 20px;
+  background-color: #d6e4e5;
+  :hover {
+    text-decoration-line: underline;
   }
 `;
 
