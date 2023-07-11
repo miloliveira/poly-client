@@ -41,13 +41,16 @@ const ChangeProfileInfoForm = (props) => {
       });
   };
 
-  const deleteUser = (userId) => {
-    axios.delete(`${process.env.REACT_APP_API_URL}/profile-delete/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${getToken}`,
-      },
-    });
-    logoutUser();
+  const deleteUser = async (userId) => {
+    await axios.delete(
+      `${process.env.REACT_APP_API_URL}/profile-delete/${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      }
+    );
+    await logoutUser();
     navigate("/");
   };
 
