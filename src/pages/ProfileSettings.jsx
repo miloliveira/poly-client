@@ -1,24 +1,16 @@
-import React, { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
-import service from "../api/service";
 import ChangePasswordForm from "../components/ChangePasswordForm";
 import ChangeProfileInfoForm from "../components/ChangeProfileInfoForm";
-import LoadingSpinner from "../components/LoadingSpinner";
 import {
   EditProfilePage,
   ToggleSettingsFormButton,
-  EditProfileForm,
-  InputProfilePicDiv,
-  DeleteProfileButton,
 } from "../styles/EditProfile.styles";
 const ProfileSettings = () => {
   const [showChangePasswordForm, setShowChangePasswordForm] = useState(false);
-  const { user, isLoggedIn, logoutUser } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
   const { userId } = useParams();
-
-  const [errorMessage, setErrorMessage] = useState(undefined);
 
   return (
     <>
