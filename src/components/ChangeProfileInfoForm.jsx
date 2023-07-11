@@ -59,12 +59,11 @@ const ChangeProfileInfoForm = (props) => {
     setIsUploading(true);
 
     uploadData.append("imageUrl", e.target.files[0]);
-    console.log("bla");
+
     service
       .uploadImage(uploadData)
       .then((response) => {
         setIsUploading(false);
-        console.log("this is the response of upploading", response);
         setimageUrl(response.fileUrl);
       })
       .catch((error) => console.log(error));
