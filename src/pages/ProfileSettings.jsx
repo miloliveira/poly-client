@@ -8,6 +8,7 @@ import ChangeProfileInfoForm from "../components/ChangeProfileInfoForm";
 import LoadingSpinner from "../components/LoadingSpinner";
 import {
   EditProfilePage,
+  ToggleSettingsFormButton,
   EditProfileForm,
   InputProfilePicDiv,
   DeleteProfileButton,
@@ -28,11 +29,11 @@ const ProfileSettings = () => {
           ) : (
             <ChangeProfileInfoForm userId={userId} />
           )}
-          <button
+          <ToggleSettingsFormButton
             onClick={() => setShowChangePasswordForm(!showChangePasswordForm)}
           >
-            {showChangePasswordForm ? "change profile info" : "change password"}
-          </button>
+            {showChangePasswordForm ? "back" : "change password"}
+          </ToggleSettingsFormButton>
         </EditProfilePage>
       )}
     </>
