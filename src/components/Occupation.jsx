@@ -1,15 +1,15 @@
 import React from "react";
 import {
   OccupationIcon,
-  InnerAboutSectionComponent,
+  AboutSectionComponent,
 } from "../styles/profile.styles";
 const Occupation = (props) => {
   const { occupation } = props;
   return (
-    <InnerAboutSectionComponent>
+    <AboutSectionComponent>
       <OccupationIcon />
       <p>{occupation}</p>
-    </InnerAboutSectionComponent>
+    </AboutSectionComponent>
   );
 };
 
