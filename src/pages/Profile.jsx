@@ -1,12 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
-import Location from "../components/Location";
-import Education from "../components/Education";
-import Occupation from "../components/Occupation";
+import About from "../components/About";
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";
 import UserActivityComments from "../components/UserActivityComments";
@@ -18,15 +16,6 @@ import {
   ProfileUserBannerInnerDiv,
   BannerFollowDiv,
   ProfileImage,
-  AboutDiv,
-  AboutInnerDiv,
-  AboutInnerDivComponents,
-  AddAboutInfoDiv,
-  AddAboutInfoIcon,
-  AboutDropDownDiv,
-  AboutDropDownButton,
-  DropDownIcon,
-  DropUpIcon,
   ActivityDiv,
   ActivityTabDiv,
   ActivityTabButton,
@@ -39,7 +28,6 @@ const Profile = () => {
   const [active, setActive] = useState(true);
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
-  const [showAboutSection, setShowAboutSection] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -91,61 +79,8 @@ const Profile = () => {
                 profileUser.occupation ||
                 profileUser.occupation ||
                 profileUser.occupation) && (
-                <AboutDiv>
-                  <h4>About</h4>
-                  {user && user._id === userId && !profileUser.about ? (
-                    <p>Complete your about section in the settings!</p>
-                  ) : (
-                    <p>{profileUser.about}</p>
-                  )}
-
-                  {showAboutSection && (
-                    <AboutInnerDiv>
-                      <AboutInnerDivComponents>
-                        {profileUser.location && (
-                          <Location location={profileUser.location} />
-                        )}
-                        {profileUser.education && (
-                          <Education education={profileUser.education} />
-                        )}
-                        {profileUser.occupation && (
-                          <Occupation occupation={profileUser.occupation} />
-                        )}
-                      </AboutInnerDivComponents>
-                      {((user &&
-                        user._id === userId &&
-                        !profileUser.occupation) ||
-                        (user &&
-                          user._id === userId &&
-                          !profileUser.education) ||
-                        (user &&
-                          user._id === userId &&
-                          !profileUser.location)) && (
-                        <AddAboutInfoDiv>
-                          <Link to={`/edit/${userId}`} className="nav-link">
-                            <AddAboutInfoIcon />
-                          </Link>
-                        </AddAboutInfoDiv>
-                      )}
-                    </AboutInnerDiv>
-                  )}
-                  {user &&
-                    (profileUser.occupation ||
-                      profileUser.education ||
-                      profileUser.location) && (
-                      <AboutDropDownDiv>
-                        <AboutDropDownButton
-                          onClick={() => {
-                            setShowAboutSection(!showAboutSection);
-                          }}
-                        >
-                          {showAboutSection ? <DropUpIcon /> : <DropDownIcon />}
-                        </AboutDropDownButton>
-                      </AboutDropDownDiv>
-                    )}
-                </AboutDiv>
+                <About user={user} userId={userId} profileUser={profileUser} />
               )}
-
               <ActivityDiv>
                 <h4>Activity</h4>
                 <ActivityTabDiv>
