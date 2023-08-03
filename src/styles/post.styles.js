@@ -454,12 +454,14 @@ export const CommentUserInfoDiv = styled.div`
 export const CommentPopupDiv = styled.div`
   position: relative;
   margin-right: 10px;
+  background-color: #eff5f5;
   button {
     border: none;
+    background-color: #eff5f5;
   }
 `;
 export const AboveContentCommentPopup = styled.div`
-  background-color: transparent;
+  background-color: #eff5f5;
   position: absolute;
   width: 50px;
   height: 50px;
