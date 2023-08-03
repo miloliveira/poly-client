@@ -135,43 +135,38 @@ export const AboutDiv = styled.div`
     font-size: 0.9rem;
   }
 `;
-export const AboutDropDownButton = styled.button`
-  background-color: white;
-  border: none;
-`;
 
 export const AboutInnerDiv = styled.div`
   display: flex;
-  flex-direction: column;
-`;
-export const AboutInnerDivComponents = styled.div`
-  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-`;
-export const AddAboutInfoDiv = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
 `;
 
-//About section location, occupation and education components
-export const InnerAboutSectionComponent = styled.div`
+export const AboutSectionLinkToSettingsDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 15px;
+  font-size: 0.8rem;
+
+  p {
+    font-size: 0.8rem;
+    margin: 0;
+    padding-right: 5px;
+  }
+`;
+
+export const AboutSectionComponent = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-right: 25px;
   p {
     margin-left: 5px;
     margin-bottom: 0;
   }
 `;
-//
-export const AboutDropDownDiv = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-`;
+
 export const ActivityDiv = styled.div`
   width: 100%;
   display: flex;
