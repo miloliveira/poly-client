@@ -1,15 +1,12 @@
 import React from "react";
-import {
-  LocationIcon,
-  InnerAboutSectionComponent,
-} from "../styles/profile.styles";
+import { LocationIcon, AboutSectionComponent } from "../styles/profile.styles";
 const Location = (props) => {
   const { location } = props;
   return (
-    <InnerAboutSectionComponent>
+    <AboutSectionComponent>
       <LocationIcon />
       <p>{location}</p>
-    </InnerAboutSectionComponent>
+    </AboutSectionComponent>
   );
 };
 
