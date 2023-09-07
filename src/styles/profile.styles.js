@@ -204,4 +204,7 @@ export const ActivityTabButton = styled.button`
 export const ActivityContentDiv = styled.div`
   max-height: 500px;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
