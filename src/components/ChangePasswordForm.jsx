@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { EditPasswordForm } from "../styles/EditProfile.styles";
 const ChangePasswordForm = (props) => {
   const { userId } = props;
   const [newPassword1, setNewPassword1] = useState("");
   const [newPassword2, setNewPassword2] = useState("");
-
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState(undefined);
   const getToken = localStorage.getItem("authToken");
 
@@ -13,13 +14,10 @@ const ChangePasswordForm = (props) => {
     await e.preventDefault();
 
     if (newPassword1 === newPassword2) {
-      console.log("verifying password");
       await handleChangePassword(e);
-      console.log("password verified");
-      return;
+      navigate(`/in/${userId}`);
     } else {
-      console.log("failed verification");
-      setErrorMessage("failed");
+      setErrorMessage("Passwords do not match.");
     }
   };
 
@@ -27,7 +25,7 @@ const ChangePasswordForm = (props) => {
     try {
       e.preventDefault();
       const body = { newPassword: newPassword1 };
-      const response = await axios.put(
+      await axios.put(
         `${process.env.REACT_APP_API_URL}/edit-password/${userId}`,
         body,
         {
@@ -36,8 +34,7 @@ const ChangePasswordForm = (props) => {
           },
         }
       );
-      await setErrorMessage("");
-      console.log(response.data);
+      setErrorMessage("");
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
@@ -46,8 +43,8 @@ const ChangePasswordForm = (props) => {
   return (
     <EditPasswordForm onSubmit={verifyPassword}>
       <h4>Change your password</h4>
-      <label htmlFor="former-password">Old password</label>
-      <input id="former-password" type="password" />
+      {/*  <label htmlFor="former-password">Old password</label>
+      <input id="former-password" type="password" /> */}
       <label htmlFor="new-password-1">New password</label>
       <input
         id="new-password-1"
