@@ -15,7 +15,6 @@ const ChangePasswordForm = (props) => {
 
     if (newPassword1 === newPassword2) {
       await handleChangePassword(e);
-      navigate(`/in/${userId}`);
     } else {
       setErrorMessage("Passwords do not match.");
     }
@@ -35,6 +34,7 @@ const ChangePasswordForm = (props) => {
         }
       );
       setErrorMessage("");
+      navigate(`/in/${userId}`);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
@@ -50,7 +50,10 @@ const ChangePasswordForm = (props) => {
         id="new-password-1"
         type="password"
         value={newPassword1}
-        onChange={(e) => setNewPassword1(e.target.value)}
+        onChange={(e) => {
+          setNewPassword1(e.target.value);
+          setErrorMessage("");
+        }}
       />
       <label htmlFor="new-password-2">Repeat new password</label>
       <input
