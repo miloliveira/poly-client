@@ -114,7 +114,8 @@ const ChangeProfileInfoForm = (props) => {
         navigate(`/in/${userId}`);
       })
       .catch((error) => {
-        console.log(error);
+        //console.log(error.response.data.errorMessage);
+        setErrorMessage(error.response.data.errorMessage);
       });
   };
   useEffect(() => {
@@ -154,8 +155,10 @@ const ChangeProfileInfoForm = (props) => {
           value={username}
           onChange={(e) => {
             setUsername(e.target.value);
+            setErrorMessage("");
           }}
         />
+        {errorMessage && <p>{errorMessage}</p>}
 
         <label htmlFor="about">About</label>
         <input
