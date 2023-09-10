@@ -42,9 +42,6 @@ const ChangePasswordForm = (props) => {
 
   return (
     <EditPasswordForm onSubmit={verifyPassword}>
-      <h4>Change your password</h4>
-      {/*  <label htmlFor="former-password">Old password</label>
-      <input id="former-password" type="password" /> */}
       <label htmlFor="new-password-1">New password</label>
       <input
         id="new-password-1"
@@ -63,7 +60,7 @@ const ChangePasswordForm = (props) => {
         onChange={(e) => setNewPassword2(e.target.value)}
       />
       {errorMessage && <p>{errorMessage}</p>}
-      <button type="submit">Save your changes</button>
+      <button type="submit">Save changes</button>
     </EditPasswordForm>
   );
 };
