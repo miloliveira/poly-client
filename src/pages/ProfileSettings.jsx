@@ -5,27 +5,51 @@ import ChangePasswordForm from "../components/ChangePasswordForm";
 import ChangeProfileInfoForm from "../components/ChangeProfileInfoForm";
 import {
   EditProfilePage,
-  ToggleSettingsFormButton,
+  ChangeSettingsFormDiv,
+  ChangeSettingsFormButton,
 } from "../styles/EditProfile.styles";
 const ProfileSettings = () => {
-  const [showChangePasswordForm, setShowChangePasswordForm] = useState(false);
+  const [showChangePasswordForm, setShowChangePasswordForm] = useState(1);
   const { user, isLoggedIn } = useContext(AuthContext);
+
   const { userId } = useParams();
 
   return (
     <>
       {isLoggedIn && user._id === userId && (
         <EditProfilePage>
-          {showChangePasswordForm ? (
+          <ChangeSettingsFormDiv>
+            <ChangeSettingsFormButton
+              onClick={() => setShowChangePasswordForm(1)}
+              style={{
+                backgroundColor:
+                  showChangePasswordForm === 1 ? "#497174" : "#EFF5F5",
+                color: showChangePasswordForm === 1 ? "white" : "#497174",
+              }}
+            >
+              Edit profile info
+            </ChangeSettingsFormButton>
+
+            <ChangeSettingsFormButton
+              onClick={() => setShowChangePasswordForm(2)}
+              style={{
+                backgroundColor:
+                  showChangePasswordForm === 2 ? "#497174" : "#EFF5F5",
+                color: showChangePasswordForm === 2 ? "white" : "#497174"
+                
+              }}
+            >
+              Edit password
+            </ChangeSettingsFormButton>
+          </ChangeSettingsFormDiv>
+
+          {showChangePasswordForm === 2 ? (
             <ChangePasswordForm userId={userId} />
           ) : (
-            <ChangeProfileInfoForm userId={userId} />
+            showChangePasswordForm === 1 && (
+              <ChangeProfileInfoForm userId={userId} />
+            )
           )}
-          <ToggleSettingsFormButton
-            onClick={() => setShowChangePasswordForm(!showChangePasswordForm)}
-          >
-            {showChangePasswordForm ? "back" : "change password"}
-          </ToggleSettingsFormButton>
         </EditProfilePage>
       )}
     </>
