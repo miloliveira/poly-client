@@ -50,7 +50,7 @@ export const EditProfileForm = styled.form`
     margin-bottom: 10px;
     background-color: #497174;
     color: white;
-    width: 110px;
+    width: 155px;
     height: 30px;
     border: none;
     border-radius: 15px;
@@ -148,10 +148,34 @@ export const InputProfilePicDiv = styled.div`
   }
 `;
 
-export const ToggleSettingsFormButton = styled.button`
+export const ChangeSettingsFormDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-top: 30px;
-  padding: 5px 20px;
-  background-color: #d6e4e5;
+  width: 100%;
+
+  //padding-top: 20px;
+  @media screen and (max-width: 1200px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+    flex-wrap: wrap;
+  }
+`;
+
+export const ChangeSettingsFormButton = styled.button`
+  font-weight: bold;
+  padding: 0 10px;
+  height: 30px;
+  margin-right: 15px;
+  border: none;
   :hover {
     text-decoration-line: underline;
   }
