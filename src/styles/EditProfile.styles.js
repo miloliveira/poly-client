@@ -50,7 +50,7 @@ export const EditProfileForm = styled.form`
     margin-bottom: 10px;
     background-color: #497174;
     color: white;
-    width: 155px;
+    width: 10px;
     height: 30px;
     border: none;
     border-radius: 15px;
