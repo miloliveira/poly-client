@@ -127,7 +127,6 @@ const ChangeProfileInfoForm = (props) => {
       {isLoading && <LoadingSpinner />}
 
       <EditProfileForm onSubmit={handleProfileEdit}>
-        <h4>Personal information</h4>
         <InputProfilePicDiv>
           {imageUrl && <img src={imageUrl} alt="profile pic" />}
           <label htmlFor="imageUrl" />
