@@ -114,7 +114,9 @@ const Post = (props) => {
 
       const currentUser = await response.data;
 
-      if (currentUser.following.includes(followUserId)) {
+      const checkIfUserFollows = (element) => (element = followUserId);
+
+      if (currentUser.following.some(checkIfUserFollows)) {
         setIsFollowing(true);
       } else {
         setIsFollowing(false);
