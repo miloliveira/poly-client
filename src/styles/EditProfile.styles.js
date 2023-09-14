@@ -176,6 +176,7 @@ export const ChangeSettingsFormButton = styled.button`
   height: 30px;
   margin-right: 15px;
   border: none;
+  border-radius: 15px;
   :hover {
     text-decoration-line: underline;
   }
