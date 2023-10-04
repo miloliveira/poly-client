@@ -48,14 +48,14 @@ export const EditProfileForm = styled.form`
 
   button {
     margin-bottom: 10px;
-    background-color: #497174;
+    background-color: #59898d;
     color: white;
     width: 155px;
     height: 30px;
     border: none;
     border-radius: 15px;
     :hover {
-      text-decoration-line: underline;
+      background-color: #497174;
     }
   }
 `;
@@ -100,14 +100,14 @@ export const EditPasswordForm = styled.form`
 
   button {
     margin-bottom: 10px;
-    background-color: #497174;
+    background-color: #59898d;
     color: white;
     width: 155px;
     height: 30px;
     border: none;
     border-radius: 15px;
     :hover {
-      text-decoration-line: underline;
+      background-color: #497174;
     }
   }
 `;
@@ -177,19 +177,16 @@ export const ChangeSettingsFormButton = styled.button`
   margin-right: 15px;
   border: none;
   border-radius: 15px;
-  :hover {
-    text-decoration-line: underline;
-  }
 `;
 
 export const DeleteProfileButton = styled.button`
-  background-color: #eb6440;
+  background-color: #8e0000;
   color: white;
   width: 110px;
   height: 30px;
   border: none;
   border-radius: 15px;
   :hover {
-    text-decoration-line: underline;
+    background-color: #c60000;
   }
 `;
