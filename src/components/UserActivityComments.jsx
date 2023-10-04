@@ -8,13 +8,20 @@ const UserActivityComments = (props) => {
 
   const [commentActivity, setCommentActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { userId } = props;
+  const { userId, qty } = props;
 
   const getCommentActivity = async () => {
+    let response;
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/in/${userId}/commentActivity`
-      );
+      if (qty) {
+        response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/in/${userId}/commentActivity/${qty}`
+        );
+      } else {
+        response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/in/${userId}/commentActivity`
+        );
+      }
       setCommentActivity(response.data);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
