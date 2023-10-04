@@ -114,7 +114,13 @@ const CreatePost = (props) => {
           />
         </CreatePostLabel>
 
-        <button type="submit">Post</button>
+        <button
+          type="submit"
+          disabled={!content}
+          style={{ backgroundColor: !content && "#b1ccce" }}
+        >
+          Post
+        </button>
         {errorMessage && <p>{errorMessage}</p>}
       </CreatePostForm>
     </CreatePostDiv>
