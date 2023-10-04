@@ -29,9 +29,9 @@ const CreateComment = (props) => {
           },
         }
       );
-      await dispatch(isUpdatedFalse());
-      await setErrorMessage("");
-      await setContent("");
+      dispatch(isUpdatedFalse());
+      setErrorMessage("");
+      setContent("");
       await setTogleComment(true);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
@@ -48,6 +48,7 @@ const CreateComment = (props) => {
           placeholder="Add a comment here:"
           onChange={(e) => {
             setContent(e.target.value);
+            setErrorMessage("");
           }}
         />
       </CreateCommentLabel>
