@@ -66,9 +66,9 @@ const CreatePost = (props) => {
       );
 
       console.log(response);
-      await setContent("");
-      await setErrorMessage("");
-      await dispatch(isUpdatedFalse());
+      setContent("");
+      setErrorMessage("");
+      dispatch(isUpdatedFalse());
       imageInputRef.current.value = "";
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
@@ -100,6 +100,7 @@ const CreatePost = (props) => {
             name="imageUrl"
             onChange={(e) => {
               setContent(e.target.value);
+              setErrorMessage("");
             }}
           />
         </CreatePostLabel>
