@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
@@ -132,6 +133,7 @@ const Profile = () => {
                     <UserActivityLikes userId={userId} qty={3} />
                   )}
                 </ActivityContentDiv>
+                <Link to={`/in/${userId}/activity`}>See full activity</Link>
               </ActivityDiv>
             </ProfileMainDiv>
           )}
