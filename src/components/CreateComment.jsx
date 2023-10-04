@@ -52,8 +52,8 @@ const CreateComment = (props) => {
           }}
         />
       </CreateCommentLabel>
-      <button type="submit">
-        <SendPostIcon />
+      <button type="submit" disabled={!content}>
+        <SendPostIcon style={{ color: !content && "#b1ccce" }} />
       </button>
       {errorMessage && <p>{errorMessage}</p>}
     </CreateCommentForm>
