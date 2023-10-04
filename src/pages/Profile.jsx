@@ -127,9 +127,9 @@ const Profile = () => {
                   {showActivity === 0 ? (
                     <UserActivityPosts userId={userId} qty={3} />
                   ) : showActivity === 1 ? (
-                    <UserActivityComments userId={userId} qty={3}/>
+                    <UserActivityComments userId={userId} qty={3} />
                   ) : (
-                    <UserActivityLikes userId={userId} />
+                    <UserActivityLikes userId={userId} qty={3} />
                   )}
                 </ActivityContentDiv>
               </ActivityDiv>
