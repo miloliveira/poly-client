@@ -60,7 +60,10 @@ const ChangePasswordForm = (props) => {
         onChange={(e) => setNewPassword2(e.target.value)}
       />
       {errorMessage && <p>{errorMessage}</p>}
-      <button type="submit">Save changes</button>
+      <button type="submit" disabled={!newPassword1 || !newPassword2}
+      style={{backgroundColor:(!newPassword1 || !newPassword2) && "#b1ccce",
+      textDecoration:(!newPassword1 || !newPassword2) &&"none"
+      }}>Save changes</button>
     </EditPasswordForm>
   );
 };
