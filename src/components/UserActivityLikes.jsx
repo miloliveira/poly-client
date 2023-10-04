@@ -6,18 +6,25 @@ const UserActivityLikes = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   const [likeActivity, setLikeActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { userId } = props;
+  const { userId, qty } = props;
 
   const getLikeActivity = async () => {
+    let response;
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/in/${userId}/likeActivity`
-      );
-      await setLikeActivity(response.data);
+      if (qty) {
+        response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/in/${userId}/likeActivity/${qty}`
+        );
+      } else {
+        response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/in/${userId}/likeActivity`
+        );
+      }
+      setLikeActivity(response.data);
       console.log(likeActivity);
     } catch (error) {
-        setErrorMessage(error.response.data.errorMessage);
-        console.log(errorMessage);
+      setErrorMessage(error.response.data.errorMessage);
+      console.log(errorMessage);
     }
   };
 
