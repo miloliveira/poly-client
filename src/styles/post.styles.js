@@ -240,14 +240,14 @@ export const AboveContentPostPopup = styled.div`
   align-items: center;
   justify-content: space-evenly;
   button {
-    background-color: #497174;
+    background-color: #59898d;
     color: white;
     width: 100%;
     border-radius: 5px;
     text-decoration: none;
   }
   button:hover {
-    border: 2px solid white;
+    background-color: #497174;
   }
 `;
 export const AboveContentPostPopupLink = styled(Link)`
