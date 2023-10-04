@@ -7,12 +7,20 @@ const UserActivityPosts = (props) => {
   const dispatch = useDispatch();
   const [postActivity, setpostActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { userId } = props;
+  const { userId, qty } = props;
   const getPostActivity = async () => {
+    let response;
     try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/in/${userId}/postActivity`
-      );
+      if (qty) {
+        response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/in/${userId}/postActivity/${qty}`
+        );
+      } else {
+        response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/in/${userId}/postActivity`
+        );
+      }
+
       setpostActivity(response.data);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
