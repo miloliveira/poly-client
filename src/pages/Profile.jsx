@@ -125,7 +125,7 @@ const Profile = () => {
                 </ActivityTabDiv>
                 <ActivityContentDiv>
                   {showActivity === 0 ? (
-                    <UserActivityPosts userId={userId} />
+                    <UserActivityPosts userId={userId} qty={3} />
                   ) : showActivity === 1 ? (
                     <UserActivityComments userId={userId} />
                   ) : (
