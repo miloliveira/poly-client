@@ -30,7 +30,6 @@ const CreatePost = (props) => {
       .uploadImage(uploadData)
       .then((response) => {
         setIsUploading(false);
-        console.log("this is the response of upploading", response);
         setimageUrl(response.fileUrl);
       })
       .catch((error) => console.log(error));
@@ -46,12 +45,12 @@ const CreatePost = (props) => {
       let body;
 
       if (imageUrl) {
-        body = await {
+        body = {
           content,
           imageUrl,
         };
       } else {
-        body = await {
+        body = {
           content,
         };
       }
@@ -65,7 +64,6 @@ const CreatePost = (props) => {
         }
       );
 
-      console.log(response);
       setContent("");
       setErrorMessage("");
       dispatch(isUpdatedFalse());
