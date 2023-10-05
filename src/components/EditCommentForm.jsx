@@ -17,7 +17,7 @@ const EditCommentForm = (props) => {
   const handleEditComment = async (e) => {
     try {
       e.preventDefault();
-      const body = await { content: updatedContent };
+      const body = { content: updatedContent };
       await axios.put(
         `${process.env.REACT_APP_API_URL}/comment-update/${commentId}`,
         body,
@@ -27,10 +27,10 @@ const EditCommentForm = (props) => {
           },
         }
       );
-      console.log("the comment was updated");
-      await setErrorMessage("");
+
+      setErrorMessage("");
       await setEditing(false);
-      await dispatch(isUpdatedFalse());
+      dispatch(isUpdatedFalse());
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
