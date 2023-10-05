@@ -354,7 +354,7 @@ export const EachPostButtonsDiv = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 15px 10px 15px;
   margin: 0;
   background-color: white;
   border-radius: 15px;
@@ -373,21 +373,22 @@ export const CreateCommentForm = styled.form`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: white;
-
+  margin: 0;
   button {
     background-color: white;
     border: none;
-    margin-top: 5px;
   }
 `;
 
 export const CreateCommentLabel = styled.label`
-  width: 100%;
+  width: 90%;
+  padding: 0;
+  height: 40px;
   textarea {
-    width: 90%;
-    height: 40px;
+    width: 100%;
+    height: 100%;
     background-color: white;
     border: 1px solid #d6e4e5;
     border-radius: 25px;
