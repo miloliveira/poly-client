@@ -422,6 +422,10 @@ export const CommentsListInnerDiv = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const EachCommentFromFeed = styled.div`
