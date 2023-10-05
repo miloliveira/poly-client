@@ -1,5 +1,29 @@
 import styled from "styled-components";
 
+export const ActivityPage = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const ActivityMainDiv = styled.div`
+  height: auto;
+  width: 55%;
+  margin-top: 10px;
+  @media screen and (max-width: 1200px) {
+    width: 65%;
+  }
+
+  @media screen and (max-width: 700px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 90%;
+  }
+`;
+
 export const ActivityDiv = styled.div`
   width: 100%;
   display: flex;
@@ -35,7 +59,6 @@ export const ActivityTabButton = styled.button`
 `;
 
 export const ActivityContentDiv = styled.div`
-  max-height: 500px;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
