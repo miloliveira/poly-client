@@ -30,7 +30,6 @@ const Profile = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   const dispatch = useDispatch();
 
-  const [active, setActive] = useState(true);
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -52,7 +51,7 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-    setActive(true);
+
     dispatch(isUpdatedTrue());
   }, [userId, isUpdatedGlobal]);
 
@@ -104,7 +103,6 @@ const Profile = () => {
                   <ActivityTabButton
                     onClick={(e) => {
                       setShowActivity(1);
-                      setActive(false);
                     }}
                     style={{
                       backgroundColor:
@@ -117,7 +115,6 @@ const Profile = () => {
                   <ActivityTabButton
                     onClick={(e) => {
                       setShowActivity(2);
-                      setActive(false);
                     }}
                     style={{
                       backgroundColor:
