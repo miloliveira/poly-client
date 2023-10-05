@@ -17,6 +17,7 @@ import {
   ProfileUserBannerInnerDiv,
   BannerFollowDiv,
   ProfileImage,
+  UserActivityLink,
 } from "../styles/profile.styles";
 import {
   ActivityDiv,
@@ -136,7 +137,9 @@ const Profile = () => {
                     <UserActivityLikes userId={userId} qty={3} />
                   )}
                 </ActivityContentDiv>
-                <Link to={`/in/${userId}/activity`}>See full activity</Link>
+                <UserActivityLink to={`/in/${userId}/activity`}>
+                  See full activity
+                </UserActivityLink>
               </ActivityDiv>
             </ProfileMainDiv>
           )}
