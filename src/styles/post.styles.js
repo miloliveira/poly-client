@@ -553,10 +553,13 @@ export const EditCommentFormInnerDiv = styled.div`
   margin-top: 5px;
   button {
     border: none;
-    background-color: #497174;
+    background-color: #59898d;
     color: white;
     border-radius: 15px;
     padding: 1px 5px;
+  }
+  button:hover {
+    background-color: #497174;
   }
 `;
 
@@ -604,10 +607,13 @@ export const EditPostFormInnerDiv = styled.div`
 
   button {
     border: none;
-    background-color: #497174;
+    background-color: #59898d;
     color: white;
     border-radius: 15px;
     padding: 1px 5px;
+  }
+  button:hover {
+    background-color: #497174;
   }
 `;
 export const EditPostFormCancelLink = styled(Link)`
@@ -616,7 +622,4 @@ export const EditPostFormCancelLink = styled(Link)`
   border-radius: 5px;
   text-decoration: none;
   padding: 5px 5px;
-  &:hover {
-    color: white;
-  }
 `;
