@@ -21,10 +21,8 @@ const UserActivityLikes = (props) => {
         );
       }
       setLikeActivity(response.data);
-      console.log(likeActivity);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
-      console.log(errorMessage);
     }
   };
 
