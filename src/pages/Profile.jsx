@@ -17,11 +17,14 @@ import {
   ProfileUserBannerInnerDiv,
   BannerFollowDiv,
   ProfileImage,
+} from "../styles/profile.styles";
+import {
   ActivityDiv,
   ActivityTabDiv,
   ActivityTabButton,
   ActivityContentDiv,
-} from "../styles/profile.styles";
+} from "../styles/activity.styles";
+
 const Profile = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   const dispatch = useDispatch();
