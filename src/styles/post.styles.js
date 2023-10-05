@@ -244,7 +244,6 @@ export const AboveContentPostPopup = styled.div`
     color: white;
     width: 100%;
     border-radius: 15px;
-    text-decoration: none;
   }
   button:hover {
     background-color: #497174;
@@ -411,6 +410,9 @@ export const ViewCommentsList = styled.div`
   width: 100%;
   max-height: 300px;
   overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   background-color: white;
   align-items: space-around;
   border-radius: 15px;
@@ -422,10 +424,6 @@ export const CommentsListInnerDiv = styled.div`
   height: auto;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 export const EachCommentFromFeed = styled.div`
@@ -467,7 +465,7 @@ export const CommentPopupDiv = styled.div`
   }
 `;
 export const AboveContentCommentPopup = styled.div`
-  background-color: #eff5f5;
+  background-color: transparent;
   position: absolute;
   width: 50px;
   height: 50px;
@@ -626,4 +624,7 @@ export const EditPostFormCancelLink = styled(Link)`
   border-radius: 5px;
   text-decoration: none;
   padding: 5px 5px;
+  &:hover {
+    color: white;
+  }
 `;
