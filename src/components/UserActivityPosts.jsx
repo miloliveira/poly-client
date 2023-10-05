@@ -24,7 +24,6 @@ const UserActivityPosts = (props) => {
       setpostActivity(response.data);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
-      console.log(errorMessage);
     }
   };
 
