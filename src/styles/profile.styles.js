@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -167,4 +168,13 @@ export const AboutSectionComponent = styled.div`
   }
 `;
 
-
+export const UserActivityLink = styled(Link)`
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #497174;
+  font-weight: bold;
+  margin: 10px 0px;
+  :hover {
+    color: #59898d;
+  }
+`;
