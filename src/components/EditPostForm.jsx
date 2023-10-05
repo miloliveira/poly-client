@@ -22,12 +22,11 @@ const EditPostForm = (props) => {
     setIsUploading(true);
 
     uploadData.append("imageUrl", e.target.files[0]);
-    console.log("bla");
+
     service
       .uploadImage(uploadData)
       .then((response) => {
         setIsUploading(false);
-        console.log("this is the response of upploading", response);
         setimageUrl(response.fileUrl);
       })
       .catch((error) => console.log(error));
@@ -43,9 +42,9 @@ const EditPostForm = (props) => {
       let body;
 
       if (imageUrl) {
-        body = await { content: updatedContent, imageUrl };
+        body = { content: updatedContent, imageUrl };
       } else {
-        body = await { content: updatedContent };
+        body = { content: updatedContent };
       }
       await axios.put(
         `${process.env.REACT_APP_API_URL}/post-update/${postId}`,
@@ -56,10 +55,9 @@ const EditPostForm = (props) => {
           },
         }
       );
-      console.log("the post was updated");
 
-      await setErrorMessage("");
-      await dispatch(isUpdatedFalse());
+      setErrorMessage("");
+      dispatch(isUpdatedFalse());
       await setEditing(false);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
