@@ -25,7 +25,6 @@ const UserActivityComments = (props) => {
       setCommentActivity(response.data);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
-      console.log(errorMessage);
     }
   };
 
