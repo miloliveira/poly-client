@@ -25,20 +25,19 @@ const ChangeProfileInfoForm = (props) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
-  const getUser = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/in/${userId}`)
-      .then((response) => {
-        console.log(response.data);
-        setName(response.data.name);
-        setAbout(response.data.about);
-        setEducation(response.data.education);
-        setOccupation(response.data.occupation);
-        setLocation(response.data.location);
-        setUsername(response.data.username);
-        setimageUrl(response.data.imageUrl);
-        setIsLoading(false);
-      });
+  const getUser = async () => {
+    const response = await axios.get(
+      `${process.env.REACT_APP_API_URL}/in/${userId}`
+    );
+
+    setName(response.data.name);
+    setAbout(response.data.about);
+    setEducation(response.data.education);
+    setOccupation(response.data.occupation);
+    setLocation(response.data.location);
+    setUsername(response.data.username);
+    setimageUrl(response.data.imageUrl);
+    setIsLoading(false);
   };
 
   const deleteUser = async (userId) => {
@@ -114,7 +113,6 @@ const ChangeProfileInfoForm = (props) => {
         navigate(`/in/${userId}`);
       })
       .catch((error) => {
-        //console.log(error.response.data.errorMessage);
         setErrorMessage(error.response.data.errorMessage);
       });
   };
