@@ -20,7 +20,7 @@ const Signup = () => {
     try {
       e.preventDefault();
 
-      const body = await { username, email, password, name };
+      const body = { username, email, password, name };
 
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/signup`,
@@ -28,8 +28,8 @@ const Signup = () => {
       );
       await storeToken(response.data.authToken);
       await authenticateUser();
-      await navigate("/");
-      await setErrorMessage("");
+      navigate("/");
+      setErrorMessage("");
       navigate("/");
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
