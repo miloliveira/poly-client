@@ -243,7 +243,7 @@ export const AboveContentPostPopup = styled.div`
     background-color: #59898d;
     color: white;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
     text-decoration: none;
   }
   button:hover {
@@ -413,7 +413,7 @@ export const ViewCommentsList = styled.div`
   overflow-y: auto;
   background-color: white;
   align-items: space-around;
-  border-radius: 10px;
+  border-radius: 15px;
   border-bottom: 1px solid #d6e4e5;
   padding-top: 10px;
 `;
@@ -472,13 +472,13 @@ export const AboveContentCommentPopup = styled.div`
   align-items: center;
   justify-content: space-evenly;
   button {
-    background-color: #497174;
+    background-color: #59898d;
     color: white;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
   }
   button:hover {
-    border: 2px solid white;
+    background-color: #497174;
   }
 `;
 //
@@ -555,7 +555,7 @@ export const EditCommentFormInnerDiv = styled.div`
     border: none;
     background-color: #497174;
     color: white;
-    border-radius: 5px;
+    border-radius: 15px;
     padding: 1px 5px;
   }
 `;
