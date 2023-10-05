@@ -201,14 +201,13 @@ const Post = (props) => {
           </NumberOfCommentsP>
         )}
       </EachPostReactionsDiv>
-      <EachPostButtonsDiv>
         {isLoggedIn && (
+      <EachPostButtonsDiv>
           <LikeButton onClick={() => likePost(post._id)}>
             {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />}
           </LikeButton>
-        )}
 
-        {isLoggedIn && (
+       
           <TogleCommentBtn
             onClick={() => {
               setTogleComment(!togleComment);
@@ -216,11 +215,12 @@ const Post = (props) => {
           >
             {togleComment ? <CommentBtnIcon /> : <CommentBtnIcon />}
           </TogleCommentBtn>
-        )}
-        {isLoggedIn && (
+        
+     
           <CreateComment postId={post._id} setTogleComment={setTogleComment} />
-        )}
+        
       </EachPostButtonsDiv>
+        )}
       {togleComment && (
         <>
           <ViewComments
