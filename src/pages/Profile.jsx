@@ -24,8 +24,8 @@ import {
 } from "../styles/profile.styles";
 const Profile = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-
   const dispatch = useDispatch();
+
   const [active, setActive] = useState(true);
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
@@ -33,13 +33,13 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [showActivity, setShowActivity] = useState(0);
+
   const getUser = async () => {
     try {
       const response = await axios.get(
         `${process.env.REACT_APP_API_URL}/in/${userId}`
       );
       setProfileUser(response.data);
-      console.log(response.data);
       setIsLoading(false);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
