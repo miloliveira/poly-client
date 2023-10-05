@@ -10,8 +10,8 @@ import {
 
 const CommentPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  console.log(isUpdatedGlobal);
   const dispatch = useDispatch();
+
   const {
     commentId,
     editing,
@@ -32,7 +32,7 @@ const CommentPopup = (props) => {
         },
       }
     );
-    await dispatch(isUpdatedFalse());
+    dispatch(isUpdatedFalse());
   };
 
   return (
