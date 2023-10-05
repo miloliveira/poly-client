@@ -37,8 +37,6 @@ const Feed = () => {
     }
   };
 
-  allPosts.sort((x, y) => +new Date(y.createdAt) - +new Date(x.createdAt));
-
   useEffect(() => {
     getPosts();
   }, [isUpdatedGlobal]);
