@@ -415,6 +415,7 @@ export const ViewCommentsList = styled.div`
   align-items: space-around;
   border-radius: 10px;
   border-bottom: 1px solid #d6e4e5;
+  padding-top: 10px;
 `;
 export const CommentsListInnerDiv = styled.div`
   width: 85%;
