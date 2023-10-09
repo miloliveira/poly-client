@@ -11,11 +11,6 @@ const NavBar = () => {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const loggingOut = () => {
-    logoutUser();
-    navigate("/");
-  };
-
   return (
     <StyledNavbar collapseOnSelect expand="lg" variant="dark">
       <Container>
@@ -35,7 +30,14 @@ const NavBar = () => {
                   <Nav.Link>Settings</Nav.Link>
                 </LinkContainer>
 
-                <LogOutButton onClick={loggingOut}>Log out</LogOutButton>
+                <LogOutButton
+                  onClick={() => {
+                    logoutUser();
+                    navigate("/");
+                  }}
+                >
+                  Log out
+                </LogOutButton>
               </>
             )}
             {!isLoggedIn && (
