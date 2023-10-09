@@ -28,7 +28,6 @@ const Signup = () => {
       );
       await storeToken(response.data.authToken);
       await authenticateUser();
-      navigate("/");
       setErrorMessage("");
       navigate("/");
     } catch (error) {
