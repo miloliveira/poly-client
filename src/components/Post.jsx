@@ -40,6 +40,7 @@ const Post = (props) => {
   const [isFollowing, setIsFollowing] = useState(false);
   const getToken = localStorage.getItem("authToken");
   const { isLoggedIn, user } = useContext(AuthContext);
+
   let followUserId = post.user._id;
 
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -114,12 +115,10 @@ const Post = (props) => {
 
       const currentUser = await response.data;
 
-      const checkIfUserFollows = (element) => (element = followUserId);
-
-      if (currentUser.following.some(checkIfUserFollows)) {
-        setIsFollowing(true);
-      } else {
-        setIsFollowing(false);
+      for (let i = 0; i < currentUser.following.length; i++) {
+        if (currentUser.following[i]._id === post.user._id) {
+          setIsFollowing(true);
+        }
       }
     }
   };
@@ -201,13 +200,12 @@ const Post = (props) => {
           </NumberOfCommentsP>
         )}
       </EachPostReactionsDiv>
-        {isLoggedIn && (
-      <EachPostButtonsDiv>
+      {isLoggedIn && (
+        <EachPostButtonsDiv>
           <LikeButton onClick={() => likePost(post._id)}>
             {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />}
           </LikeButton>
 
-       
           <TogleCommentBtn
             onClick={() => {
               setTogleComment(!togleComment);
@@ -215,12 +213,10 @@ const Post = (props) => {
           >
             {togleComment ? <CommentBtnIcon /> : <CommentBtnIcon />}
           </TogleCommentBtn>
-        
-     
+
           <CreateComment postId={post._id} setTogleComment={setTogleComment} />
-        
-      </EachPostButtonsDiv>
-        )}
+        </EachPostButtonsDiv>
+      )}
       {togleComment && (
         <>
           <ViewComments
