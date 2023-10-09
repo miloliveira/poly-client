@@ -63,8 +63,8 @@ const Post = (props) => {
         }
       );
 
-      await dispatch(isUpdatedFalse());
-      await setIsLiked(true);
+      dispatch(isUpdatedFalse());
+      setIsLiked(true);
     } else if (isLiked === true) {
       await axios.put(
         `${process.env.REACT_APP_API_URL}/post-dislike/${postId}`,
@@ -76,8 +76,8 @@ const Post = (props) => {
         }
       );
 
-      await dispatch(isUpdatedFalse());
-      await setIsLiked(false);
+      dispatch(isUpdatedFalse());
+      setIsLiked(false);
     }
   };
 
@@ -118,8 +118,8 @@ const Post = (props) => {
       for (let i = 0; i < currentUser.following.length; i++) {
         if (currentUser.following[i]._id === post.user._id) {
           setIsFollowing(true);
-        } else{
-          setIsFollowing(false)
+        } else {
+          setIsFollowing(false);
         }
       }
     }
