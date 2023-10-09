@@ -93,7 +93,7 @@ const Post = (props) => {
           },
         }
       );
-      await dispatch(isUpdatedFalse());
+      dispatch(isUpdatedFalse());
     } catch (error) {
       console.log(error);
     }
