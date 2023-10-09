@@ -27,7 +27,6 @@ function AuthProviderWrapper(props) {
   };
 
   const getToken = () => {
-    console.log(localStorage.getItem("authToken"));
     return localStorage.getItem("authToken");
   };
 
