@@ -118,6 +118,8 @@ const Post = (props) => {
       for (let i = 0; i < currentUser.following.length; i++) {
         if (currentUser.following[i]._id === post.user._id) {
           setIsFollowing(true);
+        } else{
+          setIsFollowing(false)
         }
       }
     }
