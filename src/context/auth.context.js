@@ -17,13 +17,13 @@ function AuthProviderWrapper(props) {
     localStorage.removeItem("authToken");
   };
 
-  const logoutUser = () => {
+  const logoutUser = async () => {
     removeToken();
-    authenticateUser();
 
     if (firebaseUser) {
-      auth.signOut();
+      await auth.signOut();
     }
+    authenticateUser();
   };
 
   const getToken = () => {
