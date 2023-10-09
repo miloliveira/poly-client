@@ -1,18 +1,21 @@
 import React, { useContext, useState, useEffect } from "react";
+
 import { auth, provider } from "../firebase-config";
 import { signInWithRedirect, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
-
 import { AuthContext } from "../context/auth.context";
+
 const GoogleAuth = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+
   const [errorMessage, setErrorMessage] = useState(undefined);
+
   const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -22,19 +25,10 @@ const GoogleAuth = () => {
   const signInWithGoogle = async () => {
     try {
       await signInWithRedirect(auth, provider);
-
-      //const result = await getAuth().getUser();
-      //console.log("this is the user", result);
-      const result = localStorage.getItem("fbase_key");
-      console.log(result);
     } catch (error) {
       setErrorMessage("Google authentication failed");
     }
   };
-
-  if (firebaseUser && email && name && username && password) {
-    handleGoogleAuth();
-  }
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -64,6 +58,10 @@ const GoogleAuth = () => {
       setErrorMessage(error.response.data.errorMessage);
     }
   };
+
+  if (firebaseUser && email && name && username && password) {
+    handleGoogleAuth();
+  }
 
   return (
     <div>
