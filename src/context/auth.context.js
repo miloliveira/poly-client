@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { auth } from "../firebase-config";
+import { useAuthState } from "react-firebase-hooks/auth";
 const AuthContext = React.createContext();
 
 function AuthProviderWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
-
+  const [firebaseUser] = useAuthState(auth);
   const storeToken = (token) => {
     localStorage.setItem("authToken", token);
   };
@@ -19,6 +20,10 @@ function AuthProviderWrapper(props) {
   const logoutUser = () => {
     removeToken();
     authenticateUser();
+
+    if (firebaseUser) {
+      auth.signOut();
+    }
   };
 
   const getToken = () => {
