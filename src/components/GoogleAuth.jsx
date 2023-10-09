@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 import { auth, provider } from "../firebase-config";
 import { signInWithRedirect, onAuthStateChanged } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import axios from "axios";
+import { GoogleButton } from "react-google-button";
 
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
@@ -66,7 +67,7 @@ const GoogleAuth = () => {
   return (
     <div>
       {!firebaseUser && (
-        <button onClick={signInWithGoogle}>Sign in with google</button>
+        <GoogleButton onClick={signInWithGoogle} type="light" />
       )}
       {errorMessage && <p>{errorMessage}</p>}
     </div>
