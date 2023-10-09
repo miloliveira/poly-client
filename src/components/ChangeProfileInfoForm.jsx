@@ -2,6 +2,8 @@ import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import { auth } from "../firebase-config";
+import { useAuthState } from "react-firebase-hooks/auth";
 import service from "../api/service";
 import LoadingSpinner from "./LoadingSpinner";
 import {
@@ -25,6 +27,9 @@ const ChangeProfileInfoForm = (props) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
+
+  const [firebaseUser] = useAuthState(auth);
+
   const getUser = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/in/${userId}`
@@ -135,27 +140,31 @@ const ChangeProfileInfoForm = (props) => {
             onChange={(e) => handleFileUpload(e)}
           />
         </InputProfilePicDiv>
-        <label htmlFor="name">Name</label>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
+        {!firebaseUser && (
+          <>
+            <label htmlFor="name">Name</label>
+            <input
+              id="name"
+              type="text"
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
 
-        <label htmlFor="username">Username</label>
-        <input
-          id="username"
-          type="text"
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-            setErrorMessage("");
-          }}
-        />
-        {errorMessage && <p>{errorMessage}</p>}
+            <label htmlFor="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => {
+                setUsername(e.target.value);
+                setErrorMessage("");
+              }}
+            />
+            {errorMessage && <p>{errorMessage}</p>}
+          </>
+        )}
 
         <label htmlFor="about">About</label>
         <input
