@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import GoogleAuth from "../components/GoogleAuth";
 import {
   HomePage,
   HomePageShowLoginDiv,
@@ -19,6 +20,7 @@ const Home = () => {
           {showLoginToggle ? (
             <HomePageShowLoginDiv>
               <Login />
+              <GoogleAuth/>
               <HomePageInnerDiv>
                 <h5>Don't have an account yet? </h5>
                 <button onClick={() => setShowLoginToggle(false)}>
@@ -29,6 +31,7 @@ const Home = () => {
           ) : (
             <HomePageShowSignupDiv>
               <Signup />
+              <GoogleAuth/>
               <HomePageInnerDiv>
                 <h5>Already have an account?</h5>
                 <button onClick={() => setShowLoginToggle(true)}>
