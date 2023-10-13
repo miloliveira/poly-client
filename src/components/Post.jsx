@@ -7,6 +7,7 @@ import PostPopup from "./PostPopup";
 import EditPostForm from "./EditPostForm";
 import Follow from "./Follow";
 import Unfollow from "./Unfollow";
+import SharePost from "./SharePost";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import { AuthContext } from "../context/auth.context";
@@ -211,7 +212,7 @@ const Post = (props) => {
           <LikeButton onClick={() => likePost(post._id)}>
             {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />}
           </LikeButton>
-
+<SharePost postId={post._id}/>
           <TogleCommentBtn
             onClick={() => {
               setTogleComment(!togleComment);
