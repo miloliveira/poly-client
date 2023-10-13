@@ -14,7 +14,7 @@ const GoogleAuth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-
+  const [imageUrl, setImageUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
 
   const { storeToken, authenticateUser } = useContext(AuthContext);
@@ -33,10 +33,12 @@ const GoogleAuth = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      console.log(currentUser);
       setEmail(currentUser.email);
       setUsername(currentUser.email);
       setName(currentUser.displayName);
       setPassword(currentUser.accessToken);
+      setImageUrl(currentUser.photoURL);
     });
     return () => {
       unsubscribe();
@@ -45,7 +47,7 @@ const GoogleAuth = () => {
 
   const handleGoogleAuth = async () => {
     try {
-      const body = { email, username, name, password };
+      const body = { email, username, name, password, imageUrl };
 
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/google-auth`,
