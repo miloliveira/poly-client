@@ -212,7 +212,7 @@ const Post = (props) => {
           <LikeButton onClick={() => likePost(post._id)}>
             {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />}
           </LikeButton>
-<SharePost postId={post._id}/>
+          <SharePost postId={post._id} />
           <TogleCommentBtn
             onClick={() => {
               setTogleComment(!togleComment);
@@ -220,16 +220,18 @@ const Post = (props) => {
           >
             {togleComment ? <CommentBtnIcon /> : <CommentBtnIcon />}
           </TogleCommentBtn>
-
-          <CreateComment postId={post._id} setTogleComment={setTogleComment} />
         </EachPostButtonsDiv>
       )}
       {togleComment && (
         <>
-          <ViewComments
-            listComments={post.comments}
-            togleComment={togleComment}
-          />
+          {isLoggedIn && (
+            <CreateComment
+              postId={post._id}
+              setTogleComment={setTogleComment}
+            />
+          )}
+
+          <ViewComments listComments={post.comments} />
         </>
       )}
     </PostFromFeedList>
