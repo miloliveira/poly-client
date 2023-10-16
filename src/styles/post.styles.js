@@ -3,11 +3,16 @@ import { Link } from "react-router-dom";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
+import SubdirectoryArrowRightIcon from '@mui/icons-material/SubdirectoryArrowRight';
 import CheckIcon from "@mui/icons-material/Check";
 import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 //styled icons
+export const ShareIcon = styled(SubdirectoryArrowRightIcon)`
+color: #497174;
+`
+
 export const SendPostIcon = styled(SendIcon)`
   color: #497174;
 `;
