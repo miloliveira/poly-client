@@ -25,7 +25,9 @@ const SharePost = (props) => {
       console.log(error);
     }
   };
-  return <ShareIcon onClick={handleShare}></ShareIcon> 
+  return <button onClick={handleShare}>
+  <ShareIcon></ShareIcon> Share
+  </button>
 };
 
 export default SharePost;
