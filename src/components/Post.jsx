@@ -64,8 +64,8 @@ const Post = (props) => {
         }
       );
 
-      dispatch(isUpdatedFalse());
-      setIsLiked(true);
+      await dispatch(isUpdatedFalse());
+      await setIsLiked(true);
     } else if (isLiked === true) {
       await axios.put(
         `${process.env.REACT_APP_API_URL}/post-dislike/${postId}`,
@@ -77,8 +77,8 @@ const Post = (props) => {
         }
       );
 
-      dispatch(isUpdatedFalse());
-      setIsLiked(false);
+      await dispatch(isUpdatedFalse());
+      await setIsLiked(false);
     }
   };
 
@@ -101,14 +101,10 @@ const Post = (props) => {
   };
 
   const checkIfLiked = async () => {
-    if (isLoggedIn) {
-      for (let i = 0; i < post.likes.length; i++) {
-        if (post.likes[i] === user._id) {
-          setIsLiked(true);
-        } else {
-          setIsLiked(false);
-        }
-      }
+    if (isLoggedIn && post.likes.includes(user._id)) {
+      setIsLiked(true);
+    } else {
+      setIsLiked(false);
     }
   };
 
