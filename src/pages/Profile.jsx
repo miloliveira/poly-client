@@ -23,7 +23,6 @@ import {
   ActivityDiv,
   ActivityTabDiv,
   ActivityTabButton,
-  ActivityContentDiv,
 } from "../styles/activity.styles";
 
 const Profile = () => {
@@ -125,15 +124,15 @@ const Profile = () => {
                     likes
                   </ActivityTabButton>
                 </ActivityTabDiv>
-                <ActivityContentDiv>
-                  {showActivity === 0 ? (
-                    <UserActivityPosts userId={userId} qty={3} />
-                  ) : showActivity === 1 ? (
-                    <UserActivityComments userId={userId} qty={3} />
-                  ) : (
-                    <UserActivityLikes userId={userId} qty={3} />
-                  )}
-                </ActivityContentDiv>
+
+                {showActivity === 0 ? (
+                  <UserActivityPosts userId={userId} qty={3} />
+                ) : showActivity === 1 ? (
+                  <UserActivityComments userId={userId} qty={3} />
+                ) : (
+                  <UserActivityLikes userId={userId} qty={3} />
+                )}
+
                 <UserActivityLink to={`/in/${userId}/activity`}>
                   See full activity
                 </UserActivityLink>
