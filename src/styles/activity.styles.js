@@ -58,9 +58,9 @@ export const ActivityTabButton = styled.button`
   border-radius: 15px;
 `;
 
-export const ActivityContentDiv = styled.div`
+/* export const ActivityContentDiv = styled.div`
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
   }
-`;
+`; */
