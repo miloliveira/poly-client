@@ -9,7 +9,6 @@ import {
   ActivityDiv,
   ActivityTabDiv,
   ActivityTabButton,
-  ActivityContentDiv,
 } from "../styles/activity.styles";
 
 const Activity = () => {
@@ -60,15 +59,14 @@ const Activity = () => {
               likes
             </ActivityTabButton>
           </ActivityTabDiv>
-          <ActivityContentDiv>
-            {showActivity === 0 ? (
-              <UserActivityPosts userId={userId} />
-            ) : showActivity === 1 ? (
-              <UserActivityComments userId={userId} />
-            ) : (
-              <UserActivityLikes userId={userId} />
-            )}
-          </ActivityContentDiv>
+
+          {showActivity === 0 ? (
+            <UserActivityPosts userId={userId} />
+          ) : showActivity === 1 ? (
+            <UserActivityComments userId={userId} />
+          ) : (
+            <UserActivityLikes userId={userId} />
+          )}
         </ActivityDiv>
       </ActivityMainDiv>
     </ActivityPage>
