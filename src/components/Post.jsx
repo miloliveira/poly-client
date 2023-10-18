@@ -206,7 +206,7 @@ const Post = (props) => {
       {isLoggedIn && (
         <EachPostButtonsDiv>
           <LikeButton onClick={() => likePost(post._id)}>
-            {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />}
+            {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />} like
           </LikeButton>
           <SharePost postId={post._id} />
           <TogleCommentBtn
@@ -214,7 +214,7 @@ const Post = (props) => {
               setTogleComment(!togleComment);
             }}
           >
-            {togleComment ? <CommentBtnIcon /> : <CommentBtnIcon />}
+            {togleComment ? <CommentBtnIcon /> : <CommentBtnIcon />} comment
           </TogleCommentBtn>
         </EachPostButtonsDiv>
       )}
