@@ -15,7 +15,7 @@ const NavBar = () => {
     <StyledNavbar collapseOnSelect expand="lg" variant="dark">
       <Container>
         <LinkContainer to={`/`}>
-          <Navbar.Brand>Home</Navbar.Brand>
+          <Navbar.Brand>Poly</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -27,7 +27,7 @@ const NavBar = () => {
                 </LinkContainer>
 
                 <LinkContainer to={`/edit/${user._id}`} className="nav-link">
-                  <Nav.Link>Settings</Nav.Link>
+                  <Nav.Link>settings</Nav.Link>
                 </LinkContainer>
 
                 <LogOutButton
@@ -36,16 +36,14 @@ const NavBar = () => {
                     navigate("/");
                   }}
                 >
-                  Log out
+                  log out
                 </LogOutButton>
               </>
             )}
             {!isLoggedIn && (
-              <>
-                <LinkContainer to={"/feed"} className="nav-link">
-                  <Nav.Link>Feed</Nav.Link>
-                </LinkContainer>
-              </>
+              <LinkContainer to={"/feed"} className="nav-link">
+                <Nav.Link>feed</Nav.Link>
+              </LinkContainer>
             )}
           </Nav>
         </Navbar.Collapse>
