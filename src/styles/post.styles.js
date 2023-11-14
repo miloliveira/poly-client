@@ -484,6 +484,7 @@ export const AboveContentCommentPopup = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  font-size: 0.9rem;
   button {
     background-color: #59898d;
     color: white;
