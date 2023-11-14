@@ -9,14 +9,14 @@ export const ActivityPage = styled.div`
 
 export const ActivityMainDiv = styled.div`
   height: auto;
-  width: 55%;
+  width: 40%;
   margin-top: 10px;
   @media screen and (max-width: 1200px) {
-    width: 65%;
+    width: 50%;
   }
 
   @media screen and (max-width: 700px) {
-    width: 85%;
+    width: 75%;
   }
 
   @media screen and (max-width: 400px) {
