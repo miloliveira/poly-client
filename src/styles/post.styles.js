@@ -77,13 +77,13 @@ export const FeedMainContentDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 40%;
   @media screen and (max-width: 1200px) {
-    width: 65%;
+    width: 50%;
   }
 
   @media screen and (max-width: 700px) {
-    width: 85%;
+    width: 75%;
   }
 
   @media screen and (max-width: 400px) {
