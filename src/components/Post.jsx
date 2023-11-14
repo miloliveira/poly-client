@@ -110,16 +110,18 @@ const Post = (props) => {
 
   const checkIfFollows = async () => {
     try {
-      const userId = await user._id;
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/check-follow/${userId}`,
-        {}
-      );
+      if (user) {
+        const userId = await user._id;
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/check-follow/${userId}`,
+          {}
+        );
 
-      if (isLoggedIn && response.data.following.includes(post.user._id)) {
-        setIsFollowing(true);
-      } else {
-        setIsFollowing(false);
+        if (isLoggedIn && response.data.following.includes(post.user._id)) {
+          setIsFollowing(true);
+        } else {
+          setIsFollowing(false);
+        }
       }
     } catch (error) {
       console.log(error);
