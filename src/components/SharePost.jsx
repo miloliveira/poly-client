@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
+import { useDispatch, useSelector } from "react-redux";
+import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import { ShareIcon, ShareButton } from "../styles/post.styles";
 const SharePost = (props) => {
   const { postId } = props;
   const { user } = useContext(AuthContext);
   const getToken = localStorage.getItem("authToken");
+  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+  const dispatch = useDispatch();
 
   const handleShare = async () => {
     console.log("share this post", postId);
@@ -20,6 +24,7 @@ const SharePost = (props) => {
           },
         }
       );
+      await dispatch(isUpdatedFalse());
       console.log("success!");
     } catch (error) {
       console.log(error);
