@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
-import {ShareIcon} from "../styles/post.styles"
+import { ShareIcon, ShareButton } from "../styles/post.styles";
 const SharePost = (props) => {
   const { postId } = props;
   const { user } = useContext(AuthContext);
@@ -25,9 +25,11 @@ const SharePost = (props) => {
       console.log(error);
     }
   };
-  return <button onClick={handleShare}>
-  <ShareIcon></ShareIcon> Share
-  </button>
+  return (
+    <ShareButton onClick={handleShare}>
+      <ShareIcon></ShareIcon> share
+    </ShareButton>
+  );
 };
 
 export default SharePost;
