@@ -367,7 +367,13 @@ export const LikeButton = styled.button`
   border: none;
   background-color: white;
 `;
+
 export const TogleCommentBtn = styled.button`
+  background-color: white;
+  border: none;
+`;
+
+export const ShareButton = styled.button`
   background-color: white;
   border: none;
 `;
