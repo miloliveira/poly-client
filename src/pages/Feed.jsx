@@ -14,6 +14,7 @@ import {
   FeedMainContentDiv,
   HomeLink,
 } from "../styles/post.styles";
+import { element } from "prop-types";
 
 const Feed = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -22,24 +23,41 @@ const Feed = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn, user } = useContext(AuthContext);
+  const [checkShares, setCheckShares] = useState([]);
 
-  const getPosts = async () => {
-    try {
-      const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/posts`
-      );
-      await setAllPosts(response.data);
-      setIsLoading(false);
-      dispatch(isUpdatedTrue());
-    } catch (error) {
-      setErrorMessage(error.response.data.errorMessage);
-      console.log(errorMessage);
-    }
-  };
+  const [sortedPosts, setsortedPosts] = useState([]);
 
   useEffect(() => {
-    getPosts();
-  }, [isUpdatedGlobal]);
+    const fetchData = async () => {
+      try {
+        if(user){
+          const postsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/posts`);
+  
+          const sharedPostsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/check-share/${user._id}`);
+          
+          const updatedPosts = postsResponse.data.map(post => {
+            const share = sharedPostsResponse.data.shares.find(share => share.postId === post._id.toString());
+            const sortedDate = share ? new Date(share.createdAt) : new Date(post.createdAt);
+            return { ...post, sortedDate };
+          });
+    
+          updatedPosts.sort((first, second) => new Date(second.sortedDate) - new Date(first.sortedDate));
+    
+          setsortedPosts(updatedPosts);
+        } else{
+          const postsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/posts`);
+          setsortedPosts(postsResponse.data);
+        }
+        setIsLoading(false);
+        dispatch(isUpdatedTrue());
+      } catch (error) {
+        setErrorMessage(error.response.data.errorMessage);
+        console.log(errorMessage);
+      }
+    };
+  
+    fetchData();
+  }, [isUpdatedGlobal, dispatch, errorMessage]);
 
   return (
     <FeedPageDiv>
@@ -57,8 +75,8 @@ const Feed = () => {
           )}
 
           <FeedPostList>
-            {allPosts &&
-              allPosts.map((post) => {
+            {sortedPosts &&
+              sortedPosts.map((post) => {
                 return <Post key={post._id} post={post} />;
               })}
           </FeedPostList>
