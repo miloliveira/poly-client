@@ -32,7 +32,7 @@ const Profile = () => {
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const { user } = useContext(AuthContext);
+  const { user, isLoggedIn } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [showActivity, setShowActivity] = useState(0);
 
@@ -132,10 +132,11 @@ const Profile = () => {
                 ) : (
                   <UserActivityLikes userId={userId} qty={3} />
                 )}
-
-                <UserActivityLink to={`/in/${userId}/activity`}>
-                  See full activity
-                </UserActivityLink>
+                {isLoggedIn && (
+                  <UserActivityLink to={`/in/${userId}/activity`}>
+                    See full activity
+                  </UserActivityLink>
+                )}
               </ActivityDiv>
             </ProfileMainDiv>
           )}
