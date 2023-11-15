@@ -19,7 +19,7 @@ const ChangeProfileInfoForm = (props) => {
   const getToken = localStorage.getItem("authToken");
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
-  const [imageUrl, setimageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [location, setLocation] = useState("");
   const [occupation, setOccupation] = useState("");
   const [about, setAbout] = useState("");
@@ -41,7 +41,7 @@ const ChangeProfileInfoForm = (props) => {
     setOccupation(response.data.occupation);
     setLocation(response.data.location);
     setUsername(response.data.username);
-    setimageUrl(response.data.imageUrl);
+    setImageUrl(response.data.imageUrl);
     setIsLoading(false);
   };
 
@@ -68,7 +68,7 @@ const ChangeProfileInfoForm = (props) => {
       .uploadImage(uploadData)
       .then((response) => {
         setIsUploading(false);
-        setimageUrl(response.fileUrl);
+        setImageUrl(response.fileUrl);
       })
       .catch((error) => console.log(error));
   };
