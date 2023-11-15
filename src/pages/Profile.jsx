@@ -9,6 +9,7 @@ import About from "../components/About";
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";
 import UserActivityComments from "../components/UserActivityComments";
+import UserActivityShares from "../components/UserActivityShares";
 import LoadingSpinner from "../components/LoadingSpinner";
 import {
   ProfilePage,
@@ -123,14 +124,28 @@ const Profile = () => {
                   >
                     likes
                   </ActivityTabButton>
+                  <ActivityTabButton
+                    onClick={(e) => {
+                      setShowActivity(3);
+                    }}
+                    style={{
+                      backgroundColor:
+                        showActivity === 3 ? "#497174" : "#EFF5F5",
+                      color: showActivity === 3 ? "white" : "#497174",
+                    }}
+                  >
+                    shares
+                  </ActivityTabButton>
                 </ActivityTabDiv>
 
                 {showActivity === 0 ? (
                   <UserActivityPosts userId={userId} qty={3} />
                 ) : showActivity === 1 ? (
                   <UserActivityComments userId={userId} qty={3} />
-                ) : (
+                ) : showActivity === 2 ? (
                   <UserActivityLikes userId={userId} qty={3} />
+                ) : (
+                  <UserActivityShares userId={userId} qty={3} />
                 )}
                 {isLoggedIn && (
                   <UserActivityLink to={`/in/${userId}/activity`}>
