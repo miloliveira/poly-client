@@ -33,7 +33,6 @@ const GoogleAuth = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser);
       setEmail(currentUser.email);
       setUsername(currentUser.email);
       setName(currentUser.displayName);
