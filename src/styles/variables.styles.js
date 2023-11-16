@@ -5,7 +5,8 @@ const colors = {
     mildHighlight:"#59898d",
     strongHighlight:"#497174",
     fullContrast:"red",
-    border:"#d6e4e5"
+    border:"#d6e4e5",
+    fontWhite:"#FFFFFF"
 
 }
 
