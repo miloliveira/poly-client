@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import Navbar from "react-bootstrap/Navbar";
+import { colors } from "./variables.styles";
 
 export const StyledNavbar = styled(Navbar)`
-  background-color: #497174;
+  background-color: ${colors.strongHighlight};
 `;
 
 export const LogOutButton = styled.button`
-  color: #497174;
+  color: ${colors.strongHighlight};
   font-weight: bold;
-  background-color: #d6e4e5;
+  background-color: ${colors.backgroundPrimary};
   border: none;
   border-radius: 15px;
 `;
