@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { colors } from "./variables.styles";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -16,13 +17,13 @@ export const DropUpIcon = styled(ArrowDropUpIcon)`
   color: #497174;
 `;
 export const LocationIcon = styled(LocationOnIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 export const EducationIcon = styled(SchoolIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 export const OccupationIcon = styled(WorkIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 export const AddAboutInfoIcon = styled(PostAddIcon)`
   color: #497174;
@@ -60,7 +61,7 @@ export const ProfileUserBannerDiv = styled.div`
   margin-bottom: 10px;
   justify-content: space-evenly;
   border-radius: 15px;
-  border: 1px solid #d6e4e5;
+  border: 1px solid ${colors.border};
   padding: 20px 20px;
   h2 {
     margin: 0;
@@ -93,7 +94,7 @@ export const BannerFollowDiv = styled.div`
   p {
     margin: 0;
     font-weight: bold;
-    color: #497174;
+    color: ${colors.strongHighlight};
   }
 `;
 export const ProfileImage = styled.img`
@@ -124,7 +125,7 @@ export const ProfileImage = styled.img`
 export const AboutDiv = styled.div`
   background-color: white;
   border-radius: 15px;
-  border: 1px solid #d6e4e5;
+  border: 1px solid ${colors.border};
   padding: 10px;
   margin-bottom: 10px;
   width: 100%;
@@ -171,10 +172,10 @@ export const AboutSectionComponent = styled.div`
 export const UserActivityLink = styled(Link)`
   text-decoration: none;
   font-size: 1.1rem;
-  color: #497174;
+  color: ${colors.mildHighlight};
   font-weight: bold;
   margin: 10px 0px;
   :hover {
-    color: #59898d;
+    color: ${colors.strongHighlight};
   }
 `;
