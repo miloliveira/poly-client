@@ -1,21 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { colors } from "./variables.styles";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SchoolIcon from "@mui/icons-material/School";
 import WorkIcon from "@mui/icons-material/Work";
-import PostAddIcon from "@mui/icons-material/PostAdd";
 
 //icons
-
-export const DropDownIcon = styled(ArrowDropDownIcon)`
-  color: #497174;
-`;
-export const DropUpIcon = styled(ArrowDropUpIcon)`
-  color: #497174;
-`;
 export const LocationIcon = styled(LocationOnIcon)`
   color: ${colors.strongHighlight};
 `;
@@ -25,10 +15,8 @@ export const EducationIcon = styled(SchoolIcon)`
 export const OccupationIcon = styled(WorkIcon)`
   color: ${colors.strongHighlight};
 `;
-export const AddAboutInfoIcon = styled(PostAddIcon)`
-  color: #497174;
-`;
-//
+
+//Styled  components
 export const ProfilePage = styled.div`
   width: 100%;
   display: flex;
