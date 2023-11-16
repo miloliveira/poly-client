@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "./variables.styles";
 
 export const ActivityPage = styled.div`
   width: 100%;
@@ -28,9 +29,9 @@ export const ActivityDiv = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   border-radius: 15px;
-  border: 1px solid #d6e4e5;
+  border: 1px solid ${colors.border};
   padding: 10px;
   h4 {
     font-size: 1rem;
@@ -57,10 +58,3 @@ export const ActivityTabButton = styled.button`
   border: none;
   border-radius: 15px;
 `;
-
-/* export const ActivityContentDiv = styled.div`
-  overflow-y: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`; */
