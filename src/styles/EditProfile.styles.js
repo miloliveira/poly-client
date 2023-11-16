@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colors } from "./variables.styles";
 
 export const EditProfilePage = styled.div`
   height: 100vh;
@@ -42,20 +43,20 @@ export const EditProfileForm = styled.form`
     border-radius: 10px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    border: 1px solid #d6e4e5;
+    border: 1px solid ${colors.border};
     outline: none;
   }
 
   button {
     margin-bottom: 10px;
-    background-color: #59898d;
-    color: white;
+    background-color: ${colors.mildHighlight};
+    color: ${colors.fontWhite};
     width: 155px;
     height: 30px;
     border: none;
     border-radius: 15px;
     :hover {
-      background-color: #497174;
+      background-color: ${colors.strongHighlight};
     }
   }
 `;
@@ -94,20 +95,20 @@ export const EditPasswordForm = styled.form`
     border-radius: 10px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    border: 1px solid #d6e4e5;
+    border: 1px solid ${colors.border};
     outline: none;
   }
 
   button {
     margin-bottom: 10px;
-    background-color: #59898d;
-    color: white;
+    background-color: ${colors.mildHighlight};
+    color: ${colors.fontWhite};
     width: 155px;
     height: 30px;
     border: none;
     border-radius: 15px;
     :hover {
-      background-color: #497174;
+      background-color: ${colors.strongHighlight};
     }
   }
 `;
@@ -120,7 +121,7 @@ export const InputProfilePicDiv = styled.div`
     width: 40%;
     border-radius: 10px;
     margin-bottom: 10px;
-    border: 1px solid #d6e4e5;
+    border: 1px solid ${colors.border};
     outline: none;
     padding: 0;
     @media screen and (max-width: 700px) {
@@ -129,9 +130,9 @@ export const InputProfilePicDiv = styled.div`
   }
 
   input::file-selector-button {
-    color: #497174;
-    background-color: #eff5f5;
-    border: 1px solid #d6e4e5;
+    color: ${colors.fontContrast};
+    background-color: ${colors.backgroundPrimary};
+    border: 1px solid ${colors.border};
     border-radius: 10px;
     cursor: pointer;
   }
@@ -180,13 +181,13 @@ export const ChangeSettingsFormButton = styled.button`
 `;
 
 export const DeleteProfileButton = styled.button`
-  background-color: #8e0000;
-  color: white;
+  background-color: ${colors.deleteBtn};
+  color: ${colors.fontWhite};
   width: 110px;
   height: 30px;
   border: none;
   border-radius: 15px;
   :hover {
-    background-color: #c60000;
+    background-color: ${colors.deleteBtnHover};
   }
 `;
