@@ -1,12 +1,11 @@
 import styled from "styled-components";
-
+import { colors } from "./variables.styles";
 export const HomePage = styled.div`
   height: auto;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 `;
 
 export const HomePageShowLoginDiv = styled.div`
@@ -28,7 +27,6 @@ export const HomePageInnerDiv = styled.div`
   margin-top: 20px;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   h5 {
     margin: 0;
@@ -36,13 +34,10 @@ export const HomePageInnerDiv = styled.div`
   button {
     margin-left: 5px;
     margin-top: 5px;
-    font-weight: bold;
-    color: #497174;
+    color: ${colors.fontWhite};
+    background-color: ${colors.strongHighlight};
     padding: 3px 10px;
-    border: 2px solid #497174;
+    border: 2px solid ${colors.strongHighlight};
     border-radius: 20px;
-  }
-  button:hover {
-    border: 3px solid #497174;
   }
 `;
