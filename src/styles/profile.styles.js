@@ -40,7 +40,7 @@ export const ProfileMainDiv = styled.div`
   }
 `;
 export const ProfileUserBannerDiv = styled.div`
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   width: 100%;
   height: 200px;
   display: flex;
@@ -111,7 +111,7 @@ export const ProfileImage = styled.img`
   }
 `;
 export const AboutDiv = styled.div`
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   border-radius: 15px;
   border: 1px solid ${colors.border};
   padding: 10px;
