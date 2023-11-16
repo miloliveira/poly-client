@@ -1,9 +1,11 @@
 const colors = {
     backgroundPrimary:"#EFF5F5",
-    backgroundSecondary:"#D6E4E5",
-    accent:"#497174",
-    accentHover:"",
-    contrast:""
+    backgroundSecondary:"#FFFFFF",
+    softHighlight:"#D6E4E5",
+    mildHighlight:"#59898d",
+    strongHighlight:"#497174",
+    fullContrast:"red",
+    border:"#d6e4e5"
 
 }
 
