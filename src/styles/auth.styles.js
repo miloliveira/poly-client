@@ -1,10 +1,13 @@
 import styled from "styled-components";
 import ErrorIcon from "@mui/icons-material/Error";
+import { colors } from "./variables.styles";
 
+//icons
 export const ErrorMessageIcon = styled(ErrorIcon)`
   color: #497174;
 `;
 
+//styled components
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -15,13 +18,13 @@ export const LoginForm = styled.form`
     border-radius: 10px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    border: 1px solid #d6e4e5;
+    border: 1px solid ${colors.border};
     outline: none;
   }
   button {
     margin-bottom: 10px;
-    background-color: #497174;
-    color: white;
+    background-color: ${colors.strongHighlight};
+    color: ${colors.fontWhite};
     width: 70px;
     height: 30px;
     border: none;
@@ -44,8 +47,6 @@ export const AuthErrorMessage = styled.div`
   }
 `;
 
-//Signup form
-
 export const SignupForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -59,13 +60,13 @@ export const SignupForm = styled.form`
     border-radius: 10px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    border: 1px solid #d6e4e5;
+    border: 1px solid ${colors.border};
     outline: none;
   }
   button {
     margin-bottom: 10px;
-    background-color: #497174;
-    color: white;
+    background-color: ${colors.strongHighlight};
+    color: ${colors.fontWhite};
     width: 70px;
     height: 30px;
     border: none;
