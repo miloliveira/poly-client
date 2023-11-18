@@ -12,34 +12,34 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 //styled icons
 export const ShareIcon = styled(SubdirectoryArrowRightIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 export const SendPostIcon = styled(SendIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 export const PostPopupIcon = styled(MoreHorizIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 export const CommentBtnIcon = styled(InsertCommentIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 export const FollowingCheckIcon = styled(CheckIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 export const FollowAddIcon = styled(AddIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 export const LikeBtnIcon = styled(ThumbUpAltIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 export const DislikeBtnIcon = styled(ThumbDownAltIcon)`
-  color: #497174;
+  color: ${colors.strongHighlight};
 `;
 
 //styled components
