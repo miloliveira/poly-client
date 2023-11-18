@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { colors } from "./variables.styles";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
@@ -8,6 +9,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
 //styled icons
 export const ShareIcon = styled(SubdirectoryArrowRightIcon)`
   color: #497174;
@@ -44,35 +46,13 @@ export const DislikeBtnIcon = styled(ThumbDownAltIcon)`
 
 export const FeedPageDiv = styled.div`
   height: 100vh;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   display: flex;
   flex-direction: row;
   justify-content: center;
-
   width: 100%;
 `;
-/* export const FeedContentDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 55%;
-  @media screen and (max-width: 1200px) {
-    width: 65%;
-  }
 
-  @media screen and (max-width: 700px) {
-    width: 85%;
-  }
-
-  @media screen and (max-width: 400px) {
-    width: 90%;
-  }
-`;
- */
-/* export const FeedLeftContentDiv = styled.div`
-  width: 20%;
-  background-color: #d6e4e5;
-`; */
 export const FeedMainContentDiv = styled.div`
   display: flex;
   flex-direction: column;
@@ -98,10 +78,10 @@ export const FeedMainContentDiv = styled.div`
 
 export const HomeLink = styled(Link)`
   text-decoration: none;
-  color: #497174;
+  color: ${colors.fontContrast};
 
   :hover {
-    color: #497174;
+    color: ${colors.fontContrast};
     font-weight: bold;
   }
 `;
@@ -129,8 +109,8 @@ export const CreatePostForm = styled.form`
   width: 100%;
 
   button {
-    background-color: #497174;
-    color: white;
+    background-color: ${colors.strongHighlight};
+    color: ${colors.fontWhite};
     width: 70px;
     height: 30px;
     border: none;
@@ -144,9 +124,9 @@ export const CreatePostLabel = styled.div`
   textarea {
     width: 100%;
     height: 40px;
-    border: 1px solid #d6e4e5;
+    border: 1px solid ${colors.border};
     border-radius: 25px;
-    background-color: white;
+    background-color: ${colors.backgroundSecondary};
     padding: 10px 20px 0px 20px;
     outline: none;
     resize: none;
@@ -162,9 +142,9 @@ export const CreatePostLabel = styled.div`
   }
 
   input::file-selector-button {
-    color: #497174;
-    background-color: #eff5f5;
-    border: 1px solid #d6e4e5;
+    color: ${colors.fontContrast};
+    background-color: ${colors.backgroundPrimary};
+    border: 1px solid ${colors.border};
     border-radius: 15px;
     cursor: pointer;
   }
@@ -174,7 +154,7 @@ export const FeedPostList = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   width: 100%;
   height: auto;
 `;
@@ -182,15 +162,15 @@ export const FeedPostList = styled.div`
 export const PostFromFeedList = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   margin-bottom: 10px;
-  border: 1px solid #d6e4e5;
+  border: 1px solid ${colors.border};
   border-radius: 15px;
 `;
 export const PostInfoDiv = styled.div`
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   border-radius: 15px;
-  border-bottom: 2px solid #eff5f5;
+  border-bottom: 2px solid ${colors.backgroundPrimary};
   padding: 0px 10px;
   display: flex;
   flex-direction: row;
@@ -198,8 +178,8 @@ export const PostInfoDiv = styled.div`
   align-items: center;
   font-size: 0.9rem;
   button {
-    background-color: #eff5f5;
-    color: #497174;
+    background-color: ${colors.backgroundPrimary};
+    color: ${colors.fontContrast};
     border: none;
   }
 `;
@@ -229,7 +209,6 @@ export const PostUserInfoDiv = styled.div`
 //post popup component
 export const PostPopupDiv = styled.div`
   position: relative;
-
   button {
     border: none;
   }
@@ -245,26 +224,13 @@ export const AboveContentPostPopup = styled.div`
   align-items: center;
   justify-content: space-evenly;
   button {
-    background-color: #59898d;
-    color: white;
+    background-color: ${colors.mildHighlight};
+    color: ${colors.fontWhite};
     width: 100%;
     border-radius: 15px;
   }
   button:hover {
-    background-color: #497174;
-  }
-`;
-export const AboveContentPostPopupLink = styled(Link)`
-  background-color: #497174;
-  color: white;
-  width: 100%;
-  border-radius: 5px;
-  text-decoration: none;
-
-  text-align: center;
-  &:hover {
-    border: 2px solid white;
-    color: white;
+    background-color: ${colors.strongHighlight};
   }
 `;
 
@@ -276,13 +242,13 @@ export const PostUserInfoLink = styled(Link)`
   height: 50px;
   text-decoration: none;
   align-items: center;
-  color: black;
+  color: ${colors.fontBlack};
 `;
 
 export const NameAndTimeAgoDiv = styled.div`
   margin: 0px 10px;
   text-decoration: none;
-  color: black;
+  color: ${colors.fontBlack};
 
   p {
     margin: 0px;
@@ -297,7 +263,7 @@ export const NameAndTimeAgoDiv = styled.div`
 export const ReactTimeAgoDiv = styled.div`
   margin: 0;
   font-size: 0.7rem;
-  color: black;
+  color: ${colors.fontBlack};
 `;
 
 export const PostUserImg = styled.img`
@@ -326,7 +292,7 @@ export const PostContent = styled.p`
   padding: 10px 15px;
   width: 100%;
   height: auto;
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   word-wrap: break-word;
   font-size: 0.9rem;
 `;
@@ -342,7 +308,7 @@ export const EachPostReactionsDiv = styled.div`
   height: 30px;
   padding: 0px;
   border-radius: 5px;
-  border-bottom: 2px solid #eff5f5;
+  border-bottom: 2px solid ${colors.backgroundPrimary};
 `;
 export const NumberOfCommentsP = styled.p`
   margin-right: 10px;
@@ -360,21 +326,21 @@ export const EachPostButtonsDiv = styled.div`
   justify-content: space-between;
   padding: 10px 15px 10px 15px;
   margin: 0;
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   border-radius: 15px;
 `;
 export const LikeButton = styled.button`
   border: none;
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
 `;
 
 export const TogleCommentBtn = styled.button`
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   border: none;
 `;
 
 export const ShareButton = styled.button`
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   border: none;
 `;
 
@@ -384,10 +350,10 @@ export const CreateCommentForm = styled.form`
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   margin: 0;
   button {
-    background-color: white;
+    background-color: ${colors.backgroundSecondary};
     border: none;
   }
 `;
@@ -399,8 +365,8 @@ export const CreateCommentLabel = styled.label`
   textarea {
     width: 100%;
     height: 100%;
-    background-color: white;
-    border: 1px solid #d6e4e5;
+    background-color: ${colors.backgroundSecondary};
+    border: 1px solid ${colors.border};
     border-radius: 25px;
     padding: 10px 20px 0px 20px;
     outline: none;
@@ -424,10 +390,10 @@ export const ViewCommentsList = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-  background-color: white;
+  background-color: ${colors.backgroundSecondary};
   align-items: space-around;
   border-radius: 15px;
-  border-bottom: 1px solid #d6e4e5;
+  border-bottom: 1px solid ${colors.border};
   padding-top: 10px;
 `;
 export const CommentsListInnerDiv = styled.div`
@@ -442,7 +408,7 @@ export const EachCommentFromFeed = styled.div`
   flex-direction: column;
   width: 100%;
   height: auto;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   border-radius: 10px;
   padding-top: 5px;
   margin-bottom: 10px;
@@ -452,7 +418,6 @@ export const CommentInfoDiv = styled.div`
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-
   min-height: 30px;
   width: 100%;
 `;
@@ -461,7 +426,7 @@ export const CommentUserInfoDiv = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: auto;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   padding-left: 10px;
   font-size: 0.9rem;
 `;
@@ -469,10 +434,10 @@ export const CommentUserInfoDiv = styled.div`
 export const CommentPopupDiv = styled.div`
   position: relative;
   margin-right: 10px;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   button {
     border: none;
-    background-color: #eff5f5;
+    background-color: ${colors.backgroundPrimary};
   }
 `;
 export const AboveContentCommentPopup = styled.div`
@@ -486,13 +451,13 @@ export const AboveContentCommentPopup = styled.div`
   justify-content: space-evenly;
   font-size: 0.9rem;
   button {
-    background-color: #59898d;
-    color: white;
+    background-color: ${colors.mildHighlight};
+    color: ${colors.fontWhite};
     width: 100%;
     border-radius: 15px;
   }
   button:hover {
-    background-color: #497174;
+    background-color: ${colors.strongHighlight};
   }
 `;
 //
@@ -508,7 +473,7 @@ export const CommentUserInfoLink = styled(Link)`
   p {
     margin: 0px 10px;
     text-decoration: none;
-    color: black;
+    color: ${colors.fontBlack};
     width: auto;
     text-align: center;
     font-weight: bold;
@@ -533,14 +498,14 @@ export const EachCommentContent = styled.p`
   padding: 5px 15px;
   min-height: 30px;
   width: 100%;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   word-wrap: break-word;
   font-size: 0.9rem;
 `;
 //edit comments
 export const EditCommentContentForm = styled.form`
   padding: 5px 15px;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   display: flex;
   flex-direction: column;
   textarea {
@@ -548,8 +513,8 @@ export const EditCommentContentForm = styled.form`
     width: 100%;
     min-height: 50px;
     padding: 5px 15px;
-    background-color: white;
-    border: 1px solid #d6e4e5;
+    background-color: ${colors.backgroundSecondary};
+    border: 1px solid ${colors.border};
     outline: none;
     resize: none;
     font-size: 0.9rem;
@@ -567,13 +532,13 @@ export const EditCommentFormInnerDiv = styled.div`
   margin-top: 5px;
   button {
     border: none;
-    background-color: #59898d;
-    color: white;
+    background-color: ${colors.mildHighlight};
+    color: ${colors.fontWhite};
     border-radius: 15px;
     padding: 1px 5px;
   }
   button:hover {
-    background-color: #497174;
+    background-color: ${colors.strongHighlight};
   }
 `;
 
@@ -581,15 +546,15 @@ export const EditCommentFormInnerDiv = styled.div`
 
 export const EditPostContentForm = styled.form`
   padding: 5px 15px;
-  background-color: #eff5f5;
+  background-color: ${colors.backgroundPrimary};
   display: flex;
   flex-direction: column;
   textarea {
     height: 150px;
     width: 100%;
     padding: 10px 15px;
-    background-color: white;
-    border: 1px solid #d6e4e5;
+    background-color: ${colors.backgroundSecondary};
+    border: 1px solid ${colors.border};
     border-radius: 15px;
     outline: none;
     resize: none;
@@ -605,9 +570,9 @@ export const EditPostContentForm = styled.form`
   }
 
   input::file-selector-button {
-    color: #497174;
-    background-color: #eff5f5;
-    border: 1px solid #d6e4e5;
+    color: ${colors.fontContrast};
+    background-color: ${colors.backgroundPrimary};
+    border: 1px solid ${colors.border};
     border-radius: 15px;
     cursor: pointer;
   }
@@ -621,22 +586,22 @@ export const EditPostFormInnerDiv = styled.div`
 
   button {
     border: none;
-    background-color: #59898d;
-    color: white;
+    background-color: ${colors.mildHighlight};
+    color: ${colors.fontWhite};
     border-radius: 15px;
     padding: 1px 5px;
   }
   button:hover {
-    background-color: #497174;
+    background-color: ${colors.strongHighlight};
   }
 `;
 export const EditPostFormCancelLink = styled(Link)`
-  background-color: #497174;
-  color: white;
+  background-color: ${colors.strongHighlight};
+  color: ${colors.fontWhite};
   border-radius: 5px;
   text-decoration: none;
   padding: 5px 5px;
   &:hover {
-    color: white;
+    color: ${colors.fontWhite};
   }
 `;
