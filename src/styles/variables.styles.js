@@ -8,6 +8,7 @@ const colors = {
   deleteBtnHover: "#c60000",
   border: "#d6e4e5",
   fontWhite: "#FFFFFF",
+  fontBlack: "#000000",
   fontContrast: "#497174",
 };
 
