@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import CreatePost from "../components/CreatePost";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -10,42 +9,50 @@ import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import {
   FeedPageDiv,
   FeedPostList,
-  FeedContentDiv,
   FeedMainContentDiv,
   HomeLink,
 } from "../styles/post.styles";
-import { element } from "prop-types";
 
 const Feed = () => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const [allPosts, setAllPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn, user } = useContext(AuthContext);
-  const [checkShares, setCheckShares] = useState([]);
-
   const [sortedPosts, setsortedPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        if(user){
-          const postsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/posts`);
-  
-          const sharedPostsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/check-share/${user._id}`);
-          
-          const updatedPosts = postsResponse.data.map(post => {
-            const share = sharedPostsResponse.data.shares.find(share => share.postId === post._id.toString());
-            const sortedDate = share ? new Date(share.createdAt) : new Date(post.createdAt);
+        if (user) {
+          const postsResponse = await axios.get(
+            `${process.env.REACT_APP_API_URL}/posts`
+          );
+
+          const sharedPostsResponse = await axios.get(
+            `${process.env.REACT_APP_API_URL}/check-share/${user._id}`
+          );
+
+          const updatedPosts = postsResponse.data.map((post) => {
+            const share = sharedPostsResponse.data.shares.find(
+              (share) => share.postId === post._id.toString()
+            );
+            const sortedDate = share
+              ? new Date(share.createdAt)
+              : new Date(post.createdAt);
             return { ...post, sortedDate };
           });
-    
-          updatedPosts.sort((first, second) => new Date(second.sortedDate) - new Date(first.sortedDate));
-    
+
+          updatedPosts.sort(
+            (first, second) =>
+              new Date(second.sortedDate) - new Date(first.sortedDate)
+          );
+
           setsortedPosts(updatedPosts);
-        } else{
-          const postsResponse = await axios.get(`${process.env.REACT_APP_API_URL}/posts`);
+        } else {
+          const postsResponse = await axios.get(
+            `${process.env.REACT_APP_API_URL}/posts`
+          );
           setsortedPosts(postsResponse.data);
         }
         setIsLoading(false);
@@ -55,7 +62,7 @@ const Feed = () => {
         console.log(errorMessage);
       }
     };
-  
+
     fetchData();
   }, [isUpdatedGlobal, dispatch, errorMessage]);
 
