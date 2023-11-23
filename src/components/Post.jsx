@@ -4,6 +4,7 @@ import ReactTimeAgo from "react-time-ago";
 import ViewComments from "../components/ViewComments";
 import CreateComment from "../components/CreateComment";
 import PostPopup from "./PostPopup";
+import SharedPostInfo from "./SharedPostInfo";
 import EditPostForm from "./EditPostForm";
 import Follow from "./Follow";
 import Unfollow from "./Unfollow";
@@ -31,12 +32,14 @@ import {
   LikeButton,
   CommentBtnIcon,
   TogleCommentBtn,
+  SharedPostDiv,
 } from "../styles/post.styles";
 const Post = (props) => {
   const { post } = props;
   const [isLiked, setIsLiked] = useState(false);
   const [editing, setEditing] = useState(false);
   const [showPostPopup, setShowPostPopup] = useState(false);
+  const [showSharePopup, setShowSharePopup] = useState(false);
   const [togleComment, setTogleComment] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const getToken = localStorage.getItem("authToken");
@@ -136,6 +139,17 @@ const Post = (props) => {
 
   return (
     <PostFromFeedList key={post._id}>
+      {post.isShared && (
+        <SharedPostInfo
+          userThatShared={post.shares[0].userId.name}
+          postId={post._id}
+          userId={post.shares[0].userId._id}
+          shareId={post.shares[0]._id}
+          showSharePopup={showSharePopup}
+          setShowSharePopup={setShowSharePopup}
+        />
+      )}
+
       <PostInfoDiv>
         <PostUserInfoDiv>
           <PostUserInfoLink to={`/in/${post.user._id}`}>
