@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const UserActivityShares = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-
   const [shareActivity, setShareActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { userId, qty } = props;
@@ -22,7 +21,11 @@ const UserActivityShares = (props) => {
           `${process.env.REACT_APP_API_URL}/in/${userId}/shareActivity`
         );
       }
-      setShareActivity(response.data);
+      const updatedPosts = response.data.map((post) => {
+        const isShared = true;
+        return { ...post, isShared };
+      });
+      setShareActivity(updatedPosts);
     } catch (error) {
       setErrorMessage(error.response.data.errorMessage);
     }
