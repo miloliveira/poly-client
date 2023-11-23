@@ -206,6 +206,38 @@ export const PostUserInfoDiv = styled.div`
   max-width: 70%;
 `;
 
+export const SharedPostDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  p {
+    margin: 5px 10px;
+  }
+`;
+
+export const SharePopupDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+`;
+
+export const SharePopupButton = styled.button`
+  margin-right: 10px;
+  background-color: transparent;
+  border: none;
+`;
+
+export const DeleteShareButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 0.9rem;
+  padding: 0px 5px;
+  color: ${colors.strongHighlight};
+  :hover {
+    font-weight: bold;
+  }
+`;
+
 //post popup component
 export const PostPopupDiv = styled.div`
   position: relative;
@@ -213,7 +245,6 @@ export const PostPopupDiv = styled.div`
     border: none;
   }
 `;
-
 export const AboveContentPostPopup = styled.div`
   background-color: transparent;
   position: absolute;
