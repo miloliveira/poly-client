@@ -47,14 +47,21 @@ export const ActivityTabDiv = styled.div`
   display: flex;
   flex-direction: row;
   margin: 10px 0px;
+  @media screen and (max-width: 400px) {
+    flex-wrap: wrap;
+  }
 `;
 
 export const ActivityTabButton = styled.button`
   font-weight: bold;
   padding: 0 10px;
-  margin-right: 15px;
+  margin-right: 5px;
   font-size: 0.9rem;
   height: 30px;
   border: none;
   border-radius: 15px;
+  @media screen and (max-width: 400px) {
+    font-size: 0.8rem;
+    margin-bottom: 5px;
+  }
 `;
