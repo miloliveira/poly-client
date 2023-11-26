@@ -363,16 +363,25 @@ export const EachPostButtonsDiv = styled.div`
 export const LikeButton = styled.button`
   border: none;
   background-color: ${colors.backgroundSecondary};
+  @media screen and (max-width: 400px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const TogleCommentBtn = styled.button`
   background-color: ${colors.backgroundSecondary};
   border: none;
+  @media screen and (max-width: 400px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const ShareButton = styled.button`
   background-color: ${colors.backgroundSecondary};
   border: none;
+  @media screen and (max-width: 400px) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const CreateCommentForm = styled.form`
