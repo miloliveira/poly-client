@@ -124,6 +124,7 @@ export const InputProfilePicDiv = styled.div`
     border: 1px solid ${colors.border};
     outline: none;
     padding: 0;
+    font-size: 0.9rem;
     @media screen and (max-width: 700px) {
       width: 70%;
     }
@@ -163,6 +164,7 @@ export const ChangeSettingsFormDiv = styled.div`
 
   @media screen and (max-width: 700px) {
     width: 70%;
+    justify-content: space-evenly;
   }
 
   @media screen and (max-width: 400px) {
@@ -175,9 +177,12 @@ export const ChangeSettingsFormButton = styled.button`
   font-weight: bold;
   padding: 0 10px;
   height: 30px;
-  margin-right: 15px;
+  margin-right: 13px;
   border: none;
   border-radius: 15px;
+  @media screen and (max-width: 700px) {
+    margin: 0;
+  }
 `;
 
 export const DeleteProfileButton = styled.button`
