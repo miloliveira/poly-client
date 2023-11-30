@@ -15,7 +15,7 @@ const NavBar = () => {
   const navigate = useNavigate();
 
   return (
-    <StyledNavbar collapseOnSelect expand="lg" variant="dark">
+    <StyledNavbar collapseOnSelect expand="lg">
       <Container>
         <LinkContainer to={`/`}>
           <Navbar.Brand>Poly</Navbar.Brand>
