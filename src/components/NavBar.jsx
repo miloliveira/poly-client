@@ -5,8 +5,11 @@ import { AuthContext } from "../context/auth.context";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-
-import { StyledNavbar, LogOutButton } from "../styles/navbar.styles";
+import {
+  StyledNavbar,
+  LogOutButton,
+  StyledNavLink,
+} from "../styles/navbar.styles";
 const NavBar = () => {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -23,11 +26,11 @@ const NavBar = () => {
             {isLoggedIn && (
               <>
                 <LinkContainer to={`/in/${user._id}`}>
-                  <Nav.Link>my profile</Nav.Link>
+                  <StyledNavLink>my profile</StyledNavLink>
                 </LinkContainer>
 
                 <LinkContainer to={`/edit/${user._id}`} className="nav-link">
-                  <Nav.Link>settings</Nav.Link>
+                  <StyledNavLink>settings</StyledNavLink>
                 </LinkContainer>
 
                 <LogOutButton
@@ -42,7 +45,7 @@ const NavBar = () => {
             )}
             {!isLoggedIn && (
               <LinkContainer to={"/feed"} className="nav-link">
-                <Nav.Link>feed</Nav.Link>
+                <StyledNavLink>feed</StyledNavLink>
               </LinkContainer>
             )}
           </Nav>
