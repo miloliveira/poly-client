@@ -20,9 +20,9 @@ const Home = () => {
           {showLoginToggle ? (
             <HomePageShowLoginDiv>
               <Login />
-              <GoogleAuth/>
+              <GoogleAuth />
               <HomePageInnerDiv>
-                <h5>Don't have an account yet? </h5>
+                <p>Don't have an account yet? </p>
                 <button onClick={() => setShowLoginToggle(false)}>
                   Register here
                 </button>
@@ -31,9 +31,9 @@ const Home = () => {
           ) : (
             <HomePageShowSignupDiv>
               <Signup />
-              <GoogleAuth/>
+              <GoogleAuth />
               <HomePageInnerDiv>
-                <h5>Already have an account?</h5>
+                <p>Already have an account?</p>
                 <button onClick={() => setShowLoginToggle(true)}>
                   Login here
                 </button>
