@@ -15,7 +15,7 @@ export const LoginForm = styled.form`
   margin-top: 20px;
   width: 100%;
   input {
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 5px;
     margin-bottom: 10px;
     border: 1px solid ${colors.border};
@@ -28,7 +28,7 @@ export const LoginForm = styled.form`
     width: 70px;
     height: 30px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
   }
 `;
 
@@ -57,7 +57,7 @@ export const SignupForm = styled.form`
     text-align: center;
   }
   input {
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 5px;
     margin-bottom: 10px;
     border: 1px solid ${colors.border};
@@ -70,6 +70,6 @@ export const SignupForm = styled.form`
     width: 70px;
     height: 30px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
   }
 `;
