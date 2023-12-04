@@ -55,7 +55,7 @@ export const ActivityTabDiv = styled.div`
 export const ActivityTabButton = styled.button`
   font-weight: bold;
   padding: 0 10px;
-  margin-right: 5px;
+  margin-right: 10px;
   font-size: 0.9rem;
   height: 30px;
   border: none;
