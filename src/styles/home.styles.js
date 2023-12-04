@@ -38,6 +38,6 @@ export const HomePageInnerDiv = styled.div`
     background-color: ${colors.strongHighlight};
     padding: 3px 10px;
     border: 2px solid ${colors.strongHighlight};
-    border-radius: 20px;
+    border-radius: 5px;
   }
 `;
