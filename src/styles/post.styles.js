@@ -95,7 +95,6 @@ export const CreatePostDiv = styled.div`
 export const CreatePostUserImg = styled.img`
   width: 50px;
   height: 50px;
-  border-radius: 15px;
   object-fit: cover;
   object-position: 20% 10%;
   border-radius: 100px;
@@ -114,7 +113,7 @@ export const CreatePostForm = styled.form`
     width: 70px;
     height: 30px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 5px 10px;
     margin-top: 5px;
   }
@@ -125,7 +124,7 @@ export const CreatePostLabel = styled.div`
     width: 100%;
     height: 40px;
     border: 1px solid ${colors.border};
-    border-radius: 25px;
+    border-radius: 5px;
     background-color: ${colors.backgroundSecondary};
     padding: 10px 20px 0px 20px;
     outline: none;
@@ -145,7 +144,7 @@ export const CreatePostLabel = styled.div`
     color: ${colors.fontContrast};
     background-color: ${colors.backgroundPrimary};
     border: 1px solid ${colors.border};
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
   }
 `;
@@ -163,13 +162,13 @@ export const PostFromFeedList = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${colors.backgroundSecondary};
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border: 1px solid ${colors.border};
-  border-radius: 15px;
+  border-radius: 5px;
 `;
 export const PostInfoDiv = styled.div`
   background-color: ${colors.backgroundPrimary};
-  border-radius: 15px;
+  border-radius: 5px;
   border-bottom: 2px solid ${colors.backgroundPrimary};
   padding: 0px 10px;
   display: flex;
@@ -248,6 +247,7 @@ export const PostPopupDiv = styled.div`
 export const AboveContentPostPopup = styled.div`
   background-color: transparent;
   position: absolute;
+  right: 0px;
   width: 50px;
   height: 50px;
   display: flex;
@@ -258,7 +258,7 @@ export const AboveContentPostPopup = styled.div`
     background-color: ${colors.mildHighlight};
     color: ${colors.fontWhite};
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   button:hover {
     background-color: ${colors.strongHighlight};
@@ -300,7 +300,6 @@ export const ReactTimeAgoDiv = styled.div`
 export const PostUserImg = styled.img`
   width: 40px;
   height: 40px;
-  border-radius: 15px;
   object-fit: cover;
   object-position: 20% 10%;
   border-radius: 100px;
@@ -358,7 +357,7 @@ export const EachPostButtonsDiv = styled.div`
   padding: 10px 15px 10px 15px;
   margin: 0;
   background-color: ${colors.backgroundSecondary};
-  border-radius: 15px;
+  border-radius: 5px;
 `;
 export const LikeButton = styled.button`
   border: none;
@@ -407,7 +406,7 @@ export const CreateCommentLabel = styled.label`
     height: 100%;
     background-color: ${colors.backgroundSecondary};
     border: 1px solid ${colors.border};
-    border-radius: 25px;
+    border-radius: 5px;
     padding: 10px 20px 0px 20px;
     outline: none;
     resize: none;
@@ -432,7 +431,7 @@ export const ViewCommentsList = styled.div`
   }
   background-color: ${colors.backgroundSecondary};
   align-items: space-around;
-  border-radius: 15px;
+  border-radius: 5px;
   border-bottom: 1px solid ${colors.border};
   padding-top: 10px;
 `;
@@ -449,7 +448,7 @@ export const EachCommentFromFeed = styled.div`
   width: 100%;
   height: auto;
   background-color: ${colors.backgroundPrimary};
-  border-radius: 10px;
+  border-radius: 5px;
   padding-top: 5px;
   margin-bottom: 10px;
 `;
@@ -483,6 +482,7 @@ export const CommentPopupDiv = styled.div`
 export const AboveContentCommentPopup = styled.div`
   background-color: transparent;
   position: absolute;
+  right: 0px;
   width: 50px;
   height: 50px;
   display: flex;
@@ -494,7 +494,7 @@ export const AboveContentCommentPopup = styled.div`
     background-color: ${colors.mildHighlight};
     color: ${colors.fontWhite};
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
   }
   button:hover {
     background-color: ${colors.strongHighlight};
@@ -528,7 +528,6 @@ export const CommentUserInfoLinkInnerDiv = styled.div`
 export const CommentUserImg = styled.img`
   width: 25px;
   height: 25px;
-  border-radius: 15px;
   object-fit: cover;
   object-position: 20% 10%;
   border-radius: 100px;
@@ -549,7 +548,7 @@ export const EditCommentContentForm = styled.form`
   display: flex;
   flex-direction: column;
   textarea {
-    border-radius: 15px;
+    border-radius: 5px;
     width: 100%;
     min-height: 50px;
     padding: 5px 15px;
@@ -574,7 +573,7 @@ export const EditCommentFormInnerDiv = styled.div`
     border: none;
     background-color: ${colors.mildHighlight};
     color: ${colors.fontWhite};
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 1px 5px;
   }
   button:hover {
@@ -595,7 +594,7 @@ export const EditPostContentForm = styled.form`
     padding: 10px 15px;
     background-color: ${colors.backgroundSecondary};
     border: 1px solid ${colors.border};
-    border-radius: 15px;
+    border-radius: 5px;
     outline: none;
     resize: none;
     font-size: 0.9rem;
@@ -613,7 +612,7 @@ export const EditPostContentForm = styled.form`
     color: ${colors.fontContrast};
     background-color: ${colors.backgroundPrimary};
     border: 1px solid ${colors.border};
-    border-radius: 15px;
+    border-radius: 5px;
     cursor: pointer;
   }
 `;
@@ -628,7 +627,7 @@ export const EditPostFormInnerDiv = styled.div`
     border: none;
     background-color: ${colors.mildHighlight};
     color: ${colors.fontWhite};
-    border-radius: 15px;
+    border-radius: 5px;
     padding: 1px 5px;
   }
   button:hover {
