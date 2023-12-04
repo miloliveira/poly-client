@@ -59,7 +59,7 @@ export const ActivityTabButton = styled.button`
   font-size: 0.9rem;
   height: 30px;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   @media screen and (max-width: 400px) {
     font-size: 0.8rem;
     margin-bottom: 5px;
