@@ -40,7 +40,7 @@ export const EditProfileForm = styled.form`
     }
   }
   input {
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 5px;
     margin-bottom: 10px;
     border: 1px solid ${colors.border};
@@ -54,7 +54,7 @@ export const EditProfileForm = styled.form`
     width: 155px;
     height: 30px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     :hover {
       background-color: ${colors.strongHighlight};
     }
@@ -92,7 +92,7 @@ export const EditPasswordForm = styled.form`
     }
   }
   input {
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0px 5px;
     margin-bottom: 10px;
     border: 1px solid ${colors.border};
@@ -106,7 +106,7 @@ export const EditPasswordForm = styled.form`
     width: 155px;
     height: 30px;
     border: none;
-    border-radius: 15px;
+    border-radius: 5px;
     :hover {
       background-color: ${colors.strongHighlight};
     }
@@ -119,7 +119,7 @@ export const InputProfilePicDiv = styled.div`
   align-items: center;
   input {
     width: 40%;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-bottom: 10px;
     border: 1px solid ${colors.border};
     outline: none;
@@ -134,7 +134,7 @@ export const InputProfilePicDiv = styled.div`
     color: ${colors.fontContrast};
     background-color: ${colors.backgroundPrimary};
     border: 1px solid ${colors.border};
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
   }
   img {
@@ -179,7 +179,7 @@ export const ChangeSettingsFormButton = styled.button`
   height: 30px;
   margin-right: 13px;
   border: none;
-  border-radius: 15px;
+  border-radius: 5px;
   @media screen and (max-width: 700px) {
     margin: 0;
   }
@@ -191,7 +191,7 @@ export const DeleteProfileButton = styled.button`
   width: 110px;
   height: 30px;
   border: none;
-  border-radius: 15px;
+  border-radius: 8px;
   :hover {
     background-color: ${colors.deleteBtnHover};
   }
