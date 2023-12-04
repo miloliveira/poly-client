@@ -48,7 +48,7 @@ export const ProfileUserBannerDiv = styled.div`
   margin-top: 10px;
   margin-bottom: 10px;
   justify-content: space-evenly;
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid ${colors.border};
   padding: 20px 20px;
   h2 {
@@ -112,7 +112,7 @@ export const ProfileImage = styled.img`
 `;
 export const AboutDiv = styled.div`
   background-color: ${colors.backgroundSecondary};
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid ${colors.border};
   padding: 10px;
   margin-bottom: 10px;
