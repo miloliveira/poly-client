@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import {
   StyledNavbar,
+  StyledContainer,
   LogOutButton,
   StyledNavLink,
 } from "../styles/navbar.styles";
@@ -16,7 +17,7 @@ const NavBar = () => {
 
   return (
     <StyledNavbar collapseOnSelect expand="lg">
-      <Container>
+      <StyledContainer>
         <LinkContainer to={`/`}>
           <Navbar.Brand>Poly</Navbar.Brand>
         </LinkContainer>
@@ -50,7 +51,7 @@ const NavBar = () => {
             )}
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </StyledContainer>
     </StyledNavbar>
   );
 };
