@@ -30,7 +30,7 @@ export const ActivityDiv = styled.div`
   display: flex;
   flex-direction: column;
   background-color: ${colors.backgroundSecondary};
-  border-radius: 15px;
+  border-radius: 5px;
   border: 1px solid ${colors.border};
   padding: 10px;
   h4 {
