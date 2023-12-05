@@ -2,15 +2,17 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { AuthContext } from "../context/auth.context";
-import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import PolyLogo from "../assets/PolyLogo.png";
 import {
   StyledNavbar,
   StyledContainer,
   LogOutButton,
   StyledNavLink,
+  NavbarBrandInnerDiv,
 } from "../styles/navbar.styles";
+
 const NavBar = () => {
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -19,7 +21,12 @@ const NavBar = () => {
     <StyledNavbar collapseOnSelect expand="lg">
       <StyledContainer>
         <LinkContainer to={`/`}>
-          <Navbar.Brand>Poly</Navbar.Brand>
+          <Navbar.Brand>
+            <NavbarBrandInnerDiv>
+              <img src={PolyLogo} alt="hello" />
+              <h2>Poly</h2>
+            </NavbarBrandInnerDiv>
+          </Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
