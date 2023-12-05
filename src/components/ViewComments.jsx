@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import Comment from "./Comment";
 import { useSelector } from "react-redux";
-import { ViewCommentsList, CommentsListInnerDiv } from "../styles/post.styles";
+import {
+  ViewCommentsList,
+  CommentsListInnerDiv,
+} from "../styles/comment.styles";
 
 const ViewComments = (props) => {
   const { listComments } = props;

@@ -5,7 +5,8 @@ import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
 import {
   EditCommentContentForm,
   EditCommentFormInnerDiv,
-} from "../styles/post.styles";
+} from "../styles/comment.styles";
+
 const EditCommentForm = (props) => {
   const { commentId, content, setEditing } = props;
   const dispatch = useDispatch();

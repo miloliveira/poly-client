@@ -11,7 +11,7 @@ import {
   CommentUserImg,
   EachCommentContent,
   ReactTimeAgoDiv,
-} from "../styles/post.styles";
+} from "../styles/comment.styles";
 import EditCommentForm from "./EditCommentForm";
 
 const Comment = (props) => {

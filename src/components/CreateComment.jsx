@@ -4,7 +4,7 @@ import {
   CreateCommentForm,
   CreateCommentLabel,
   SendPostIcon,
-} from "../styles/post.styles";
+} from "../styles/comment.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
 const CreateComment = (props) => {

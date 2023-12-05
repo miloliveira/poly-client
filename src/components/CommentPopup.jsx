@@ -6,7 +6,7 @@ import {
   CommentPopupDiv,
   PostPopupIcon,
   AboveContentCommentPopup,
-} from "../styles/post.styles";
+} from "../styles/comment.styles";
 
 const CommentPopup = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
