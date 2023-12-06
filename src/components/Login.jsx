@@ -17,7 +17,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     try {
       e.preventDefault();
-      const body = await { loginName, password };
+      const body = { loginName, password };
 
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/login`,
