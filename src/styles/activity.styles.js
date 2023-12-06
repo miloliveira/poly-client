@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colors } from "./variables.styles";
 
 export const ActivityPage = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,18 +10,18 @@ export const ActivityPage = styled.div`
 
 export const ActivityMainDiv = styled.div`
   height: auto;
-  width: 40%;
+  width: 50%;
   margin-top: 10px;
   @media screen and (max-width: 1200px) {
-    width: 50%;
+    width: 60%;
   }
 
   @media screen and (max-width: 700px) {
-    width: 75%;
+    width: 90%;
   }
 
   @media screen and (max-width: 400px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 
