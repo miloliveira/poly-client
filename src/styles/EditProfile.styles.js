@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { colors } from "./variables.styles";
 
 export const EditProfilePage = styled.div`
-  height: 100vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,26 +16,26 @@ export const EditProfileForm = styled.form`
   margin-top: 20px;
   margin-bottom: 20px;
   input {
-    width: 50%;
+    width: 60%;
   }
   @media screen and (max-width: 1200px) {
     width: 60%;
-    input {
-      width: 60%;
-    }
-  }
-
-  @media screen and (max-width: 700px) {
-    width: 70%;
     input {
       width: 70%;
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 700px) {
     width: 90%;
     input {
-      width: 80%;
+      width: 75%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    input {
+      width: 90%;
     }
   }
   input {
@@ -69,26 +68,26 @@ export const EditPasswordForm = styled.form`
   margin-top: 20px;
   margin-bottom: 20px;
   input {
-    width: 50%;
+    width: 60%;
   }
   @media screen and (max-width: 1200px) {
     width: 60%;
-    input {
-      width: 60%;
-    }
-  }
-
-  @media screen and (max-width: 700px) {
-    width: 70%;
     input {
       width: 70%;
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 700px) {
     width: 90%;
     input {
-      width: 80%;
+      width: 75%;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    width: 100%;
+    input {
+      width: 90%;
     }
   }
   input {
