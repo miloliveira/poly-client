@@ -22,16 +22,32 @@ export const CreateCommentForm = styled.form`
   justify-content: space-evenly;
   background-color: ${colors.backgroundSecondary};
   margin: 0;
-  button {
-    background-color: ${colors.backgroundSecondary};
-    border: none;
+  padding: 0;
+  height: 40px;
+
+  @media screen and (max-width: 700px) {
+      height: 35PX;
   }
+
 `;
+
+
+export const CreateCommentButton = styled.button`
+background-color: ${colors.backgroundSecondary};
+    border: none;
+    margin-left: 5px;
+    padding: 0;
+    @media screen and (max-width: 700px) {
+      margin-right: 5px;
+      height: 90%;
+  }
+`
 
 export const CreateCommentLabel = styled.label`
   width: 90%;
   padding: 0;
-  height: 40px;
+  height: 100%;
+  margin:0;
   textarea {
     width: 100%;
     height: 100%;
@@ -49,6 +65,14 @@ export const CreateCommentLabel = styled.label`
   textarea:focus {
     outline: 0;
   }
+  
+  @media screen and (max-width: 700px) {
+     margin-left: 5px;
+     textarea{
+      padding: 5px 10px 0px 10px;
+     }
+ }
+
 `;
 
 export const ViewCommentsList = styled.div`
