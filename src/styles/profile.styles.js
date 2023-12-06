@@ -18,7 +18,7 @@ export const OccupationIcon = styled(WorkIcon)`
 
 //Styled  components
 export const ProfilePage = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,17 +26,17 @@ export const ProfilePage = styled.div`
 
 export const ProfileMainDiv = styled.div`
   height: auto;
-  width: 40%;
+  width: 50%;
   @media screen and (max-width: 1200px) {
-    width: 50%;
+    width: 60%;
   }
 
   @media screen and (max-width: 700px) {
-    width: 75%;
+    width: 90%;
   }
 
   @media screen and (max-width: 400px) {
-    width: 90%;
+    width: 100%;
   }
 `;
 export const ProfileUserBannerDiv = styled.div`
