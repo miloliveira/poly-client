@@ -4,6 +4,7 @@ import {
   CreateCommentForm,
   CreateCommentLabel,
   SendPostIcon,
+  CreateCommentButton
 } from "../styles/comment.styles";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
@@ -52,9 +53,9 @@ const CreateComment = (props) => {
           }}
         />
       </CreateCommentLabel>
-      <button type="submit" disabled={!content}>
+      <CreateCommentButton type="submit" disabled={!content}>
         <SendPostIcon style={{ color: !content && "#b1ccce" }} />
-      </button>
+      </CreateCommentButton>
       {errorMessage && <p>{errorMessage}</p>}
     </CreateCommentForm>
   );
