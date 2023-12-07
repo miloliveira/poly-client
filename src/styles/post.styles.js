@@ -44,7 +44,7 @@ export const DislikeBtnIcon = styled(ThumbDownAltIcon)`
 
 //styled components
 export const FeedPageDiv = styled.div`
-  height: 100vh;
+  height: auto;
   background-color: ${colors.backgroundPrimary};
   display: flex;
   flex-direction: row;
