@@ -45,7 +45,7 @@ export const ProfileUserBannerDiv = styled.div`
   height: 200px;
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
   justify-content: space-evenly;
   border-radius: 5px;
