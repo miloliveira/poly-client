@@ -26,28 +26,26 @@ export const CreateCommentForm = styled.form`
   height: 40px;
 
   @media screen and (max-width: 700px) {
-      height: 35PX;
+    height: 35px;
   }
-
 `;
 
-
 export const CreateCommentButton = styled.button`
-background-color: ${colors.backgroundSecondary};
-    border: none;
-    margin-left: 5px;
-    padding: 0;
-    @media screen and (max-width: 700px) {
-      margin-right: 5px;
-      height: 90%;
+  background-color: ${colors.backgroundSecondary};
+  border: none;
+  margin-left: 5px;
+  padding: 0;
+  @media screen and (max-width: 700px) {
+    margin-right: 5px;
+    height: 90%;
   }
-`
+`;
 
 export const CreateCommentLabel = styled.label`
   width: 90%;
   padding: 0;
   height: 100%;
-  margin:0;
+  margin: 0;
   textarea {
     width: 100%;
     height: 100%;
@@ -65,14 +63,13 @@ export const CreateCommentLabel = styled.label`
   textarea:focus {
     outline: 0;
   }
-  
-  @media screen and (max-width: 700px) {
-     margin-left: 5px;
-     textarea{
-      padding: 5px 10px 0px 10px;
-     }
- }
 
+  @media screen and (max-width: 700px) {
+    margin-left: 5px;
+    textarea {
+      padding: 5px 10px 0px 10px;
+    }
+  }
 `;
 
 export const ViewCommentsList = styled.div`
@@ -88,10 +85,10 @@ export const ViewCommentsList = styled.div`
   align-items: space-around;
   border-radius: 5px;
   border-bottom: 1px solid ${colors.border};
-  padding-top: 10px;
+  padding-top: 20px;
 `;
 export const CommentsListInnerDiv = styled.div`
-  width: 85%;
+  width: 90%;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -105,7 +102,7 @@ export const EachCommentFromFeed = styled.div`
   background-color: ${colors.backgroundPrimary};
   border-radius: 5px;
   padding-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 `;
 export const CommentInfoDiv = styled.div`
   display: flex;
@@ -238,6 +235,9 @@ export const EditCommentFormInnerDiv = styled.div`
     color: ${colors.fontWhite};
     border-radius: 5px;
     padding: 1px 5px;
+    @media screen and (max-width: 700px) {
+      font-size: 0.9rem;
+    }
   }
   button:hover {
     background-color: ${colors.strongHighlight};
