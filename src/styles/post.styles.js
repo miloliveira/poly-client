@@ -89,6 +89,10 @@ export const CreatePostDiv = styled.div`
   display: flex;
   width: 100%;
   margin-top: 30px;
+  background-color: ${colors.backgroundSecondary};
+  border: 1px solid ${colors.border};
+  border-radius: 5px;
+  padding: 15px 5px;
 `;
 
 export const CreatePostUserImg = styled.img`
@@ -114,7 +118,6 @@ export const CreatePostForm = styled.form`
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
-    margin-top: 5px;
   }
 `;
 export const CreatePostLabel = styled.div`
