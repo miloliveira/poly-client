@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
 import { ShareIcon, ShareButton } from "../styles/post.styles";
 const SharePost = (props) => {
-  const { postId } = props;
+  const { postId,setShowAlert } = props;
   const { user } = useContext(AuthContext);
   const getToken = localStorage.getItem("authToken");
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
@@ -28,6 +28,7 @@ const SharePost = (props) => {
       console.log("success!");
     } catch (error) {
       console.log(error);
+      setShowAlert(true)
     }
   };
   return (
