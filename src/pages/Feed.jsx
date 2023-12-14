@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import AlertPopup from "../components/Alert";
 import axios from "axios";
 import CreatePost from "../components/CreatePost";
 import LoadingSpinner from "../components/LoadingSpinner";
@@ -20,7 +21,7 @@ const Feed = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn, user } = useContext(AuthContext);
   const [sortedPosts, setsortedPosts] = useState([]);
-
+  const [showAlert, setShowAlert] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -84,9 +85,16 @@ const Feed = () => {
           <FeedPostList>
             {sortedPosts &&
               sortedPosts.map((post) => {
-                return <Post key={post._id} post={post} />;
+                return (
+                  <Post
+                    key={post._id}
+                    post={post}
+                    setShowAlert={setShowAlert}
+                  />
+                );
               })}
           </FeedPostList>
+          {showAlert && <AlertPopup setShowAlert={setShowAlert} />}
         </FeedMainContentDiv>
       )}
       {errorMessage && <p>{errorMessage}</p>}
