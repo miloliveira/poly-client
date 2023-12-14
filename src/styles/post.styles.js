@@ -9,7 +9,7 @@ import CheckIcon from "@mui/icons-material/Check";
 import AddIcon from "@mui/icons-material/Add";
 import SendIcon from "@mui/icons-material/Send";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-
+import Collapse from "@mui/material/Collapse";
 //styled icons
 export const ShareIcon = styled(SubdirectoryArrowRightIcon)`
   color: ${colors.strongHighlight};
@@ -47,9 +47,18 @@ export const FeedPageDiv = styled.div`
   height: auto;
   background-color: ${colors.backgroundPrimary};
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
+  min-height: 100%;
+`;
+
+export const AlertBox = styled.div`
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: auto;
+  margin-left: 20px;
 `;
 
 export const FeedMainContentDiv = styled.div`
