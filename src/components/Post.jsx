@@ -35,7 +35,7 @@ import {
   SharedPostDiv,
 } from "../styles/post.styles";
 const Post = (props) => {
-  const { post,setShowAlert } = props;
+  const { post } = props;
   const [isLiked, setIsLiked] = useState(false);
   const [editing, setEditing] = useState(false);
   const [showPostPopup, setShowPostPopup] = useState(false);
@@ -224,7 +224,7 @@ const Post = (props) => {
           <LikeButton onClick={() => likePost(post._id)}>
             {isLiked ? <DislikeBtnIcon /> : <LikeBtnIcon />} like
           </LikeButton>
-          <SharePost postId={post._id} setShowAlert={setShowAlert} />
+          <SharePost postId={post._id} />
           <TogleCommentBtn
             onClick={() => {
               setTogleComment(!togleComment);
