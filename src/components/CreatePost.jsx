@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import service from "../api/service";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
 import {
   CreatePostDiv,
   CreatePostUserImg,

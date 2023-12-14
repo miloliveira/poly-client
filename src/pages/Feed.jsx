@@ -6,7 +6,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import { AuthContext } from "../context/auth.context";
 import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
 import {
   FeedPageDiv,
   FeedPostList,

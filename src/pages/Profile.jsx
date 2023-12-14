@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
 import About from "../components/About";
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";

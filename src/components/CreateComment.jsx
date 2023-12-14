@@ -7,7 +7,7 @@ import {
   CreateCommentButton
 } from "../styles/comment.styles";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
 const CreateComment = (props) => {
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 

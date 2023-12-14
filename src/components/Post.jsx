@@ -10,7 +10,7 @@ import Follow from "./Follow";
 import Unfollow from "./Unfollow";
 import SharePost from "./SharePost";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
 import { AuthContext } from "../context/auth.context";
 import {
   PostFromFeedList,

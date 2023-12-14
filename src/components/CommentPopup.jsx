@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
 import {
   CommentPopupDiv,
   PostPopupIcon,

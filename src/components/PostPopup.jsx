@@ -6,7 +6,7 @@ import {
   AboveContentPostPopup,
 } from "../styles/post.styles";
 import { useDispatch } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
 
 const PostPopup = (props) => {
   const dispatch = useDispatch();

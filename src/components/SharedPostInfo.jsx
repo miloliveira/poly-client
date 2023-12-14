@@ -8,7 +8,7 @@ import {
   DeleteShareButton
 } from "../styles/post.styles";
 import { useDispatch } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
 import { AuthContext } from "../context/auth.context";
 
 const SharedPostInfo = (props) => {

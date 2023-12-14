@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobal";
+import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
 import { ShareIcon, ShareButton } from "../styles/post.styles";
 const SharePost = (props) => {
   const { postId,setShowAlert } = props;

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import isUpdatedGlobalReducer from "./isUpdatedGlobal";
+import isUpdatedGlobalReducer from "./isUpdatedGlobalSlice";
 export default configureStore({
   reducer: {
     isUpdatedGlobal: isUpdatedGlobalReducer,
