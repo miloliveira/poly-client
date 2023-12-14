@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import axios from "axios";
+
 import { AuthContext } from "../context/auth.context";
-import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
+import { useDispatch } from "react-redux";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
+import { showAlert, defineAlertSettings } from "../redux/showAlertSlice";
+
 import { ShareIcon, ShareButton } from "../styles/post.styles";
+
 const SharePost = (props) => {
-  const { postId,setShowAlert } = props;
+  const { postId } = props;
   const { user } = useContext(AuthContext);
   const getToken = localStorage.getItem("authToken");
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+
   const dispatch = useDispatch();
 
   const handleShare = async () => {
@@ -25,10 +29,21 @@ const SharePost = (props) => {
         }
       );
       await dispatch(isUpdatedFalse());
-      console.log("success!");
+      dispatch(showAlert());
+      dispatch(
+        defineAlertSettings({
+          severity: "success",
+          message: "shared post with success",
+        })
+      );
     } catch (error) {
-      console.log(error);
-      setShowAlert(true)
+      dispatch(
+        defineAlertSettings({
+          severity: "error",
+          message: "the post has already been shared",
+        })
+      );
+      dispatch(showAlert());
     }
   };
   return (
