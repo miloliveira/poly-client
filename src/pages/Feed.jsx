@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import AlertPopup from "../components/Alert";
 import axios from "axios";
-import CreatePost from "../components/CreatePost";
-import LoadingSpinner from "../components/LoadingSpinner";
+
 import { AuthContext } from "../context/auth.context";
-import Post from "../components/Post";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
+
+import CreatePost from "../components/CreatePost";
+import LoadingSpinner from "../components/LoadingSpinner";
+import AlertPopup from "../components/AlertPopup";
+import Post from "../components/Post";
+
 import {
   FeedPageDiv,
   FeedPostList,
@@ -15,13 +18,17 @@ import {
 } from "../styles/post.styles";
 
 const Feed = () => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  const dispatch = useDispatch();
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn, user } = useContext(AuthContext);
   const [sortedPosts, setsortedPosts] = useState([]);
-  const [showAlert, setShowAlert] = useState(false);
+
+  const dispatch = useDispatch();
+  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+  const alertOnScreen = useSelector(
+    (state) => state.alertOnScreen.showAlertOnScreen.value
+  );
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -85,16 +92,11 @@ const Feed = () => {
           <FeedPostList>
             {sortedPosts &&
               sortedPosts.map((post) => {
-                return (
-                  <Post
-                    key={post._id}
-                    post={post}
-                    setShowAlert={setShowAlert}
-                  />
-                );
+                return <Post key={post._id} post={post} />;
               })}
           </FeedPostList>
-          {showAlert && <AlertPopup setShowAlert={setShowAlert} />}
+
+          {alertOnScreen && <AlertPopup />}
         </FeedMainContentDiv>
       )}
       {errorMessage && <p>{errorMessage}</p>}
