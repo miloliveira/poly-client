@@ -1,15 +1,23 @@
+// Dependencies
 import React, { useEffect } from "react";
-import Comment from "./Comment";
 import { useSelector } from "react-redux";
+
+// Components
+import Comment from "./Comment";
+
+// Style
 import {
   ViewCommentsList,
   CommentsListInnerDiv,
 } from "../styles/comment.styles";
 
 const ViewComments = (props) => {
+  // State and context variables
   const { listComments } = props;
 
+  // Redux state
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+
   useEffect(() => {}, [isUpdatedGlobal]);
 
   return (
