@@ -1,14 +1,21 @@
+// Dependencies
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
+
+// Components
 import Post from "./Post";
-import { useDispatch, useSelector } from "react-redux";
 
 const UserActivityShares = (props) => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+  // State and context variables
   const [shareActivity, setShareActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { userId, qty } = props;
 
+  // Redux state
+  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+
+  // Function fetching user's share activity.
   const getShareActivity = async () => {
     let response;
     try {
@@ -21,6 +28,7 @@ const UserActivityShares = (props) => {
           `${process.env.REACT_APP_API_URL}/in/${userId}/shareActivity`
         );
       }
+      // Updating the updatedPosts Array with isShared key.
       const updatedPosts = response.data.map((post) => {
         const isShared = true;
         return { ...post, isShared };
