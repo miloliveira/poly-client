@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";
 import UserActivityComments from "../components/UserActivityComments";
 import UserActivityShares from "../components/UserActivityShares";
-import { useParams } from "react-router-dom";
+import AlertPopup from "../components/AlertPopup";
+
 import {
   ActivityPage,
   ActivityMainDiv,
@@ -15,6 +19,10 @@ import {
 const Activity = () => {
   const { userId } = useParams();
   const [showActivity, setShowActivity] = useState(0);
+
+  const alertOnScreen = useSelector(
+    (state) => state.alertOnScreen.showAlertOnScreen.value
+  );
 
   useEffect(() => {
     return () => {};
@@ -83,6 +91,7 @@ const Activity = () => {
           )}
         </ActivityDiv>
       </ActivityMainDiv>
+      {alertOnScreen && <AlertPopup />}
     </ActivityPage>
   );
 };
