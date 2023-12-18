@@ -1,10 +1,13 @@
+// Dependencies
 import React from "react";
 
+// Style
 import {
   FollowDiv,
   FollowBtnString,
   FollowingCheckIcon,
 } from "../styles/post.styles";
+
 const Unfollow = () => {
   return (
     <FollowDiv>
