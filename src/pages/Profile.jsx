@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +10,7 @@ import UserActivityLikes from "../components/UserActivityLikes";
 import UserActivityComments from "../components/UserActivityComments";
 import UserActivityShares from "../components/UserActivityShares";
 import LoadingSpinner from "../components/LoadingSpinner";
+import AlertPopup from "../components/AlertPopup";
 import {
   ProfilePage,
   ProfileMainDiv,
@@ -27,15 +27,18 @@ import {
 } from "../styles/activity.styles";
 
 const Profile = () => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  const dispatch = useDispatch();
-
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const { user, isLoggedIn } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [showActivity, setShowActivity] = useState(0);
+
+  const dispatch = useDispatch();
+  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+  const alertOnScreen = useSelector(
+    (state) => state.alertOnScreen.showAlertOnScreen.value
+  );
 
   const getUser = async () => {
     try {
@@ -158,6 +161,7 @@ const Profile = () => {
         </>
       )}
       {errorMessage && <p>{errorMessage}</p>}
+      {alertOnScreen && <AlertPopup />}
     </ProfilePage>
   );
 };
