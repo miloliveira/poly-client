@@ -1,9 +1,12 @@
+// Dependencies
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
+
+// Components
 import About from "../components/About";
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";
@@ -11,6 +14,8 @@ import UserActivityComments from "../components/UserActivityComments";
 import UserActivityShares from "../components/UserActivityShares";
 import LoadingSpinner from "../components/LoadingSpinner";
 import AlertPopup from "../components/AlertPopup";
+
+// Style
 import {
   ProfilePage,
   ProfileMainDiv,
@@ -27,6 +32,7 @@ import {
 } from "../styles/activity.styles";
 
 const Profile = () => {
+  // state and context variables
   const [profileUser, setProfileUser] = useState();
   const { userId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -34,12 +40,14 @@ const Profile = () => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [showActivity, setShowActivity] = useState(0);
 
+  // Redux state and dispatch
   const dispatch = useDispatch();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
   const alertOnScreen = useSelector(
     (state) => state.alertOnScreen.showAlertOnScreen.value
   );
 
+  // User data fetching function
   const getUser = async () => {
     try {
       const response = await axios.get(
@@ -54,7 +62,6 @@ const Profile = () => {
 
   useEffect(() => {
     getUser();
-
     dispatch(isUpdatedTrue());
   }, [userId, isUpdatedGlobal]);
 
