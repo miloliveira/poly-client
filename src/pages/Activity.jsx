@@ -1,13 +1,16 @@
+// Dependencies
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+// Components
 import UserActivityPosts from "../components/UserActivityPosts";
 import UserActivityLikes from "../components/UserActivityLikes";
 import UserActivityComments from "../components/UserActivityComments";
 import UserActivityShares from "../components/UserActivityShares";
 import AlertPopup from "../components/AlertPopup";
 
+// Style
 import {
   ActivityPage,
   ActivityMainDiv,
@@ -17,9 +20,11 @@ import {
 } from "../styles/activity.styles";
 
 const Activity = () => {
+  // state and context variables
   const { userId } = useParams();
   const [showActivity, setShowActivity] = useState(0);
 
+  // Redux state and dispatch
   const alertOnScreen = useSelector(
     (state) => state.alertOnScreen.showAlertOnScreen.value
   );
