@@ -1,21 +1,26 @@
+// Dependencies
 import React, { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { auth } from "../firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
+
+// Components
 import ChangePasswordForm from "../components/ChangePasswordForm";
 import ChangeProfileInfoForm from "../components/ChangeProfileInfoForm";
+
+// Style
 import {
   EditProfilePage,
   ChangeSettingsFormDiv,
   ChangeSettingsFormButton,
 } from "../styles/EditProfile.styles";
+
 const ProfileSettings = () => {
+  // State and context variables
   const [showChangePasswordForm, setShowChangePasswordForm] = useState(1);
   const { user, isLoggedIn } = useContext(AuthContext);
-
   const { userId } = useParams();
-
   const [firebaseUser] = useAuthState(auth);
 
   return (
