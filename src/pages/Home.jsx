@@ -1,15 +1,22 @@
+// Dependencies
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
+
+// Components
 import Login from "../components/Login";
 import Signup from "../components/Signup";
 import GoogleAuth from "../components/GoogleAuth";
+
+// Style
 import {
   HomePage,
   HomePageShowLoginDiv,
   HomePageInnerDiv,
   HomePageShowSignupDiv,
 } from "../styles/home.styles";
+
 const Home = () => {
+  // State and context variables
   const [showLoginToggle, setShowLoginToggle] = useState(true);
   const { isLoggedIn } = useContext(AuthContext);
 
