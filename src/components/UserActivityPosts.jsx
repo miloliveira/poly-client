@@ -1,13 +1,21 @@
+// Dependencies
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useSelector } from "react-redux";
+
+// Components
 import Post from "./Post";
-import { useDispatch, useSelector } from "react-redux";
+
 const UserActivityPosts = (props) => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  const dispatch = useDispatch();
+  // State and context variables
   const [postActivity, setpostActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { userId, qty } = props;
+
+  // Redux state
+  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+
+  // Function fetching user's post activity.
   const getPostActivity = async () => {
     let response;
     try {
