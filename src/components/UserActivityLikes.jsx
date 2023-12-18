@@ -1,13 +1,20 @@
+// Dependencies
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Post from "./Post";
 import { useSelector } from "react-redux";
+
+// Components
+import Post from "./Post";
 const UserActivityLikes = (props) => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+  // State and context variables
   const [likeActivity, setLikeActivity] = useState([]);
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { userId, qty } = props;
 
+  // Redux state
+  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
+
+  // Function fetching user's like activity.
   const getLikeActivity = async () => {
     let response;
     try {
