@@ -1,36 +1,47 @@
-import axios from "axios";
+// Dependencies
 import React, { useContext, useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+
+// Style
 import {
   SignupForm,
   ErrorMessageIcon,
   AuthErrorMessage,
 } from "../styles/auth.styles";
+
 const Signup = () => {
+  // State variables
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  // Authentication context and navigation hook
   const { storeToken, authenticateUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  // Form submission handling
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
 
       const body = { username, email, password, name };
 
+      // Send signup request to the server
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/auth/signup`,
         body
       );
+      // Store the authentication token, authenticate user, clear error, and navigate to home
       await storeToken(response.data.authToken);
       await authenticateUser();
       setErrorMessage("");
       navigate("/");
     } catch (error) {
+      // Handle signup error and update error message
       setErrorMessage(error.response.data.errorMessage);
     }
   };
