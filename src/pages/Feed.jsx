@@ -20,7 +20,7 @@ import {
 } from "../styles/post.styles";
 
 const Feed = () => {
-  // state and context variables
+  // State and context variables
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const { isLoggedIn, user } = useContext(AuthContext);
