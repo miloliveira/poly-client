@@ -1,21 +1,29 @@
-import axios from "axios";
+// Dependencies
 import React from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
+
+// Style
 import {
   PostPopupDiv,
   PostPopupIcon,
   AboveContentPostPopup,
 } from "../styles/post.styles";
-import { useDispatch } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
 
 const PostPopup = (props) => {
-  const dispatch = useDispatch();
+  // Destructure props
   const { postId, editing, setEditing, showPostPopup, setShowPostPopup } =
     props;
 
+  // Redux dispatch local storage
   const getToken = localStorage.getItem("authToken");
 
+  const dispatch = useDispatch();
+
+  // Handle post deletion
   const deletePost = async (postId) => {
+    // Send delete request to the server
     await axios.delete(
       `${process.env.REACT_APP_API_URL}/post-delete/${postId}`,
 
@@ -25,7 +33,7 @@ const PostPopup = (props) => {
         },
       }
     );
-
+    // Update global state
     dispatch(isUpdatedFalse());
   };
 
