@@ -1,6 +1,12 @@
+// Dependencies
 import axios from "axios";
 import React, { useState, useContext, useEffect } from "react";
 import ReactTimeAgo from "react-time-ago";
+import { useDispatch, useSelector } from "react-redux";
+import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
+import { AuthContext } from "../context/auth.context";
+
+// Components
 import ViewComments from "../components/ViewComments";
 import CreateComment from "../components/CreateComment";
 import PostPopup from "./PostPopup";
@@ -9,9 +15,8 @@ import EditPostForm from "./EditPostForm";
 import Follow from "./Follow";
 import Unfollow from "./Unfollow";
 import SharePost from "./SharePost";
-import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse, isUpdatedTrue } from "../redux/isUpdatedGlobalSlice";
-import { AuthContext } from "../context/auth.context";
+
+// Style
 import {
   PostFromFeedList,
   PostInfoDiv,
@@ -35,28 +40,35 @@ import {
   SharedPostDiv,
 } from "../styles/post.styles";
 const Post = (props) => {
+  // Destructure props
   const { post } = props;
+
+  // State and context variables
   const [isLiked, setIsLiked] = useState(false);
   const [editing, setEditing] = useState(false);
   const [showPostPopup, setShowPostPopup] = useState(false);
   const [showSharePopup, setShowSharePopup] = useState(false);
   const [togleComment, setTogleComment] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
-  const getToken = localStorage.getItem("authToken");
   const { isLoggedIn, user } = useContext(AuthContext);
 
-  let followUserId = post.user._id;
+  // Get authentication token from local storage
+  const getToken = localStorage.getItem("authToken");
 
+  // Redux state and dispatch
+  const dispatch = useDispatch();
   const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 
-  const dispatch = useDispatch();
+  // Extracting relevant data from the post object
+  let followUserId = post.user._id;
   const numberOfLikes = post.likes.length;
   const numberOfComments = post.comments.length;
-
   const createdAt = new Date(post.createdAt).getTime();
 
+  // Function to handle like/dislike post
   const likePost = async (postId) => {
     if (isLiked === false) {
+      // Send request to the server
       await axios.put(
         `${process.env.REACT_APP_API_URL}/post-like/${postId}`,
         {},
@@ -66,10 +78,11 @@ const Post = (props) => {
           },
         }
       );
-
+      // Update global state and isLiked state
       await dispatch(isUpdatedFalse());
       await setIsLiked(true);
     } else if (isLiked === true) {
+      // Send request to the server
       await axios.put(
         `${process.env.REACT_APP_API_URL}/post-dislike/${postId}`,
         {},
@@ -79,15 +92,17 @@ const Post = (props) => {
           },
         }
       );
-
+      // Update global state and isLiked state
       await dispatch(isUpdatedFalse());
       await setIsLiked(false);
     }
   };
 
+  // Function to handle user follow
   const handleFollow = async () => {
     try {
       const body = await { followUserId };
+      // Send request to the server
       await axios.put(
         `${process.env.REACT_APP_API_URL}/in/${user._id}/follow`,
         body,
@@ -97,12 +112,14 @@ const Post = (props) => {
           },
         }
       );
+      // Update global state
       dispatch(isUpdatedFalse());
     } catch (error) {
       console.log(error);
     }
   };
 
+  // Function to check if post is liked by the current session user
   const checkIfLiked = async () => {
     if (isLoggedIn && post.likes.includes(user._id)) {
       setIsLiked(true);
@@ -111,10 +128,12 @@ const Post = (props) => {
     }
   };
 
+  // Function to check if post's user is followed by the current session user
   const checkIfFollows = async () => {
     try {
       if (user) {
         const userId = await user._id;
+        // Send request to the server
         const response = await axios.get(
           `${process.env.REACT_APP_API_URL}/check-follow/${userId}`,
           {}
@@ -131,6 +150,7 @@ const Post = (props) => {
     }
   };
 
+  // Use effects to perform initial checks and update state
   useEffect(() => {
     checkIfLiked();
     checkIfFollows();
