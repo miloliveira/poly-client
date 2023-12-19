@@ -1,10 +1,15 @@
+// Dependencies
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 import { AuthContext } from "../context/auth.context";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+
+// Assets
 import PolyLogo from "../assets/PolyLogo.png";
+
+// Style
 import {
   StyledNavbar,
   StyledContainer,
@@ -14,7 +19,10 @@ import {
 } from "../styles/navbar.styles";
 
 const NavBar = () => {
+  // Accessing authentication context for user information and logout functionality
   const { isLoggedIn, user, logoutUser } = useContext(AuthContext);
+
+  // Navigation function
   const navigate = useNavigate();
 
   return (
