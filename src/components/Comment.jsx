@@ -1,7 +1,11 @@
+// Dependencies
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 import ReactTimeAgo from "react-time-ago";
+// Components
 import CommentPopup from "./CommentPopup";
+import EditCommentForm from "./EditCommentForm";
+// Style
 import {
   EachCommentFromFeed,
   CommentInfoDiv,
@@ -12,10 +16,11 @@ import {
   EachCommentContent,
   ReactTimeAgoDiv,
 } from "../styles/comment.styles";
-import EditCommentForm from "./EditCommentForm";
 
 const Comment = (props) => {
+  // Destructure props
   const { comment } = props;
+  // State and context variables
   const [editing, setEditing] = useState(false);
   const [showCommentPopup, setShowCommentPopup] = useState(false);
   const { user } = useContext(AuthContext);
