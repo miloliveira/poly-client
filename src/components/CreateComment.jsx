@@ -1,26 +1,34 @@
+// Dependencies
 import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
+// Style
 import {
   CreateCommentForm,
   CreateCommentLabel,
   SendPostIcon,
-  CreateCommentButton
+  CreateCommentButton,
 } from "../styles/comment.styles";
-import { useDispatch, useSelector } from "react-redux";
-import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
-const CreateComment = (props) => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
 
-  const dispatch = useDispatch();
+const CreateComment = (props) => {
+  // Destructure props
+  const { postId, setTogleComment } = props;
+  // State variables
   const [content, setContent] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { postId, setTogleComment } = props;
+  // Redux dispatch
+  const dispatch = useDispatch();
+  // Get authentication token from local storage
   const getToken = localStorage.getItem("authToken");
-  const body = { content };
 
+  // Function to handle comment creation
   const handleCreateComment = async (e) => {
     try {
+      // Prevent the default form submission
       e.preventDefault();
+      const body = { content };
+      // Send request to create a new comment
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/create-comment/${postId}`,
         body,
@@ -30,13 +38,14 @@ const CreateComment = (props) => {
           },
         }
       );
+      // Update global state, clear error message, reset form fields and update state
       dispatch(isUpdatedFalse());
       setErrorMessage("");
       setContent("");
       await setTogleComment(true);
     } catch (error) {
+      // Handle errors and set error message
       setErrorMessage(error.response.data.errorMessage);
-      console.log(errorMessage);
     }
   };
 
