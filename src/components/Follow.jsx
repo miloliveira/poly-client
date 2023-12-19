@@ -1,4 +1,6 @@
+// Dependencies
 import React from "react";
+// Style
 import {
   FollowDiv,
   FollowAddIcon,
