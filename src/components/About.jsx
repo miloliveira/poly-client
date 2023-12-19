@@ -1,14 +1,19 @@
+// Dependencies
 import React from "react";
 import { Link } from "react-router-dom";
+// Components
+import Location from "../components/Location";
+import Education from "../components/Education";
+import Occupation from "../components/Occupation";
+// Style
 import {
   AboutDiv,
   AboutInnerDiv,
   AboutSectionLinkToSettingsDiv,
 } from "../styles/profile.styles";
-import Location from "../components/Location";
-import Education from "../components/Education";
-import Occupation from "../components/Occupation";
+
 const About = (props) => {
+  // Destructure props
   const { user, userId, profileUser } = props;
   return (
     <AboutDiv>
