@@ -1,9 +1,11 @@
+// Dependencies
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import service from "../api/service";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
+// Style
 import {
   CreatePostDiv,
   CreatePostUserImg,
@@ -11,21 +13,26 @@ import {
   CreatePostLabel,
 } from "../styles/post.styles";
 const CreatePost = (props) => {
+  // Destructure props
+  const { userId } = props;
+  // Ref to the image input
   const imageInputRef = useRef();
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  const dispatch = useDispatch();
+  // State variables
   const [currentUser, setCurrentUser] = useState({});
   const [content, setContent] = useState("");
   const [imageUrl, setimageUrl] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const { userId } = props;
+  // Redux dispatch
+  const dispatch = useDispatch();
+  // Get authentication token from local storage
   const getToken = localStorage.getItem("authToken");
-
+  // Function to handle file upload
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
     setIsUploading(true);
     uploadData.append("imageUrl", e.target.files[0]);
+    // Upload image using the service
     service
       .uploadImage(uploadData)
       .then((response) => {
@@ -34,7 +41,7 @@ const CreatePost = (props) => {
       })
       .catch((error) => console.log(error));
   };
-
+  // Function to handle post creation
   const handleCreatePost = async (e) => {
     try {
       e.preventDefault();
@@ -54,6 +61,7 @@ const CreatePost = (props) => {
           content,
         };
       }
+      // Send request to create a new post
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/create-post/${userId}`,
         body,
@@ -63,22 +71,24 @@ const CreatePost = (props) => {
           },
         }
       );
-
+      // Reset form fields and update state
       setContent("");
       setErrorMessage("");
       dispatch(isUpdatedFalse());
       imageInputRef.current.value = "";
     } catch (error) {
+      // Handle errors and set error message
       setErrorMessage(error.response.data.errorMessage);
     }
   };
-
+  // Function to get user data
   const getUser = async () => {
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/in/${userId}`
     );
     setCurrentUser(response.data);
   };
+  // Effect to fetch user data on component mount
   useEffect(() => {
     getUser();
   }, []);
