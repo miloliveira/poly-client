@@ -1,3 +1,4 @@
+// Dependencies
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -5,7 +6,9 @@ import { AuthContext } from "../context/auth.context";
 import { auth } from "../firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import service from "../api/service";
+// Components
 import LoadingSpinner from "./LoadingSpinner";
+// Style
 import {
   EditProfileForm,
   InputProfilePicDiv,
@@ -13,10 +16,9 @@ import {
 } from "../styles/EditProfile.styles";
 
 const ChangeProfileInfoForm = (props) => {
-  const { user, logoutUser } = useContext(AuthContext);
+  // Destructure props
   const { userId } = props;
-  const navigate = useNavigate();
-  const getToken = localStorage.getItem("authToken");
+  // State and context variables
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -27,14 +29,21 @@ const ChangeProfileInfoForm = (props) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
-
+  const { user, logoutUser } = useContext(AuthContext);
+  // Navigation function
+  const navigate = useNavigate();
+  // Get authentication token from local storage
+  const getToken = localStorage.getItem("authToken");
+  // Firebase authentication state
   const [firebaseUser] = useAuthState(auth);
 
+  // Function to fetch user details
   const getUser = async () => {
+    // Send request to the server
     const response = await axios.get(
       `${process.env.REACT_APP_API_URL}/in/${userId}`
     );
-
+    //  Set initial state with user's information
     setName(response.data.name);
     setAbout(response.data.about);
     setEducation(response.data.education);
@@ -44,7 +53,7 @@ const ChangeProfileInfoForm = (props) => {
     setImageUrl(response.data.imageUrl);
     setIsLoading(false);
   };
-
+  // Function to hadle user deletion
   const deleteUser = async (userId) => {
     await axios.delete(
       `${process.env.REACT_APP_API_URL}/profile-delete/${userId}`,
@@ -54,16 +63,17 @@ const ChangeProfileInfoForm = (props) => {
         },
       }
     );
+    // Logout user and redirect the user to the home page
     await logoutUser();
     navigate("/");
   };
 
+  // Function to handle file upload
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
     setIsUploading(true);
-
     uploadData.append("imageUrl", e.target.files[0]);
-
+    // Using a service to upload the image
     service
       .uploadImage(uploadData)
       .then((response) => {
@@ -73,14 +83,17 @@ const ChangeProfileInfoForm = (props) => {
       .catch((error) => console.log(error));
   };
 
+  // Function to handle user's profile editing
   const handleProfileEdit = (e) => {
+    // Prevent the default form submission
     e.preventDefault();
+    // Check if image is still uploading
     if (isUploading) {
       alert("Image still upploading");
       return;
     }
+    // Create the request body based on whether a new image is uploaded
     let body;
-
     if (imageUrl) {
       body = {
         username,
@@ -101,7 +114,7 @@ const ChangeProfileInfoForm = (props) => {
         about,
       };
     }
-
+    // Send request to update the user's profile
     axios
       .put(`${process.env.REACT_APP_API_URL}/profile-edit/${userId}`, body, {
         headers: {
@@ -109,6 +122,7 @@ const ChangeProfileInfoForm = (props) => {
         },
       })
       .then(() => {
+        // Reset form fields and navigate to current session user's profile page
         setName("");
         setUsername("");
         setAbout("");
@@ -118,9 +132,11 @@ const ChangeProfileInfoForm = (props) => {
         navigate(`/in/${userId}`);
       })
       .catch((error) => {
+        // Handle errors and set error message
         setErrorMessage(error.response.data.errorMessage);
       });
   };
+  // Effect to fetch user information
   useEffect(() => {
     getUser();
   }, []);
