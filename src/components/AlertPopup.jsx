@@ -1,18 +1,18 @@
+// Dependencies
 import React from "react";
-
+import { hideAlert } from "../redux/showAlertSlice";
+import { useDispatch, useSelector } from "react-redux";
 import Alert from "@mui/material/Alert";
 import IconButton from "@mui/material/IconButton";
 import Collapse from "@mui/material/Collapse";
 import CloseIcon from "@mui/icons-material/Close";
-
-import { hideAlert } from "../redux/showAlertSlice";
-import { useDispatch, useSelector } from "react-redux";
-
+// Style
 import { AlertBox } from "../styles/post.styles";
 
 const AlertPopup = () => {
+  // State to manage the visibility of the alert
   const [open, setOpen] = React.useState(true);
-
+  // Redux state and dispatch
   const dispatch = useDispatch();
   const alertSeverity = useSelector(
     (state) => state.alertOnScreen.alertSettings.severity
