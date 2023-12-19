@@ -1,7 +1,9 @@
-import axios from "axios";
+// Dependencies
 import React from "react";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { isUpdatedFalse } from "../redux/isUpdatedGlobalSlice";
+// Style
 import {
   CommentPopupDiv,
   PostPopupIcon,
@@ -9,9 +11,7 @@ import {
 } from "../styles/comment.styles";
 
 const CommentPopup = (props) => {
-  const isUpdatedGlobal = useSelector((state) => state.isUpdatedGlobal.value);
-  const dispatch = useDispatch();
-
+  // Destructure props
   const {
     commentId,
     editing,
@@ -19,19 +19,23 @@ const CommentPopup = (props) => {
     showCommentPopup,
     setShowCommentPopup,
   } = props;
-
+  // Redux dispatch
+  const dispatch = useDispatch();
+  // Get authentication token from local storage
   const getToken = localStorage.getItem("authToken");
 
+  // Function to handle comment deletion
   const deleteComment = async (commentId) => {
+    // Send request to delete the comment
     await axios.delete(
       `${process.env.REACT_APP_API_URL}/comment/${commentId}`,
-
       {
         headers: {
           Authorization: `Bearer ${getToken}`,
         },
       }
     );
+    // Update global state
     dispatch(isUpdatedFalse());
   };
 
