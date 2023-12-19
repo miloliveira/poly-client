@@ -26,6 +26,7 @@ const Signup = () => {
   // Form submission handling
   const handleSubmit = async (e) => {
     try {
+      // Prevent the default form submission
       e.preventDefault();
 
       const body = { username, email, password, name };
