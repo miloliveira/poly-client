@@ -27,7 +27,7 @@ const Comment = (props) => {
   const createdAt = new Date(comment.createdAt).getTime();
 
   return (
-    <EachCommentFromFeed>
+    <EachCommentFromFeed key={comment._id}>
       <CommentInfoDiv>
         <CommentUserInfoDiv>
           <CommentUserInfoLink to={`/in/${comment.user._id}`}>
