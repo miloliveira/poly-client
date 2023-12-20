@@ -56,7 +56,7 @@ export const FeedPageDiv = styled.div`
 export const AlertBox = styled.div`
   position: fixed;
   bottom: 0;
-  left:0;
+  left: 0;
   width: auto;
   margin-left: 20px;
 `;
@@ -373,24 +373,42 @@ export const EachPostButtonsDiv = styled.div`
 export const LikeButton = styled.button`
   border: none;
   background-color: ${colors.backgroundSecondary};
+  padding: 8px 0px;
+  color: ${colors.fontContrast};
   @media screen and (max-width: 400px) {
     font-size: 0.9rem;
+  }
+  :hover {
+    color: ${colors.fontContrast};
+    font-weight: bold;
   }
 `;
 
 export const TogleCommentBtn = styled.button`
-  background-color: ${colors.backgroundSecondary};
   border: none;
+  background-color: ${colors.backgroundSecondary};
+  padding: 8px 0px;
+  color: ${colors.fontContrast};
   @media screen and (max-width: 400px) {
     font-size: 0.9rem;
+  }
+  :hover {
+    color: ${colors.fontContrast};
+    font-weight: bold;
   }
 `;
 
 export const ShareButton = styled.button`
-  background-color: ${colors.backgroundSecondary};
   border: none;
+  background-color: ${colors.backgroundSecondary};
+  padding: 8px 0px;
+  color: ${colors.fontContrast};
   @media screen and (max-width: 400px) {
     font-size: 0.9rem;
+  }
+  :hover {
+    color: ${colors.fontContrast};
+    font-weight: bold;
   }
 `;
 
