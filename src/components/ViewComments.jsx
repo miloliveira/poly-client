@@ -27,9 +27,7 @@ const ViewComments = (props) => {
       ) : (
         <CommentsListInnerDiv>
           {listComments &&
-            listComments.map((el, index) => (
-              <Comment comment={el} key={index} />
-            ))}
+            listComments.map((el) => <Comment comment={el} key={el._id} />)}
         </CommentsListInnerDiv>
       )}
     </ViewCommentsList>
